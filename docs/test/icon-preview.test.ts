@@ -39,6 +39,7 @@ describe('icon preview settings', () => {
       '--preview-canvas-width': '64px',
       '--preview-canvas-height': '64px',
       '--preview-mask-radius': '0',
+      '--preview-keyline-size': '80%',
     })
   })
 

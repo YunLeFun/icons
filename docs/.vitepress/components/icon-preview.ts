@@ -65,6 +65,7 @@ export const iconPreviewTemplates = [
 
 export const iconPreviewSizes = [16, 24, 32, 64, 88, 128] as const
 export const iconPreviewStorageKey = 'yunlefun-icons-preview'
+export const normalizedPreviewKeylineSize = '80%'
 
 export type IconPreviewMode = typeof iconPreviewModes[number]['id']
 export type IconPreviewTemplate = typeof iconPreviewTemplates[number]['id']
@@ -100,7 +101,9 @@ export function getIconPreviewTemplateStyle(
     '--preview-icon-size': `${Math.max(canvasWidth, canvasHeight)}px`,
     '--preview-stage-width': '152px',
     '--preview-mask-radius': mode === 'platform' ? template.maskRadius : '0',
-    '--preview-keyline-size': template.keylineSize,
+    '--preview-keyline-size': mode === 'platform'
+      ? template.keylineSize
+      : normalizedPreviewKeylineSize,
   }
 }
 

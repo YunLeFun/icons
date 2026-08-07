@@ -395,10 +395,19 @@ body {
 }
 
 .preview-options button:hover,
-.preview-options button:focus-visible,
 .preview-options button.active {
   color: #FFFDF7;
   background: var(--catalog-green);
+}
+
+.preview-options button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--catalog-orange);
+  outline-offset: -3px;
+}
+
+.preview-options button:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -430,11 +439,18 @@ body {
 }
 
 .preview-guide-toggle:hover,
-.preview-guide-toggle:focus-visible,
 .preview-guide-toggle[aria-pressed="true"] {
   color: #FFFDF7;
   background: var(--catalog-guide);
   border-color: var(--catalog-guide);
+}
+
+.preview-guide-toggle:focus-visible {
+  outline: 2px solid var(--catalog-orange);
+  outline-offset: 2px;
+}
+
+.preview-guide-toggle:focus:not(:focus-visible) {
   outline: none;
 }
 

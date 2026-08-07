@@ -69,6 +69,20 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.text()).toContain('正式提交需单独准备 800 × 480 分层资产')
   })
 
+  it('shows normalized safety guides for transparent marks', async () => {
+    const wrapper = mount(IconCatalog)
+
+    await wrapper.get('[data-testid="preview-mode-mark"]').trigger('click')
+    await wrapper.get('[data-testid="preview-guides"]').trigger('click')
+    await nextTick()
+
+    expect(wrapper.get('[data-testid="preview-guides"]').attributes('aria-pressed')).toBe('true')
+    expect(wrapper.get('[data-icon="drive"] .preview-stage').attributes('style')).toContain('--preview-keyline-size: 80%')
+    expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-mark')
+    expect(wrapper.findAll('.preview-guides')).toHaveLength(8)
+    expect(wrapper.text()).toContain('参考关键线 / 输出边界')
+  })
+
   it('persists and restores preview settings', async () => {
     const firstWrapper = mount(IconCatalog)
 

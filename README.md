@@ -16,7 +16,7 @@ YunLeFun 品牌与应用图标的统一 SVG、Iconify 和 UnoCSS 图标集。
 
 ## 设计规范
 
-图标视觉规范以 [Apple App Icons HIG](https://developer.apple.com/design/human-interface-guidelines/app-icons)、[Apple Icons HIG](https://developer.apple.com/design/human-interface-guidelines/icons) 和 [Apple Design Resources](https://developer.apple.com/design/resources/) 作为参考基线，并在 [YunLeFun 贡献规范](./docs/guide/contributing.md#视觉规范) 中定义 `64 × 64` 画布、安全区域、光学校准与小尺寸检查规则。
+图标视觉规范以 [Apple App Icons HIG](https://developer.apple.com/design/human-interface-guidelines/app-icons)、[Apple Icons HIG](https://developer.apple.com/design/human-interface-guidelines/icons) 和 [Apple Design Resources](https://developer.apple.com/design/resources/) 作为参考基线，并在 [YunLeFun 贡献规范](./docs/guide/contributing.md#视觉规范) 中定义 `64 × 64` 归一化参考网格、安全区域、光学校准与小尺寸检查规则；canonical SVG 保留来源仓库的原始 viewBox。
 
 ### 资产分层
 

@@ -343,7 +343,6 @@ onBeforeUnmount(() => {
               </fieldset>
 
               <button
-                v-if="previewMode !== 'mark'"
                 class="preview-guide-toggle"
                 type="button"
                 :aria-pressed="previewGuides"
@@ -355,11 +354,11 @@ onBeforeUnmount(() => {
               </button>
             </div>
 
-            <div v-if="previewMode !== 'mark'" class="preview-guide-legend" aria-label="辅助线图例">
+            <div class="preview-guide-legend" aria-label="辅助线图例">
               <span><i class="legend-center" />中心</span>
               <span><i class="legend-safe" />安全区</span>
               <span><i class="legend-optical" />光学越界</span>
-              <span><i class="legend-keyline" />输出边界 / 系统遮罩</span>
+              <span><i class="legend-keyline" />{{ previewMode === 'platform' ? '输出边界 / 系统遮罩' : '参考关键线 / 输出边界' }}</span>
             </div>
           </div>
         </section>
@@ -385,7 +384,7 @@ onBeforeUnmount(() => {
                     <span v-else class="preview-unavailable">仅提供主体层</span>
                   </div>
                   <div
-                    v-if="previewGuides && previewMode !== 'mark' && previewVariant(product)"
+                    v-if="previewGuides && previewVariant(product)"
                     class="preview-guides"
                     aria-hidden="true"
                   >
