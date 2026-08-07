@@ -7,11 +7,16 @@ import { optimizeSVG } from './svg'
 
 interface SourceMetadata {
   name: string
+  product: string
+  variant: 'app-icon' | 'mark'
+  category: 'application' | 'brand'
   style: 'color' | 'monotone'
   source: {
     repository: string
     path: string
     url: string
+    sync: boolean
+    derivation?: string
   }
 }
 
@@ -42,6 +47,13 @@ for (const [key, expectedValue] of Object.entries(iconsConfig.package)) {
 }
 
 for (const icon of metadata) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(icon.product))
+    throw new Error(`Invalid product name: ${icon.product}`)
+
+  const expectedName = `${icon.product}-${icon.variant}`
+  if (icon.name !== expectedName)
+    throw new Error(`Invalid variant name ${icon.name}: expected ${expectedName}`)
+
   if (!iconsConfig.sources.repositories[icon.source.repository])
     throw new Error(`No source checkout configured for ${icon.source.repository}`)
 
@@ -49,11 +61,39 @@ for (const icon of metadata) {
   if (icon.source.url !== expectedSourceUrl)
     throw new Error(`Invalid source URL for ${icon.name}: expected ${expectedSourceUrl}`)
 
+  if (!icon.source.sync && !icon.source.derivation)
+    throw new Error(`Derived icon ${icon.name} must describe its derivation`)
+
   const colorStrategy = getIconColorStrategy(icon.name)
   if (icon.style === 'monotone' && colorStrategy.mode !== 'current-color')
     throw new Error(`Monotone icon ${icon.name} must use the current-color strategy`)
   if (icon.style === 'color' && colorStrategy.mode === 'current-color')
     throw new Error(`Color icon ${icon.name} cannot use the current-color strategy`)
+}
+
+const productVariants = new Map<string, Set<SourceMetadata['variant']>>()
+const productCategories = new Map<string, SourceMetadata['category']>()
+
+for (const icon of metadata) {
+  const existingCategory = productCategories.get(icon.product)
+  if (existingCategory && existingCategory !== icon.category)
+    throw new Error(`Product ${icon.product} mixes icon categories`)
+
+  productCategories.set(icon.product, icon.category)
+  const variants = productVariants.get(icon.product) ?? new Set<SourceMetadata['variant']>()
+  if (variants.has(icon.variant))
+    throw new Error(`Product ${icon.product} contains duplicate ${icon.variant} variants`)
+
+  variants.add(icon.variant)
+  productVariants.set(icon.product, variants)
+}
+
+for (const [product, variants] of productVariants) {
+  if (!variants.has('mark'))
+    throw new Error(`Product ${product} must provide a mark variant`)
+
+  if (productCategories.get(product) === 'application' && !variants.has('app-icon'))
+    throw new Error(`Application ${product} must provide an app-icon variant`)
 }
 
 const iconSet = await importDirectory(svgDirectory, {

@@ -1,5 +1,8 @@
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { createOptimizedSVG } from '../scripts/svg'
+import metadata from '../metadata.json' with { type: 'json' }
 
 describe('SVG color strategies', () => {
   it('preserves application colors', () => {
@@ -29,5 +32,27 @@ describe('SVG color strategies', () => {
 
     expect(svg.getBody()).toContain('#0078e7')
     expect(svg.getBody()).toContain('#fff')
+  })
+})
+
+describe('application icon canvases', () => {
+  it('uses full square backgrounds without precomposed corner masks', async () => {
+    const appIcons = metadata.filter(icon => icon.variant === 'app-icon')
+
+    for (const icon of appIcons) {
+      const content = await readFile(resolve(import.meta.dirname, `../svg/${icon.name}.svg`), 'utf8')
+      const viewBox = content.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)
+      expect(viewBox, `${icon.name} must use an origin-aligned viewBox`).not.toBeNull()
+
+      const [, width, height] = viewBox ?? []
+      expect(width).toBe(height)
+
+      const fullRect = content.match(new RegExp(`<rect[^>]*width="${width}"[^>]*height="${height}"[^>]*>`))
+      const fullPath = content.includes(`M0 0h${width}v${height}H0z`)
+      expect(Boolean(fullRect || fullPath), `${icon.name} must paint the full square canvas`).toBe(true)
+
+      if (fullRect)
+        expect(fullRect[0], `${icon.name} must leave corner masking to the platform`).not.toMatch(/\srx=/)
+    }
   })
 })

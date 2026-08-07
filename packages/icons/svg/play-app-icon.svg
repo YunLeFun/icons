@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="tile-blue" x1="8" y1="8" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+    <linearGradient id="play-app-blue" x1="8" y1="8" x2="60" y2="60" gradientUnits="userSpaceOnUse">
       <stop stop-color="#2563EB"/>
       <stop offset="1" stop-color="#0EA5E9"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="52" height="52" rx="16" fill="url(#tile-blue)"/>
+  <rect width="128" height="128" fill="#F4FAFF"/>
+  <rect x="8" y="8" width="52" height="52" rx="16" fill="url(#play-app-blue)"/>
   <rect x="68" y="8" width="52" height="52" rx="16" fill="#22C7C9"/>
   <rect x="8" y="68" width="52" height="52" rx="16" fill="#FFC857"/>
   <rect x="68" y="68" width="52" height="52" rx="16" fill="#FF7A6C"/>

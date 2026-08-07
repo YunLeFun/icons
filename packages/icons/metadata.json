@@ -1,114 +1,267 @@
 [
   {
-    "name": "brand",
+    "name": "brand-mark",
+    "product": "brand",
+    "variant": "mark",
     "title": "YunLeFun",
     "titleZh": "云乐坊品牌标记",
     "description": "云乐坊通用的播放与连接品牌符号。",
     "category": "brand",
     "style": "monotone",
-    "tags": ["yunlefun", "云乐坊", "brand", "logo", "品牌"],
+    "tags": ["yunlefun", "云乐坊", "brand", "logo", "品牌", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/www.yunle.fun",
       "path": "public/ylf-logo.svg",
-      "url": "https://github.com/YunLeFun/www.yunle.fun/blob/main/public/ylf-logo.svg"
+      "url": "https://github.com/YunLeFun/www.yunle.fun/blob/main/public/ylf-logo.svg",
+      "sync": true
     }
   },
   {
-    "name": "apps",
+    "name": "apps-mark",
+    "product": "apps",
+    "variant": "mark",
     "title": "YunLeFun Apps",
     "titleZh": "云乐坊应用中心",
-    "description": "云乐坊应用中心使用的方形品牌图标。",
+    "description": "云乐坊应用中心的透明主体标记。",
     "category": "application",
     "style": "color",
-    "tags": ["apps", "应用", "应用中心", "launcher", "yunlefun"],
+    "tags": ["apps", "应用", "应用中心", "launcher", "yunlefun", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/apps.yunle.fun",
       "path": "public/ylf-square.svg",
-      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/public/ylf-square.svg"
+      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/public/ylf-square.svg",
+      "sync": false,
+      "derivation": "移除满幅蓝色背景，保留应用中心主体。"
     }
   },
   {
-    "name": "home",
-    "title": "YunLeFun Home",
-    "titleZh": "云之彼端",
-    "description": "三瓣云与中央月洞门组成的云乐坊首页入口。",
+    "name": "apps-app-icon",
+    "product": "apps",
+    "variant": "app-icon",
+    "title": "YunLeFun Apps",
+    "titleZh": "云乐坊应用中心",
+    "description": "满幅蓝色背景与白色主体组成的方形应用图标。",
     "category": "application",
     "style": "color",
-    "tags": ["home", "首页", "云之彼端", "cloud", "portal"],
+    "tags": ["apps", "应用", "应用中心", "launcher", "yunlefun", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/apps.yunle.fun",
+      "path": "public/ylf-square.svg",
+      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/public/ylf-square.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "home-mark",
+    "product": "home",
+    "variant": "mark",
+    "title": "YunLeFun Home",
+    "titleZh": "云之彼端",
+    "description": "三瓣云与中央月洞门组成的透明主体标记。",
+    "category": "application",
+    "style": "color",
+    "tags": ["home", "首页", "云之彼端", "cloud", "portal", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/www.yunle.fun",
       "path": "public/app-icons/home-brand-mark.svg",
-      "url": "https://github.com/YunLeFun/www.yunle.fun/blob/main/public/app-icons/home-brand-mark.svg"
+      "url": "https://github.com/YunLeFun/www.yunle.fun/blob/main/public/app-icons/home-brand-mark.svg",
+      "sync": false,
+      "derivation": "移除预裁圆角底板，保留云门主体。"
     }
   },
   {
-    "name": "play",
-    "title": "YunLeFun Play",
-    "titleZh": "云乐坊 Play",
-    "description": "由彩色游戏方块和云朵组成的 Play 应用图标。",
+    "name": "home-app-icon",
+    "product": "home",
+    "variant": "app-icon",
+    "title": "YunLeFun Home",
+    "titleZh": "云之彼端",
+    "description": "满幅纸色背景与云门主体组成的方形应用图标。",
     "category": "application",
     "style": "color",
-    "tags": ["play", "游戏", "game", "乐园", "cloud"],
+    "tags": ["home", "首页", "云之彼端", "cloud", "portal", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/www.yunle.fun",
+      "path": "public/app-icons/home-brand-mark.svg",
+      "url": "https://github.com/YunLeFun/www.yunle.fun/blob/main/public/app-icons/home-brand-mark.svg",
+      "sync": false,
+      "derivation": "将原圆角底板改为无遮罩的满幅方形背景。"
+    }
+  },
+  {
+    "name": "play-mark",
+    "product": "play",
+    "variant": "mark",
+    "title": "YunLeFun Play",
+    "titleZh": "云乐坊 Play",
+    "description": "彩色游戏方块与云朵组成的透明主体标记。",
+    "category": "application",
+    "style": "color",
+    "tags": ["play", "游戏", "game", "乐园", "cloud", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/play",
       "path": "apps/web/public/assets/play-app-icon-v1.svg",
-      "url": "https://github.com/YunLeFun/play/blob/main/apps/web/public/assets/play-app-icon-v1.svg"
+      "url": "https://github.com/YunLeFun/play/blob/main/apps/web/public/assets/play-app-icon-v1.svg",
+      "sync": true
     }
   },
   {
-    "name": "drive",
-    "title": "YunLe Drive",
-    "titleZh": "云盘",
-    "description": "云乐坊媒体资源平台和图床服务的应用标记。",
+    "name": "play-app-icon",
+    "product": "play",
+    "variant": "app-icon",
+    "title": "YunLeFun Play",
+    "titleZh": "云乐坊 Play",
+    "description": "满幅浅蓝背景与彩色游戏主体组成的方形应用图标。",
     "category": "application",
     "style": "color",
-    "tags": ["drive", "云盘", "storage", "上传", "media"],
+    "tags": ["play", "游戏", "game", "乐园", "cloud", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/play",
+      "path": "apps/web/public/assets/play-app-icon-v1.svg",
+      "url": "https://github.com/YunLeFun/play/blob/main/apps/web/public/assets/play-app-icon-v1.svg",
+      "sync": false,
+      "derivation": "在原透明主体后增加无遮罩的满幅方形背景。"
+    }
+  },
+  {
+    "name": "drive-mark",
+    "product": "drive",
+    "variant": "mark",
+    "title": "YunLe Drive",
+    "titleZh": "云盘",
+    "description": "彩色云朵与下载符号组成的透明主体标记。",
+    "category": "application",
+    "style": "color",
+    "tags": ["drive", "云盘", "storage", "上传", "media", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/drive",
       "path": "packages/ui/assets/drive-mark.svg",
-      "url": "https://github.com/YunLeFun/drive/blob/main/packages/ui/assets/drive-mark.svg"
+      "url": "https://github.com/YunLeFun/drive/blob/main/packages/ui/assets/drive-mark.svg",
+      "sync": false,
+      "derivation": "移除预裁圆角底板，保留云朵与箭头主体。"
     }
   },
   {
-    "name": "support",
-    "title": "YunLe Support",
-    "titleZh": "云乐坊支持",
-    "description": "帮助、工单、反馈与路线图服务的应用标记。",
+    "name": "drive-app-icon",
+    "product": "drive",
+    "variant": "app-icon",
+    "title": "YunLe Drive",
+    "titleZh": "云盘",
+    "description": "满幅蓝色渐变背景与白色云朵组成的方形应用图标。",
     "category": "application",
     "style": "color",
-    "tags": ["support", "支持", "帮助", "feedback", "ticket"],
+    "tags": ["drive", "云盘", "storage", "上传", "media", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/drive",
+      "path": "packages/ui/assets/drive-mark.svg",
+      "url": "https://github.com/YunLeFun/drive/blob/main/packages/ui/assets/drive-mark.svg",
+      "sync": false,
+      "derivation": "将原圆角底板改为无遮罩的满幅方形背景。"
+    }
+  },
+  {
+    "name": "support-mark",
+    "product": "support",
+    "variant": "mark",
+    "title": "YunLe Support",
+    "titleZh": "云乐坊支持",
+    "description": "对话气泡与对勾组成的透明主体标记。",
+    "category": "application",
+    "style": "color",
+    "tags": ["support", "支持", "帮助", "feedback", "ticket", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/support.yunle.fun",
       "path": "apps/web/public/support-mark.svg",
-      "url": "https://github.com/YunLeFun/support.yunle.fun/blob/main/apps/web/public/support-mark.svg"
+      "url": "https://github.com/YunLeFun/support.yunle.fun/blob/main/apps/web/public/support-mark.svg",
+      "sync": true
     }
   },
   {
-    "name": "cms",
-    "title": "Yunle CMS",
-    "titleZh": "文栈",
-    "description": "云朵与层叠纸页组成的文栈内容管理应用标记。",
+    "name": "support-app-icon",
+    "product": "support",
+    "variant": "app-icon",
+    "title": "YunLe Support",
+    "titleZh": "云乐坊支持",
+    "description": "满幅浅蓝背景与对话对勾主体组成的方形应用图标。",
     "category": "application",
     "style": "color",
-    "tags": ["cms", "文栈", "内容", "content", "publishing"],
+    "tags": ["support", "支持", "帮助", "feedback", "ticket", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/support.yunle.fun",
+      "path": "apps/web/public/support-mark.svg",
+      "url": "https://github.com/YunLeFun/support.yunle.fun/blob/main/apps/web/public/support-mark.svg",
+      "sync": false,
+      "derivation": "在原透明主体后增加无遮罩的满幅方形背景。"
+    }
+  },
+  {
+    "name": "cms-mark",
+    "product": "cms",
+    "variant": "mark",
+    "title": "Yunle CMS",
+    "titleZh": "文栈",
+    "description": "云朵与层叠纸页组成的透明主体标记。",
+    "category": "application",
+    "style": "color",
+    "tags": ["cms", "文栈", "内容", "content", "publishing", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/cms",
       "path": "apps/web/public/icon.svg",
-      "url": "https://github.com/YunLeFun/cms/blob/main/apps/web/public/icon.svg"
+      "url": "https://github.com/YunLeFun/cms/blob/main/apps/web/public/icon.svg",
+      "sync": true
     }
   },
   {
-    "name": "skykeeper",
-    "title": "Skykeeper",
-    "titleZh": "天空守护者",
-    "description": "用于绘画软件自动保存助手的天空与云朵标记。",
+    "name": "cms-app-icon",
+    "product": "cms",
+    "variant": "app-icon",
+    "title": "Yunle CMS",
+    "titleZh": "文栈",
+    "description": "满幅纸色背景与云朵纸页主体组成的方形应用图标。",
     "category": "application",
     "style": "color",
-    "tags": ["skykeeper", "天空守护者", "autosave", "desktop", "绘画"],
+    "tags": ["cms", "文栈", "内容", "content", "publishing", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/cms",
+      "path": "apps/web/public/icon.svg",
+      "url": "https://github.com/YunLeFun/cms/blob/main/apps/web/public/icon.svg",
+      "sync": false,
+      "derivation": "在原透明主体后增加无遮罩的满幅方形背景。"
+    }
+  },
+  {
+    "name": "skykeeper-mark",
+    "product": "skykeeper",
+    "variant": "mark",
+    "title": "Skykeeper",
+    "titleZh": "天空守护者",
+    "description": "太阳、云朵与播放符号组成的透明主体标记。",
+    "category": "application",
+    "style": "color",
+    "tags": ["skykeeper", "天空守护者", "autosave", "desktop", "绘画", "mark", "主体"],
     "source": {
       "repository": "YunLeFun/skykeeper",
       "path": "docs/public/logo.svg",
-      "url": "https://github.com/YunLeFun/skykeeper/blob/main/docs/public/logo.svg"
+      "url": "https://github.com/YunLeFun/skykeeper/blob/main/docs/public/logo.svg",
+      "sync": false,
+      "derivation": "移除预裁圆角底板，将天空色板转为云朵主体填色。"
+    }
+  },
+  {
+    "name": "skykeeper-app-icon",
+    "product": "skykeeper",
+    "variant": "app-icon",
+    "title": "Skykeeper",
+    "titleZh": "天空守护者",
+    "description": "满幅天空渐变背景与云朵主体组成的方形应用图标。",
+    "category": "application",
+    "style": "color",
+    "tags": ["skykeeper", "天空守护者", "autosave", "desktop", "绘画", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/skykeeper",
+      "path": "docs/public/logo.svg",
+      "url": "https://github.com/YunLeFun/skykeeper/blob/main/docs/public/logo.svg",
+      "sync": false,
+      "derivation": "将原圆角底板改为无遮罩的满幅方形背景。"
     }
   }
 ]

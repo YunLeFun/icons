@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="play-mark-blue" x1="8" y1="8" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="52" height="52" rx="16" fill="url(#play-mark-blue)"/>
+  <rect x="68" y="8" width="52" height="52" rx="16" fill="#22C7C9"/>
+  <rect x="8" y="68" width="52" height="52" rx="16" fill="#FFC857"/>
+  <rect x="68" y="68" width="52" height="52" rx="16" fill="#FF7A6C"/>
+  <circle cx="34" cy="34" r="4.5" fill="#FFF" opacity=".88"/>
+  <circle cx="94" cy="34" r="4.5" fill="#FFF" opacity=".88"/>
+  <circle cx="34" cy="94" r="4.5" fill="#FFF" opacity=".78"/>
+  <circle cx="94" cy="94" r="4.5" fill="#FFF" opacity=".78"/>
+  <path d="M33 82c-11 0-17-7-17-16s7-16 17-17c4-14 16-23 31-23 17 0 30 11 33 27 10 0 15 7 15 16 0 7-7 13-16 13H33Z" fill="#FFF" stroke="#E8F4FC" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="52" cy="65" r="4" fill="#2563EB"/>
+  <circle cx="64" cy="65" r="4" fill="#0EA5E9"/>
+  <circle cx="76" cy="65" r="4" fill="#FF7A6C"/>
+</svg>

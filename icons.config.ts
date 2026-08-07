@@ -101,8 +101,8 @@ const iconsConfig: IconsConfig = {
   colors: {
     default: { mode: 'preserve' },
     icons: {
-      brand: { mode: 'current-color' },
-      apps: { mode: 'replace-current-color', color: '#0078E7' },
+      'brand-mark': { mode: 'current-color' },
+      'apps-app-icon': { mode: 'replace-current-color', color: '#0078E7' },
     },
   },
   sources: {

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import type { IconCategory } from '@yunlefun/icons'
+import type { IconCategory, IconMetadata, IconVariant } from '@yunlefun/icons'
 import type { IconPreviewSettings } from './icon-preview'
 import { iconMetadata } from '@yunlefun/icons'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   defaultIconPreviewSettings,
   getIconPreviewTemplateStyle,
+  iconPreviewModes,
   iconPreviewSizes,
   iconPreviewStorageKey,
   iconPreviewTemplates,
@@ -15,9 +16,20 @@ import {
 type CategoryFilter = 'all' | IconCategory
 type CopyKind = 'class' | 'iconify'
 
+interface IconProduct {
+  id: string
+  title: string
+  titleZh: string
+  description: string
+  category: IconCategory
+  variants: Partial<Record<IconVariant, IconMetadata>>
+  searchText: string
+}
+
 const query = ref('')
 const category = ref<CategoryFilter>('all')
 const copiedValue = ref('')
+const previewMode = ref(defaultIconPreviewSettings.mode)
 const previewTemplate = ref(defaultIconPreviewSettings.template)
 const previewSize = ref(defaultIconPreviewSettings.size)
 const previewGuides = ref(defaultIconPreviewSettings.guides)
@@ -30,18 +42,19 @@ const categoryOptions: { label: string, value: CategoryFilter }[] = [
   { label: '应用', value: 'application' },
 ]
 
-const filteredIcons = computed(() => {
-  const normalizedQuery = query.value.trim().toLocaleLowerCase()
+const iconProducts: IconProduct[] = [...new Set(iconMetadata.map(icon => icon.product))].map((productId) => {
+  const entries = iconMetadata.filter(icon => icon.product === productId)
+  const primary = entries.find(icon => icon.variant === 'mark') ?? entries[0]
+  const variants = Object.fromEntries(entries.map(icon => [icon.variant, icon])) as Partial<Record<IconVariant, IconMetadata>>
 
-  return iconMetadata.filter((icon) => {
-    const categoryMatches = category.value === 'all' || icon.category === category.value
-    if (!categoryMatches)
-      return false
-
-    if (!normalizedQuery)
-      return true
-
-    const searchText = [
+  return {
+    id: productId,
+    title: primary.title,
+    titleZh: primary.titleZh,
+    description: primary.description,
+    category: primary.category,
+    variants,
+    searchText: entries.flatMap(icon => [
       icon.name,
       icon.title,
       icon.titleZh,
@@ -49,10 +62,28 @@ const filteredIcons = computed(() => {
       icon.category,
       icon.style,
       ...icon.tags,
-    ].join(' ').toLocaleLowerCase()
+    ]).join(' ').toLocaleLowerCase(),
+  }
+})
 
-    return searchText.includes(normalizedQuery)
+const filteredProducts = computed(() => {
+  const normalizedQuery = query.value.trim().toLocaleLowerCase()
+
+  return iconProducts.filter((product) => {
+    const categoryMatches = category.value === 'all' || product.category === category.value
+    if (!categoryMatches)
+      return false
+
+    if (!normalizedQuery)
+      return true
+
+    return product.searchText.includes(normalizedQuery)
   })
+})
+
+const selectedPreviewMode = computed(() => {
+  return iconPreviewModes.find(option => option.id === previewMode.value)
+    ?? iconPreviewModes[0]
 })
 
 const selectedPreviewTemplate = computed(() => {
@@ -61,9 +92,27 @@ const selectedPreviewTemplate = computed(() => {
 })
 
 const previewStyle = computed(() => getIconPreviewTemplateStyle(
+  previewMode.value,
   selectedPreviewTemplate.value,
   previewSize.value,
 ))
+
+function previewVariant(product: IconProduct): IconMetadata | undefined {
+  return previewMode.value === 'mark'
+    ? product.variants.mark
+    : product.variants['app-icon']
+}
+
+function copyProductIcon(product: IconProduct, kind: CopyKind) {
+  const icon = previewVariant(product)
+  if (icon)
+    return copyIcon(icon.name, kind)
+}
+
+function isProductIconCopied(product: IconProduct, kind: CopyKind): boolean {
+  const icon = previewVariant(product)
+  return icon ? copiedValue.value === copyValue(icon.name, kind) : false
+}
 
 function copyValue(name: string, kind: CopyKind) {
   return kind === 'class' ? `i-ylf-${name}` : `ylf:${name}`
@@ -103,6 +152,7 @@ function savePreviewSettings() {
     return
 
   const settings: IconPreviewSettings = {
+    mode: previewMode.value,
     template: previewTemplate.value,
     size: previewSize.value,
     guides: previewGuides.value,
@@ -119,6 +169,7 @@ function savePreviewSettings() {
 onMounted(() => {
   try {
     const settings = parseIconPreviewSettings(window.localStorage.getItem(iconPreviewStorageKey))
+    previewMode.value = settings.mode
     previewTemplate.value = settings.template
     previewSize.value = settings.size
     previewGuides.value = settings.guides
@@ -130,7 +181,7 @@ onMounted(() => {
   previewSettingsReady.value = true
 })
 
-watch([previewTemplate, previewSize, previewGuides], savePreviewSettings)
+watch([previewMode, previewTemplate, previewSize, previewGuides], savePreviewSettings)
 
 onBeforeUnmount(() => {
   if (copiedTimer)
@@ -141,22 +192,31 @@ onBeforeUnmount(() => {
 <template>
   <main class="catalog-shell">
     <header class="catalog-masthead">
-      <div class="masthead-index" aria-hidden="true">
-        YLF / 001
+      <div class="masthead-brand">
+        <span
+          class="masthead-brand-symbol i-ylf-brand-mark"
+          role="img"
+          aria-label="云乐坊品牌图标"
+        />
+        <span class="masthead-brand-code" aria-hidden="true">YLF / ICONS</span>
       </div>
       <div class="masthead-copy">
         <p class="catalog-eyebrow">
-          YunLeFun Asset Registry
+          YunLeFun Icon Collection
         </p>
-        <h1>图标，保持同一来源。</h1>
+        <h1>云乐坊图标</h1>
         <p class="catalog-intro">
-          从规范 SVG 生成 Iconify 数据，并用 UnoCSS 在真实页面中验证。搜索一个应用，复制即可使用。
+          云乐坊品牌与应用图标的统一来源。浏览主体层、完整构图与平台效果，复制即可使用。
         </p>
       </div>
       <dl class="masthead-stats">
         <div>
           <dt>Collection</dt>
           <dd>ylf</dd>
+        </div>
+        <div>
+          <dt>Products</dt>
+          <dd>{{ iconProducts.length.toString().padStart(2, '0') }}</dd>
         </div>
         <div>
           <dt>Assets</dt>
@@ -181,14 +241,14 @@ onBeforeUnmount(() => {
               @click="category = option.value"
             >
               <span>{{ option.label }}</span>
-              <span>{{ option.value === 'all' ? iconMetadata.length : iconMetadata.filter(icon => icon.category === option.value).length }}</span>
+              <span>{{ option.value === 'all' ? iconProducts.length : iconProducts.filter(product => product.category === option.value).length }}</span>
             </button>
           </div>
         </div>
 
         <div class="rail-note">
           <span class="rail-rule" />
-          <p>颜色图标保留产品原始配色；单色图标继承当前文本颜色。</p>
+          <p>主体层保持透明；完整图标使用满幅方形背景，由平台统一应用遮罩。</p>
         </div>
       </aside>
 
@@ -203,14 +263,23 @@ onBeforeUnmount(() => {
             autocomplete="off"
             placeholder="名称、应用、中文标签…"
           >
-          <span class="result-count" aria-live="polite">{{ filteredIcons.length }} / {{ iconMetadata.length }}</span>
+          <span class="result-count" aria-live="polite">{{ filteredProducts.length }} / {{ iconProducts.length }}</span>
         </div>
 
         <section class="preview-toolbar" aria-label="图标预览设置">
           <div class="preview-toolbar-heading">
             <p>YunLeFun Preview Reference</p>
-            <strong>{{ selectedPreviewTemplate.label }}</strong>
-            <span>{{ selectedPreviewTemplate.width }} × {{ selectedPreviewTemplate.height }} reference</span>
+            <strong>{{ selectedPreviewMode.label }}</strong>
+            <span>{{ selectedPreviewMode.description }}</span>
+            <span v-if="previewMode === 'platform'">
+              {{ selectedPreviewTemplate.label }} · {{ selectedPreviewTemplate.width }} × {{ selectedPreviewTemplate.height }} reference
+            </span>
+            <span v-if="previewMode === 'platform'" class="preview-platform-note">
+              {{ selectedPreviewTemplate.note }}
+            </span>
+            <span v-else>
+              64 × 64 normalized canvas
+            </span>
             <a
               href="https://developer.apple.com/design/human-interface-guidelines/app-icons"
               target="_blank"
@@ -220,116 +289,160 @@ onBeforeUnmount(() => {
             </a>
           </div>
 
-          <fieldset class="preview-control preview-template-control">
-            <legend>Platform reference</legend>
-            <div class="preview-options">
+          <div class="preview-toolbar-controls">
+            <fieldset class="preview-control preview-mode-control">
+              <legend>Asset layer</legend>
+              <div class="preview-options preview-mode-options">
+                <button
+                  v-for="option in iconPreviewModes"
+                  :key="option.id"
+                  type="button"
+                  :aria-pressed="previewMode === option.id"
+                  :class="{ active: previewMode === option.id }"
+                  :data-testid="`preview-mode-${option.id}`"
+                  @click="previewMode = option.id"
+                >
+                  {{ option.label }}
+                </button>
+              </div>
+            </fieldset>
+
+            <div class="preview-context-controls">
+              <fieldset v-if="previewMode === 'platform'" class="preview-control preview-template-control">
+                <legend>Platform reference</legend>
+                <div class="preview-options">
+                  <button
+                    v-for="option in iconPreviewTemplates"
+                    :key="option.id"
+                    type="button"
+                    :aria-pressed="previewTemplate === option.id"
+                    :class="{ active: previewTemplate === option.id }"
+                    :data-testid="`preview-template-${option.id}`"
+                    @click="previewTemplate = option.id"
+                  >
+                    {{ option.shortLabel }}
+                  </button>
+                </div>
+              </fieldset>
+
+              <fieldset class="preview-control preview-size-control">
+                <legend>Display size</legend>
+                <div class="preview-options preview-size-options">
+                  <button
+                    v-for="size in iconPreviewSizes"
+                    :key="size"
+                    type="button"
+                    :aria-pressed="previewSize === size"
+                    :class="{ active: previewSize === size }"
+                    :data-testid="`preview-size-${size}`"
+                    @click="previewSize = size"
+                  >
+                    {{ size }}
+                  </button>
+                </div>
+              </fieldset>
+
               <button
-                v-for="option in iconPreviewTemplates"
-                :key="option.id"
+                v-if="previewMode !== 'mark'"
+                class="preview-guide-toggle"
                 type="button"
-                :aria-pressed="previewTemplate === option.id"
-                :class="{ active: previewTemplate === option.id }"
-                :data-testid="`preview-template-${option.id}`"
-                @click="previewTemplate = option.id"
+                :aria-pressed="previewGuides"
+                data-testid="preview-guides"
+                @click="previewGuides = !previewGuides"
               >
-                {{ option.shortLabel }}
+                <span aria-hidden="true" />
+                {{ previewGuides ? '隐藏辅助线' : '显示辅助线' }}
               </button>
             </div>
-          </fieldset>
 
-          <fieldset class="preview-control preview-size-control">
-            <legend>Display size</legend>
-            <div class="preview-options preview-size-options">
-              <button
-                v-for="size in iconPreviewSizes"
-                :key="size"
-                type="button"
-                :aria-pressed="previewSize === size"
-                :class="{ active: previewSize === size }"
-                :data-testid="`preview-size-${size}`"
-                @click="previewSize = size"
-              >
-                {{ size }}
-              </button>
+            <div v-if="previewMode !== 'mark'" class="preview-guide-legend" aria-label="辅助线图例">
+              <span><i class="legend-center" />中心</span>
+              <span><i class="legend-safe" />安全区</span>
+              <span><i class="legend-optical" />光学越界</span>
+              <span><i class="legend-keyline" />输出边界 / 系统遮罩</span>
             </div>
-          </fieldset>
-
-          <button
-            class="preview-guide-toggle"
-            type="button"
-            :aria-pressed="previewGuides"
-            data-testid="preview-guides"
-            @click="previewGuides = !previewGuides"
-          >
-            <span aria-hidden="true" />
-            {{ previewGuides ? '隐藏辅助线' : '显示辅助线' }}
-          </button>
-
-          <div class="preview-guide-legend" aria-label="辅助线图例">
-            <span><i class="legend-center" />中心</span>
-            <span><i class="legend-safe" />安全区</span>
-            <span><i class="legend-optical" />光学越界</span>
-            <span><i class="legend-keyline" />关键线 / 遮罩</span>
           </div>
         </section>
 
-        <div v-if="filteredIcons.length" class="icon-grid" data-testid="icon-grid">
-          <article v-for="icon in filteredIcons" :key="icon.name" class="icon-card" :data-icon="icon.name">
+        <div v-if="filteredProducts.length" class="icon-grid" data-testid="icon-grid">
+          <article v-for="product in filteredProducts" :key="product.id" class="icon-card" :data-icon="product.id">
             <div class="icon-preview">
               <div
                 class="preview-stage"
                 :data-template="previewTemplate"
                 :data-mask="selectedPreviewTemplate.mask"
+                :data-mode="previewMode"
                 :style="previewStyle"
               >
-                <div class="preview-artboard">
-                  <span
-                    :class="[`i-ylf-${icon.name}`, 'icon-glyph']"
-                    role="img"
-                    :aria-label="icon.titleZh"
-                  />
-                </div>
-                <div v-if="previewGuides" class="preview-guides" aria-hidden="true">
-                  <span class="guide-center guide-center-x" />
-                  <span class="guide-center guide-center-y" />
-                  <span class="guide-optical" />
-                  <span class="guide-safe" />
-                  <span class="guide-keyline-circle" />
-                  <span class="guide-mask" />
+                <div class="preview-canvas">
+                  <div class="preview-artboard">
+                    <span
+                      v-if="previewVariant(product)"
+                      :class="[`i-ylf-${previewVariant(product)?.name}`, 'icon-glyph']"
+                      role="img"
+                      :aria-label="`${product.titleZh} · ${selectedPreviewMode.label}`"
+                    />
+                    <span v-else class="preview-unavailable">仅提供主体层</span>
+                  </div>
+                  <div
+                    v-if="previewGuides && previewMode !== 'mark' && previewVariant(product)"
+                    class="preview-guides"
+                    aria-hidden="true"
+                  >
+                    <span class="guide-center guide-center-x" />
+                    <span class="guide-center guide-center-y" />
+                    <span class="guide-optical" />
+                    <span class="guide-safe" />
+                    <span class="guide-keyline-circle" />
+                    <span class="guide-mask" />
+                  </div>
                 </div>
                 <span class="preview-size-badge">{{ previewSize }}px</span>
               </div>
-              <span class="icon-style">{{ icon.style === 'color' ? 'COLOR' : 'MONO' }}</span>
+              <span class="icon-style">
+                {{ previewVariant(product) ? (previewVariant(product)?.variant === 'app-icon' ? 'APP ICON' : 'MARK') : 'N/A' }}
+              </span>
             </div>
 
             <div class="icon-card-copy">
               <p class="icon-number">
-                {{ String(iconMetadata.indexOf(icon) + 1).padStart(2, '0') }}
+                {{ String(iconProducts.indexOf(product) + 1).padStart(2, '0') }}
               </p>
-              <h2>{{ icon.titleZh }}</h2>
+              <h2>{{ product.titleZh }}</h2>
               <p class="icon-name">
-                {{ icon.name }}
+                {{ previewVariant(product)?.name ?? product.id }}
               </p>
               <p class="icon-description">
-                {{ icon.description }}
+                {{ previewVariant(product)?.description ?? product.description }}
               </p>
             </div>
 
             <div class="copy-actions">
               <button
                 type="button"
-                :data-testid="`copy-class-${icon.name}`"
-                @click="copyIcon(icon.name, 'class')"
+                :disabled="!previewVariant(product)"
+                :data-testid="`copy-class-${product.id}`"
+                @click="copyProductIcon(product, 'class')"
               >
-                {{ copiedValue === copyValue(icon.name, 'class') ? '已复制' : '复制 class' }}
+                {{ isProductIconCopied(product, 'class') ? '已复制' : '复制 class' }}
               </button>
-              <button type="button" @click="copyIcon(icon.name, 'iconify')">
-                {{ copiedValue === copyValue(icon.name, 'iconify') ? '已复制' : '复制 Iconify' }}
+              <button
+                type="button"
+                :disabled="!previewVariant(product)"
+                @click="copyProductIcon(product, 'iconify')"
+              >
+                {{ isProductIconCopied(product, 'iconify') ? '已复制' : '复制 Iconify' }}
               </button>
             </div>
 
-            <a class="source-link" :href="icon.source.url" target="_blank" rel="noreferrer">
-              {{ icon.source.repository }} / source
+            <a
+              v-if="previewVariant(product)"
+              class="source-link"
+              :href="previewVariant(product)?.source.url"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ previewVariant(product)?.source.repository }} / source
             </a>
           </article>
         </div>

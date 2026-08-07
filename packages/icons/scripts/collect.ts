@@ -10,6 +10,7 @@ interface SourceMetadata {
     repository: string
     path: string
     url: string
+    sync: boolean
   }
 }
 
@@ -31,6 +32,8 @@ const checkOnly = args.has('--check')
 const metadata = JSON.parse(
   await readFile(iconsConfig.paths.inputs.metadataFile, 'utf8'),
 ) as SourceMetadata[]
+const synchronizedMetadata = metadata.filter(icon => icon.source.sync)
+const derivedIconCount = metadata.length - synchronizedMetadata.length
 
 function resolveSourcePath(icon: SourceMetadata): string {
   const checkoutDirectory = iconsConfig.sources.repositories[icon.source.repository]
@@ -67,7 +70,7 @@ function normalize(content: string, strategy: IconColorStrategy): string {
   return createOptimizedSVG(content, strategy).toMinifiedString()
 }
 
-const collected = await Promise.all(metadata.map(async (icon): Promise<CollectedIcon> => {
+const collected = await Promise.all(synchronizedMetadata.map(async (icon): Promise<CollectedIcon> => {
   const sourcePath = resolveSourcePath(icon)
   const targetPath = resolve(iconsConfig.paths.inputs.svgDirectory, `${icon.name}.svg`)
   const colorStrategy = getIconColorStrategy(icon.name)
@@ -91,7 +94,10 @@ const collected = await Promise.all(metadata.map(async (icon): Promise<Collected
 const changedIcons = collected.filter(icon => icon.changed)
 
 if (!changedIcons.length) {
-  console.log(`All ${collected.length} collected icons are up to date`)
+  console.log([
+    `All ${collected.length} source-synchronized icons are up to date.`,
+    `${derivedIconCount} derived canonical variants retain source provenance without byte synchronization.`,
+  ].join(' '))
 }
 else if (checkOnly) {
   throw new Error([

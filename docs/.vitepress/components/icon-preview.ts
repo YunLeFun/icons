@@ -1,3 +1,21 @@
+export const iconPreviewModes = [
+  {
+    id: 'mark',
+    label: '主体',
+    description: '透明主体层，用于界面、导航和品牌组合。',
+  },
+  {
+    id: 'app-icon',
+    label: '完整图标',
+    description: '方形满幅构图，包含背景与主体，不预裁圆角。',
+  },
+  {
+    id: 'platform',
+    label: '平台效果',
+    description: '使用完整图标模拟系统遮罩、裁切与关键线。',
+  },
+] as const
+
 export const iconPreviewTemplates = [
   {
     id: 'ios',
@@ -8,6 +26,7 @@ export const iconPreviewTemplates = [
     mask: 'rounded-square',
     maskRadius: '22%',
     keylineSize: '80%',
+    note: '正方形无遮罩图层，圆角由系统生成。',
   },
   {
     id: 'watchos',
@@ -18,6 +37,7 @@ export const iconPreviewTemplates = [
     mask: 'circle',
     maskRadius: '50%',
     keylineSize: '80%',
+    note: '正方形无遮罩图层，系统生成圆形输出。',
   },
   {
     id: 'visionos',
@@ -28,6 +48,7 @@ export const iconPreviewTemplates = [
     mask: 'circle',
     maskRadius: '50%',
     keylineSize: '80%',
+    note: '正方形无遮罩图层，系统生成圆形输出。',
   },
   {
     id: 'tvos',
@@ -38,36 +59,47 @@ export const iconPreviewTemplates = [
     mask: 'landscape',
     maskRadius: '15%',
     keylineSize: '48%',
+    note: '此处仅做方形主图裁切检查；正式提交需单独准备 800 × 480 分层资产。',
   },
 ] as const
 
 export const iconPreviewSizes = [16, 24, 32, 64, 88, 128] as const
 export const iconPreviewStorageKey = 'yunlefun-icons-preview'
 
+export type IconPreviewMode = typeof iconPreviewModes[number]['id']
 export type IconPreviewTemplate = typeof iconPreviewTemplates[number]['id']
 export type IconPreviewSize = typeof iconPreviewSizes[number]
 
 export interface IconPreviewSettings {
+  mode: IconPreviewMode
   template: IconPreviewTemplate
   size: IconPreviewSize
   guides: boolean
 }
 
 export const defaultIconPreviewSettings: IconPreviewSettings = {
+  mode: 'mark',
   template: 'ios',
   size: 64,
   guides: false,
 }
 
 export function getIconPreviewTemplateStyle(
+  mode: IconPreviewMode,
   template: typeof iconPreviewTemplates[number],
   size: IconPreviewSize,
 ): Record<string, string> {
+  const canvasWidth = size
+  const canvasHeight = mode === 'platform'
+    ? Number((size * template.height / template.width).toFixed(2))
+    : size
+
   return {
-    '--preview-icon-size': `${size}px`,
-    '--preview-template-ratio': `${template.width} / ${template.height}`,
-    '--preview-stage-width': template.width === template.height ? '152px' : '184px',
-    '--preview-mask-radius': template.maskRadius,
+    '--preview-canvas-width': `${canvasWidth}px`,
+    '--preview-canvas-height': `${canvasHeight}px`,
+    '--preview-icon-size': `${Math.max(canvasWidth, canvasHeight)}px`,
+    '--preview-stage-width': '152px',
+    '--preview-mask-radius': mode === 'platform' ? template.maskRadius : '0',
     '--preview-keyline-size': template.keylineSize,
   }
 }
@@ -78,6 +110,9 @@ export function parseIconPreviewSettings(value: string | null): IconPreviewSetti
 
   try {
     const parsed = JSON.parse(value) as Record<string, unknown>
+    const mode = iconPreviewModes.some(option => option.id === parsed.mode)
+      ? parsed.mode as IconPreviewMode
+      : defaultIconPreviewSettings.mode
     const template = iconPreviewTemplates.some(option => option.id === parsed.template)
       ? parsed.template as IconPreviewTemplate
       : defaultIconPreviewSettings.template
@@ -86,6 +121,7 @@ export function parseIconPreviewSettings(value: string | null): IconPreviewSetti
       : defaultIconPreviewSettings.size
 
     return {
+      mode,
       template,
       size,
       guides: typeof parsed.guides === 'boolean'

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="skykeeper-mark-sky" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset=".58" stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="skykeeper-mark-sun" x1="22" y1="16" x2="42" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFBE8"/>
+      <stop offset="1" stop-color="#FACC15"/>
+    </linearGradient>
+  </defs>
+  <circle cx="42" cy="22" r="10" fill="url(#skykeeper-mark-sun)"/>
+  <path d="M18 42h30c4 0 7-3 7-7s-3-7-7-7h-1c-2-6-7-10-14-10-8 0-14 5-16 12-5 1-8 4-8 9 0 2 1 3 2 3h7Z" fill="url(#skykeeper-mark-sky)"/>
+  <path d="M19 44h28c5 0 9-4 9-9 0 7-5 13-13 13H20c-5 0-9-3-10-8 2 3 5 4 9 4Z" fill="#7DD3FC"/>
+  <path d="M29 34v6l5-3-5-3Z" fill="#FFF"/>
+</svg>

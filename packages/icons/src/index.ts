@@ -7,15 +7,20 @@ export type { IconName } from './generated'
 
 export type IconCategory = 'application' | 'brand'
 export type IconStyle = 'color' | 'monotone'
+export type IconVariant = 'app-icon' | 'mark'
 
 export interface IconSource {
   repository: string
   path: string
   url: string
+  sync: boolean
+  derivation?: string
 }
 
 export interface IconMetadata {
   name: IconName
+  product: string
+  variant: IconVariant
   title: string
   titleZh: string
   description: string

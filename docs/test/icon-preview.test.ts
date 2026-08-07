@@ -17,21 +17,30 @@ describe('icon preview settings', () => {
   })
 
   it('derives preview geometry from template data', () => {
-    expect(getIconPreviewTemplateStyle(iconPreviewTemplates[3], 128)).toEqual({
+    expect(getIconPreviewTemplateStyle('platform', iconPreviewTemplates[3], 128)).toEqual({
+      '--preview-canvas-width': '128px',
+      '--preview-canvas-height': '76.8px',
       '--preview-icon-size': '128px',
-      '--preview-template-ratio': '800 / 480',
-      '--preview-stage-width': '184px',
+      '--preview-stage-width': '152px',
       '--preview-mask-radius': '15%',
       '--preview-keyline-size': '48%',
+    })
+
+    expect(getIconPreviewTemplateStyle('app-icon', iconPreviewTemplates[3], 64)).toMatchObject({
+      '--preview-canvas-width': '64px',
+      '--preview-canvas-height': '64px',
+      '--preview-mask-radius': '0',
     })
   })
 
   it('restores supported preview settings', () => {
     expect(parseIconPreviewSettings(JSON.stringify({
+      mode: 'platform',
       template: 'watchos',
       size: 24,
       guides: true,
     }))).toEqual({
+      mode: 'platform',
       template: 'watchos',
       size: 24,
       guides: true,
