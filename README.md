@@ -10,8 +10,12 @@ YunLeFun 品牌与应用图标的统一 SVG、Iconify 和 UnoCSS 图标集。
 - 构建时清洗 SVG 并生成 IconifyJSON 格式的 `icons.json`
 - 发布包 `@yunlefun/icons` 提供图标数据、名称类型与检索元数据
 - UnoCSS 使用 `i-ylf-<name>` 类名按需渲染
-- VitePress 图标目录支持中英文搜索、复制类名与 Iconify 名称
+- VitePress 图标目录支持中英文搜索、复制类名与 Iconify 名称，并提供 Apple HIG 启发的平台参考线和多尺寸预览
 - 每枚图标记录上游仓库与源文件路径
+
+## 设计规范
+
+图标视觉规范以 [Apple App Icons HIG](https://developer.apple.com/design/human-interface-guidelines/app-icons)、[Apple Icons HIG](https://developer.apple.com/design/human-interface-guidelines/icons) 和 [Apple Design Resources](https://developer.apple.com/design/resources/) 作为参考基线，并在 [YunLeFun 贡献规范](./docs/guide/contributing.md#视觉规范) 中定义 `64 × 64` 画布、安全区域、光学校准与小尺寸检查规则。
 
 ## 开发
 
