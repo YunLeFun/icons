@@ -20,10 +20,12 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('h1').text()).toBe('云乐坊图标')
     expect(wrapper.text()).toContain('YunLeFun Preview Reference')
     expect(wrapper.text()).toContain('参考 Apple HIG，非 Apple 官方模板')
-    expect(wrapper.get('[data-testid="preview-mode-mark"]').attributes('aria-pressed')).toBe('true')
-    expect(wrapper.find('[data-testid="preview-guides"]').exists()).toBe(false)
+    expect(wrapper.get('[data-testid="preview-mode-platform"]').attributes('aria-pressed')).toBe('true')
+    expect(wrapper.get('[data-testid="preview-template-ios"]').attributes('aria-pressed')).toBe('true')
+    expect(wrapper.get('[data-testid="preview-size-128"]').attributes('aria-pressed')).toBe('true')
+    expect(wrapper.get('[data-testid="preview-guides"]').attributes('aria-pressed')).toBe('false')
     expect(wrapper.findAll('.icon-card')).toHaveLength(8)
-    expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-mark')
+    expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-app-icon')
   })
 
   it('switches between mark, complete icon, and platform output', async () => {

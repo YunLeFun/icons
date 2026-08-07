@@ -78,9 +78,9 @@ export interface IconPreviewSettings {
 }
 
 export const defaultIconPreviewSettings: IconPreviewSettings = {
-  mode: 'mark',
+  mode: 'platform',
   template: 'ios',
-  size: 64,
+  size: 128,
   guides: false,
 }
 

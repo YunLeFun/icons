@@ -50,11 +50,6 @@ body {
   text-transform: uppercase;
 }
 
-.VPNavBarTitle .logo {
-  width: 28px;
-  height: 28px;
-}
-
 .VPContent.is-home {
   padding-top: 0;
 }

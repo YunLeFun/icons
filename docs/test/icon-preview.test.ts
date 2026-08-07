@@ -7,6 +7,15 @@ import {
 } from '../.vitepress/components/icon-preview'
 
 describe('icon preview settings', () => {
+  it('defaults to a 128px iOS platform inspection', () => {
+    expect(defaultIconPreviewSettings).toEqual({
+      mode: 'platform',
+      template: 'ios',
+      size: 128,
+      guides: false,
+    })
+  })
+
   it('describes the current Apple template canvas sizes', () => {
     expect(iconPreviewTemplates.map(template => [template.id, template.width, template.height])).toEqual([
       ['ios', 1024, 1024],
