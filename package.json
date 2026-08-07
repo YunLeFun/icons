@@ -16,7 +16,7 @@
     "icons:collect": "pnpm --filter @yunlefun/icons collect",
     "icons:collect:check": "pnpm --filter @yunlefun/icons collect:check",
     "lint": "eslint .",
-    "test": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons test",
+    "test": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons test && pnpm --filter @yunlefun/icons-docs test",
     "typecheck": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons typecheck"
   },
   "devDependencies": {

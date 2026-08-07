@@ -6,7 +6,8 @@
   "scripts": {
     "build": "vitepress build",
     "dev": "vitepress",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "@fontsource-variable/ibm-plex-sans": "catalog:",
@@ -16,7 +17,11 @@
     "vue": "catalog:"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "happy-dom": "catalog:",
     "unocss": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vitest": "catalog:"
   }
 }

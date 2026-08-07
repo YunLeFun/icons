@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import type { IconCategory } from '@yunlefun/icons'
+import type { IconPreviewSettings } from './icon-preview'
 import { iconMetadata } from '@yunlefun/icons'
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import {
+  defaultIconPreviewSettings,
+  getIconPreviewTemplateStyle,
+  iconPreviewSizes,
+  iconPreviewStorageKey,
+  iconPreviewTemplates,
+  parseIconPreviewSettings,
+} from './icon-preview'
 
 type CategoryFilter = 'all' | IconCategory
 type CopyKind = 'class' | 'iconify'
@@ -9,6 +18,10 @@ type CopyKind = 'class' | 'iconify'
 const query = ref('')
 const category = ref<CategoryFilter>('all')
 const copiedValue = ref('')
+const previewTemplate = ref(defaultIconPreviewSettings.template)
+const previewSize = ref(defaultIconPreviewSettings.size)
+const previewGuides = ref(defaultIconPreviewSettings.guides)
+const previewSettingsReady = ref(false)
 let copiedTimer: number | undefined
 
 const categoryOptions: { label: string, value: CategoryFilter }[] = [
@@ -42,6 +55,16 @@ const filteredIcons = computed(() => {
   })
 })
 
+const selectedPreviewTemplate = computed(() => {
+  return iconPreviewTemplates.find(option => option.id === previewTemplate.value)
+    ?? iconPreviewTemplates[0]
+})
+
+const previewStyle = computed(() => getIconPreviewTemplateStyle(
+  selectedPreviewTemplate.value,
+  previewSize.value,
+))
+
 function copyValue(name: string, kind: CopyKind) {
   return kind === 'class' ? `i-ylf-${name}` : `ylf:${name}`
 }
@@ -74,6 +97,40 @@ async function copyIcon(name: string, kind: CopyKind) {
     copiedValue.value = ''
   }, 1800)
 }
+
+function savePreviewSettings() {
+  if (!previewSettingsReady.value)
+    return
+
+  const settings: IconPreviewSettings = {
+    template: previewTemplate.value,
+    size: previewSize.value,
+    guides: previewGuides.value,
+  }
+
+  try {
+    window.localStorage.setItem(iconPreviewStorageKey, JSON.stringify(settings))
+  }
+  catch (error) {
+    console.warn('Unable to persist icon preview settings.', error)
+  }
+}
+
+onMounted(() => {
+  try {
+    const settings = parseIconPreviewSettings(window.localStorage.getItem(iconPreviewStorageKey))
+    previewTemplate.value = settings.template
+    previewSize.value = settings.size
+    previewGuides.value = settings.guides
+  }
+  catch (error) {
+    console.warn('Unable to restore icon preview settings.', error)
+  }
+
+  previewSettingsReady.value = true
+})
+
+watch([previewTemplate, previewSize, previewGuides], savePreviewSettings)
 
 onBeforeUnmount(() => {
   if (copiedTimer)
@@ -149,14 +206,99 @@ onBeforeUnmount(() => {
           <span class="result-count" aria-live="polite">{{ filteredIcons.length }} / {{ iconMetadata.length }}</span>
         </div>
 
+        <section class="preview-toolbar" aria-label="图标预览设置">
+          <div class="preview-toolbar-heading">
+            <p>YunLeFun Preview Reference</p>
+            <strong>{{ selectedPreviewTemplate.label }}</strong>
+            <span>{{ selectedPreviewTemplate.width }} × {{ selectedPreviewTemplate.height }} reference</span>
+            <a
+              href="https://developer.apple.com/design/human-interface-guidelines/app-icons"
+              target="_blank"
+              rel="noreferrer"
+            >
+              参考 Apple HIG，非 Apple 官方模板
+            </a>
+          </div>
+
+          <fieldset class="preview-control preview-template-control">
+            <legend>Platform reference</legend>
+            <div class="preview-options">
+              <button
+                v-for="option in iconPreviewTemplates"
+                :key="option.id"
+                type="button"
+                :aria-pressed="previewTemplate === option.id"
+                :class="{ active: previewTemplate === option.id }"
+                :data-testid="`preview-template-${option.id}`"
+                @click="previewTemplate = option.id"
+              >
+                {{ option.shortLabel }}
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="preview-control preview-size-control">
+            <legend>Display size</legend>
+            <div class="preview-options preview-size-options">
+              <button
+                v-for="size in iconPreviewSizes"
+                :key="size"
+                type="button"
+                :aria-pressed="previewSize === size"
+                :class="{ active: previewSize === size }"
+                :data-testid="`preview-size-${size}`"
+                @click="previewSize = size"
+              >
+                {{ size }}
+              </button>
+            </div>
+          </fieldset>
+
+          <button
+            class="preview-guide-toggle"
+            type="button"
+            :aria-pressed="previewGuides"
+            data-testid="preview-guides"
+            @click="previewGuides = !previewGuides"
+          >
+            <span aria-hidden="true" />
+            {{ previewGuides ? '隐藏辅助线' : '显示辅助线' }}
+          </button>
+
+          <div class="preview-guide-legend" aria-label="辅助线图例">
+            <span><i class="legend-center" />中心</span>
+            <span><i class="legend-safe" />安全区</span>
+            <span><i class="legend-optical" />光学越界</span>
+            <span><i class="legend-keyline" />关键线 / 遮罩</span>
+          </div>
+        </section>
+
         <div v-if="filteredIcons.length" class="icon-grid" data-testid="icon-grid">
           <article v-for="icon in filteredIcons" :key="icon.name" class="icon-card" :data-icon="icon.name">
             <div class="icon-preview">
-              <span
-                :class="[`i-ylf-${icon.name}`, 'icon-glyph']"
-                role="img"
-                :aria-label="icon.titleZh"
-              />
+              <div
+                class="preview-stage"
+                :data-template="previewTemplate"
+                :data-mask="selectedPreviewTemplate.mask"
+                :style="previewStyle"
+              >
+                <div class="preview-artboard">
+                  <span
+                    :class="[`i-ylf-${icon.name}`, 'icon-glyph']"
+                    role="img"
+                    :aria-label="icon.titleZh"
+                  />
+                </div>
+                <div v-if="previewGuides" class="preview-guides" aria-hidden="true">
+                  <span class="guide-center guide-center-x" />
+                  <span class="guide-center guide-center-y" />
+                  <span class="guide-optical" />
+                  <span class="guide-safe" />
+                  <span class="guide-keyline-circle" />
+                  <span class="guide-mask" />
+                </div>
+                <span class="preview-size-badge">{{ previewSize }}px</span>
+              </div>
               <span class="icon-style">{{ icon.style === 'color' ? 'COLOR' : 'MONO' }}</span>
             </div>
 

@@ -18,7 +18,10 @@ catalog:
   '@iconify/tools': ^5.0.12
   '@iconify/types': ^2.0.0
   '@types/node': ^26.1.2
+  '@vitejs/plugin-vue': ^6.0.8
+  '@vue/test-utils': ^2.4.11
   eslint: ^10.8.0
+  happy-dom: ^20.11.1
   tsx: ^4.23.10
   typescript: ^5.9.3
   unbuild: ^3.6.1
