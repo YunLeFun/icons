@@ -86,11 +86,11 @@
   {
     "name": "cms",
     "title": "Yunle CMS",
-    "titleZh": "云栈",
-    "description": "云朵与层叠纸页组成的云栈内容管理应用标记。",
+    "titleZh": "文栈",
+    "description": "云朵与层叠纸页组成的文栈内容管理应用标记。",
     "category": "application",
     "style": "color",
-    "tags": ["cms", "云栈", "内容", "content", "publishing"],
+    "tags": ["cms", "文栈", "内容", "content", "publishing"],
     "source": {
       "repository": "YunLeFun/cms",
       "path": "apps/web/public/icon.svg",

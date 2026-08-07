@@ -1,6 +1,6 @@
 {
   "prefix": "ylf",
-  "lastModified": 1786096067,
+  "lastModified": 1786099149,
   "icons": {
     "apps": {
       "body": "<g fill=\"#0078e7\"><path d=\"M0 0h128v128H0z\"/><path fill=\"#fff\" d=\"m58.857 64-14.143 8.295v-16.59zm25.714 0c0 4.328-3.453 7.837-7.714 7.837-4.26 0-7.714-3.509-7.714-7.837s3.454-7.837 7.714-7.837 7.714 3.509 7.714 7.837\"/><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M94 33.524H34v13.061H21.143v34.83H34v13.061h60V81.415h12.857v-34.83H94zm0 13.061H34v34.83h60z\" clip-rule=\"evenodd\"/></g>",
@@ -13,7 +13,7 @@
       "height": 70
     },
     "cms": {
-      "body": "<path fill=\"#203a4d\" d=\"M5.5 28.2c0-4.5 4.7-7.9 11-7.9.7-8.8 7.1-15.8 15.5-15.8 8.9 0 15.9 7.1 16.5 16 6.3 0 10.5 3.3 10.5 7.7 0 3.3-2 5.8-5.2 7.3l-19.4 10c-1.5.8-3.3.8-4.8 0l-19.1-9.9c-3.2-1.6-5-4-5-7.4\"/><g fill=\"none\" stroke=\"#203a4d\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4.4\"><path d=\"m7.5 38.6 22.8 11.8c1.1.6 2.4.6 3.5 0l22.7-11.8\"/><path d=\"m7.5 47 22.8 11.5c1.1.6 2.4.6 3.5 0L56.5 47\"/></g>"
+      "body": "<path fill=\"#203a4d\" d=\"M5.5 28.2c0-4.5 4.7-7.9 11-7.9.7-8.8 7.1-15.8 15.5-15.8 8.9 0 15.9 7.1 16.5 16 6.3 0 10.5 3.3 10.5 7.7 0 3.3-2 5.8-5.2 7.3l-19.4 10c-1.5.8-3.3.8-4.8 0l-19.1-9.9c-3.2-1.6-5-4-5-7.4\"/><g fill=\"none\" stroke=\"#203a4d\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4.4\"><path d=\"m7.5 39.3 22.8 11.8c1.1.6 2.4.6 3.5 0l22.7-11.8\"/><path d=\"m7.5 47 22.8 11.5c1.1.6 2.4.6 3.5 0L56.5 47\"/></g>"
     },
     "drive": {
       "body": "<defs><linearGradient id=\"svgID0\" x1=\"8\" x2=\"56\" y1=\"6\" y2=\"60\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#075985\"/><stop offset=\".62\" stop-color=\"#0284c7\"/><stop offset=\"1\" stop-color=\"#38bdf8\"/></linearGradient><mask id=\"svgID1\" width=\"64\" height=\"64\" x=\"0\" y=\"0\" mask-type=\"luminance\" maskUnits=\"userSpaceOnUse\"><path fill=\"#fff\" d=\"M0 0h64v64H0z\"/><path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"6\" d=\"M21.75 28 32 37.5 42.25 28M32 37.5v10\"/></mask></defs><rect width=\"60\" height=\"60\" x=\"2\" y=\"2\" fill=\"url(#svgID0)\" rx=\"15\"/><path fill=\"#f8fcff\" d=\"M17.2 47.5h29.6c5.7 0 10.2-4.3 10.2-9.7 0-4.9-3.7-9-8.6-9.7-1.8-7.3-8.2-12.6-16-12.6-7.4 0-13.7 4.8-15.7 11.7-5.6.9-9.7 5.5-9.7 11.1 0 5.1 4.5 9.2 10.2 9.2\" mask=\"url(#svgID1)\"/>"
