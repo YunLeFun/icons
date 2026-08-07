@@ -1,0 +1,62 @@
+{
+  "name": "@yunlefun/icons",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "YunLeFun brand and application icons in IconifyJSON format",
+  "author": "YunLeFun",
+  "license": "MIT",
+  "homepage": "https://icons.yunle.fun/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YunLeFun/icons.git",
+    "directory": "packages/icons"
+  },
+  "bugs": "https://github.com/YunLeFun/icons/issues",
+  "keywords": [
+    "yunlefun",
+    "icons",
+    "iconify",
+    "unocss",
+    "svg"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./icons.json": "./icons.json",
+    "./metadata.json": "./metadata.json",
+    "./svg/*": "./svg/*.svg"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "icons.json",
+    "metadata.json",
+    "svg"
+  ],
+  "scripts": {
+    "build": "tsx scripts/build.ts && unbuild",
+    "collect": "tsx scripts/collect.ts",
+    "collect:check": "tsx scripts/collect.ts --check",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "pnpm build && pnpm test",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@iconify/types": "catalog:"
+  },
+  "devDependencies": {
+    "@iconify/tools": "catalog:",
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
+    "unocss": "catalog:",
+    "vitest": "catalog:"
+  }
+}

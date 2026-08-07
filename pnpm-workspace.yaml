@@ -1,0 +1,29 @@
+minimumReleaseAgeExclude:
+  - tsx@4.23.10
+
+shellEmulator: true
+trustPolicy: no-downgrade
+
+allowBuilds:
+  esbuild: true
+
+packages:
+  - docs
+  - packages/*
+
+catalog:
+  '@antfu/eslint-config': ^9.3.0
+  '@fontsource-variable/ibm-plex-sans': ^5.3.0
+  '@fontsource/ibm-plex-mono': ^5.3.0
+  '@iconify/tools': ^5.0.12
+  '@iconify/types': ^2.0.0
+  '@types/node': ^26.1.2
+  eslint: ^10.8.0
+  tsx: ^4.23.10
+  typescript: ^5.9.3
+  unbuild: ^3.6.1
+  unocss: ^66.7.5
+  vite: ^8.2.0
+  vitepress: ^2.0.0-alpha.19
+  vitest: ^4.1.10
+  vue: ^3.5.41

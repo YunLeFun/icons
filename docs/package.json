@@ -1,0 +1,22 @@
+{
+  "name": "@yunlefun/icons-docs",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vitepress build",
+    "dev": "vitepress",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/ibm-plex-sans": "catalog:",
+    "@fontsource/ibm-plex-mono": "catalog:",
+    "@yunlefun/icons": "workspace:*",
+    "vitepress": "catalog:",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "unocss": "catalog:",
+    "vite": "catalog:"
+  }
+}

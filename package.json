@@ -1,0 +1,26 @@
+{
+  "name": "@yunlefun/icons-monorepo",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.20.0",
+  "engines": {
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter @yunlefun/icons build",
+    "dev": "pnpm docs:dev",
+    "docs:build": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons-docs build",
+    "docs:dev": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons-docs dev",
+    "docs:preview": "pnpm --filter @yunlefun/icons-docs preview",
+    "icons:collect": "pnpm --filter @yunlefun/icons collect",
+    "icons:collect:check": "pnpm --filter @yunlefun/icons collect:check",
+    "lint": "eslint .",
+    "test": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons test",
+    "typecheck": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons typecheck"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:",
+    "eslint": "catalog:"
+  }
+}

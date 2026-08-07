@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://icons.yunle.fun/sitemap.xml
