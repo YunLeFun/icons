@@ -12,7 +12,9 @@ YunLeFun 品牌与应用图标的统一 SVG、Iconify 和 UnoCSS 图标集。
 - 发布包 `@yunlefun/icons` 提供图标数据、名称类型与检索元数据
 - UnoCSS 使用 `i-ylf-<name>` 类名按需渲染
 - VitePress 图标目录支持主体、完整图标和 Apple HIG 启发的平台效果分类预览
+- 图标目录可复制 SVG，并下载独立 SVG、Vue SFC 与 React TSX 组件
 - 每枚图标记录上游仓库与源文件路径
+- 图标目录显示自动同步或派生维护状态
 
 ## 设计规范
 
@@ -101,6 +103,35 @@ pnpm icons:collect       # 更新仓库内的规范 SVG 快照
 ```
 
 普通 `build` 始终只读取仓库内的 SVG，不访问网络，也不依赖其他仓库存在。
+
+## 发布 npm
+
+发布包使用 GitHub Actions 与 npm Trusted Publishing（OIDC），工作流不会保存长期 `NPM_TOKEN`。正式版本使用 `latest` dist-tag；`alpha`、`beta` 等预发布版本会使用对应的预发布标识作为 dist-tag。
+
+本地准备版本：
+
+```bash
+pnpm release:preflight        # 完整校验与 pack dry-run
+pnpm release                 # 交互选择版本，更新 CHANGELOG、提交并创建 tag
+git push origin main --follow-tags
+```
+
+也可以明确指定版本类型，例如 `pnpm release -- --release patch`。`bumpp` 不会自动推送，只有显式推送 `v*` tag 才会触发 `.github/workflows/publish.yml`。
+
+### 首次发布与 OIDC 初始化
+
+npm 要求包已经存在后才能配置 Trusted Publisher。对于尚未创建的包，不要先推送发布 tag；维护者需要先在 `packages/icons` 完成一次交互式公开发布，然后使用 npm 11.15 或更新版本建立信任关系：
+
+```bash
+cd packages/icons
+npm publish
+npm trust github @yunlefun/icons \
+  --file publish.yml \
+  --repo YunLeFun/icons \
+  --allow-publish
+```
+
+信任配置中的 workflow filename 必须精确填写 `publish.yml`。配置完成后，后续 tag 发布只使用 GitHub OIDC，并由 npm 自动生成 provenance。建议确认 OIDC 首次发布成功后，在 npm 包设置中禁用传统写入 token。
 
 ## License
 

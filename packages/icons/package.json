@@ -32,6 +32,10 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "files": [
     "dist",
     "icons.json",
@@ -43,7 +47,8 @@
     "collect": "tsx scripts/collect.ts",
     "collect:check": "tsx scripts/collect.ts --check",
     "dev": "unbuild --stub",
-    "prepublishOnly": "pnpm build && pnpm test",
+    "pack:check": "pnpm build && npm pack --dry-run --json",
+    "prepublishOnly": "pnpm build && pnpm test && pnpm typecheck",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json"
   },

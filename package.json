@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "pnpm --filter @yunlefun/icons build",
+    "changelog": "pnpm --dir packages/icons exec conventional-changelog -p angular -i ../../CHANGELOG.md -s -r 0",
     "dev": "pnpm docs:dev",
     "docs:build": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons-docs build",
     "docs:dev": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons-docs dev",
@@ -16,11 +17,18 @@
     "icons:collect": "pnpm --filter @yunlefun/icons collect",
     "icons:collect:check": "pnpm --filter @yunlefun/icons collect:check",
     "lint": "eslint .",
+    "pack:check": "pnpm --filter @yunlefun/icons pack:check",
+    "release": "pnpm release:preflight && pnpm release:version",
+    "release:preflight": "pnpm build && pnpm test && pnpm lint && pnpm typecheck && pnpm docs:build && pnpm pack:check",
+    "release:version": "bumpp",
     "test": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons test && pnpm --filter @yunlefun/icons-docs test",
     "typecheck": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons typecheck"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
+    "bumpp": "catalog:",
+    "conventional-changelog": "catalog:",
+    "conventional-changelog-angular": "catalog:",
     "eslint": "catalog:"
   }
 }

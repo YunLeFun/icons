@@ -12,9 +12,11 @@ import {
   iconPreviewTemplates,
   parseIconPreviewSettings,
 } from './icon-preview'
+import { createIconAsset, createSvgSource } from './icon-download'
+import type { IconDownloadFormat } from './icon-download'
 
 type CategoryFilter = 'all' | IconCategory
-type CopyKind = 'class' | 'iconify'
+type CopyKind = 'class' | 'iconify' | 'svg'
 
 interface IconProduct {
   id: string
@@ -98,9 +100,45 @@ const previewStyle = computed(() => getIconPreviewTemplateStyle(
 ))
 
 function previewVariant(product: IconProduct): IconMetadata | undefined {
-  return previewMode.value === 'mark'
+  const requestedVariant = previewMode.value === 'mark'
     ? product.variants.mark
     : product.variants['app-icon']
+
+  return requestedVariant ?? (isMarkOnlyPreview(product) ? product.variants.mark : undefined)
+}
+
+function isMarkOnlyPreview(product: IconProduct): boolean {
+  return previewMode.value !== 'mark'
+    && product.category === 'brand'
+    && !product.variants['app-icon']
+    && Boolean(product.variants.mark)
+}
+
+function previewStyleForProduct(product: IconProduct): Record<string, string> {
+  return isMarkOnlyPreview(product)
+    ? getIconPreviewTemplateStyle('mark', selectedPreviewTemplate.value, previewSize.value)
+    : previewStyle.value
+}
+
+function previewModeForProduct(product: IconProduct) {
+  return isMarkOnlyPreview(product) ? 'mark' : previewMode.value
+}
+
+function previewVariantLabel(product: IconProduct): string {
+  const icon = previewVariant(product)
+  if (!icon)
+    return 'N/A'
+
+  if (isMarkOnlyPreview(product))
+    return 'MARK ONLY'
+
+  return icon.variant === 'app-icon' ? 'APP ICON' : 'MARK'
+}
+
+function previewAriaLabel(product: IconProduct): string {
+  return isMarkOnlyPreview(product)
+    ? `${product.titleZh} · 主体层（未提供完整图标）`
+    : `${product.titleZh} · ${selectedPreviewMode.value.label}`
 }
 
 function copyProductIcon(product: IconProduct, kind: CopyKind) {
@@ -115,7 +153,13 @@ function isProductIconCopied(product: IconProduct, kind: CopyKind): boolean {
 }
 
 function copyValue(name: string, kind: CopyKind) {
-  return kind === 'class' ? `i-ylf-${name}` : `ylf:${name}`
+  if (kind === 'class')
+    return `i-ylf-${name}`
+
+  if (kind === 'iconify')
+    return `ylf:${name}`
+
+  return createSvgSource(name as IconMetadata['name'])
 }
 
 async function writeClipboard(value: string) {
@@ -145,6 +189,35 @@ async function copyIcon(name: string, kind: CopyKind) {
   copiedTimer = window.setTimeout(() => {
     copiedValue.value = ''
   }, 1800)
+}
+
+function downloadProductIcon(product: IconProduct, format: IconDownloadFormat, event: Event) {
+  const icon = previewVariant(product)
+  if (!icon)
+    return
+
+  const asset = createIconAsset(icon.name, format)
+  const href = URL.createObjectURL(new Blob([asset.content], { type: asset.mimeType }))
+  const anchor = document.createElement('a')
+  anchor.href = href
+  anchor.download = asset.filename
+  document.body.appendChild(anchor)
+  anchor.click()
+  anchor.remove()
+  window.setTimeout(() => URL.revokeObjectURL(href), 1000)
+
+  const details = (event.currentTarget as HTMLElement).closest('details')
+  details?.removeAttribute('open')
+}
+
+function sourceStatusLabel(icon: IconMetadata): string {
+  return icon.source.sync ? 'SYNC' : 'DERIVED'
+}
+
+function sourceStatusDescription(icon: IconMetadata): string {
+  return icon.source.sync
+    ? '由收集命令从上游源文件直接同步'
+    : icon.source.derivation ?? '基于上游源文件派生维护'
 }
 
 function savePreviewSettings() {
@@ -370,8 +443,8 @@ onBeforeUnmount(() => {
                 class="preview-stage"
                 :data-template="previewTemplate"
                 :data-mask="selectedPreviewTemplate.mask"
-                :data-mode="previewMode"
-                :style="previewStyle"
+                :data-mode="previewModeForProduct(product)"
+                :style="previewStyleForProduct(product)"
               >
                 <div class="preview-canvas">
                   <div class="preview-artboard">
@@ -379,7 +452,7 @@ onBeforeUnmount(() => {
                       v-if="previewVariant(product)"
                       :class="[`i-ylf-${previewVariant(product)?.name}`, 'icon-glyph']"
                       role="img"
-                      :aria-label="`${product.titleZh} · ${selectedPreviewMode.label}`"
+                      :aria-label="previewAriaLabel(product)"
                     />
                     <span v-else class="preview-unavailable">仅提供主体层</span>
                   </div>
@@ -399,7 +472,7 @@ onBeforeUnmount(() => {
                 <span class="preview-size-badge">{{ previewSize }}px</span>
               </div>
               <span class="icon-style">
-                {{ previewVariant(product) ? (previewVariant(product)?.variant === 'app-icon' ? 'APP ICON' : 'MARK') : 'N/A' }}
+                {{ previewVariantLabel(product) }}
               </span>
             </div>
 
@@ -432,17 +505,51 @@ onBeforeUnmount(() => {
               >
                 {{ isProductIconCopied(product, 'iconify') ? '已复制' : '复制 Iconify' }}
               </button>
+              <button
+                type="button"
+                :disabled="!previewVariant(product)"
+                :data-testid="`copy-svg-${product.id}`"
+                @click="copyProductIcon(product, 'svg')"
+              >
+                {{ isProductIconCopied(product, 'svg') ? '已复制' : '复制 SVG' }}
+              </button>
+              <details class="download-menu">
+                <summary :aria-disabled="!previewVariant(product)">
+                  下载源码
+                </summary>
+                <div class="download-options">
+                  <button
+                    v-for="format in (['svg', 'vue', 'react'] as const)"
+                    :key="format"
+                    type="button"
+                    :disabled="!previewVariant(product)"
+                    :data-testid="`download-${format}-${product.id}`"
+                    @click="downloadProductIcon(product, format, $event)"
+                  >
+                    <span>{{ format === 'react' ? 'React' : format.toUpperCase() }}</span>
+                    <small>{{ format === 'svg' ? '.svg' : format === 'vue' ? '.vue' : '.tsx' }}</small>
+                  </button>
+                </div>
+              </details>
             </div>
 
-            <a
-              v-if="previewVariant(product)"
-              class="source-link"
-              :href="previewVariant(product)?.source.url"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {{ previewVariant(product)?.source.repository }} / source
-            </a>
+            <div v-if="previewVariant(product)" class="source-meta">
+              <span
+                class="source-status"
+                :data-sync="previewVariant(product)?.source.sync"
+                :title="sourceStatusDescription(previewVariant(product)!)"
+              >
+                {{ sourceStatusLabel(previewVariant(product)!) }}
+              </span>
+              <a
+                class="source-link"
+                :href="previewVariant(product)?.source.url"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {{ previewVariant(product)?.source.repository }} / source
+              </a>
+            </div>
           </article>
         </div>
 

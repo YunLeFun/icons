@@ -710,6 +710,7 @@ body {
 }
 
 .copy-actions button,
+.download-menu summary,
 .empty-state button {
   padding: 9px 10px;
   color: var(--vp-c-text-1);
@@ -721,12 +722,64 @@ body {
 
 .copy-actions button:hover,
 .copy-actions button:focus-visible,
+.download-menu summary:hover,
+.download-menu summary:focus-visible,
 .empty-state button:hover,
 .empty-state button:focus-visible {
   color: #FFFDF7;
   background: var(--catalog-orange);
   border-color: var(--catalog-orange);
   outline: none;
+}
+
+.download-menu {
+  position: relative;
+  min-width: 0;
+}
+
+.download-menu summary {
+  display: block;
+  height: 100%;
+  text-align: center;
+  list-style: none;
+}
+
+.download-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.download-menu summary[aria-disabled="true"] {
+  color: var(--vp-c-text-3);
+  cursor: not-allowed;
+  opacity: .55;
+  pointer-events: none;
+}
+
+.download-options {
+  display: grid;
+  position: absolute;
+  z-index: 8;
+  right: 0;
+  bottom: calc(100% + 7px);
+  width: min(190px, 74vw);
+  padding: 6px;
+  gap: 4px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--catalog-ink);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--catalog-ink) 14%, transparent);
+}
+
+.download-options button {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: left;
+}
+
+.download-options small {
+  color: inherit;
+  font: 9px var(--vp-font-family-mono);
+  opacity: .62;
 }
 
 .copy-actions button:disabled {
@@ -737,9 +790,30 @@ body {
   opacity: .55;
 }
 
+.source-meta {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.source-status {
+  flex: none;
+  padding: 3px 4px;
+  color: var(--catalog-orange);
+  border: 1px solid currentColor;
+  font: 8px var(--vp-font-family-mono);
+  letter-spacing: .06em;
+}
+
+.source-status[data-sync="true"] {
+  color: var(--catalog-green);
+}
+
 .source-link {
   overflow: hidden;
-  margin-top: 12px;
+  min-width: 0;
   color: var(--vp-c-text-3);
   font: 10px var(--vp-font-family-mono);
   text-overflow: ellipsis;

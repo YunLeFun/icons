@@ -9,6 +9,8 @@ pnpm add @yunlefun/icons
 pnpm add -D unocss
 ```
 
+也可以直接在[图标目录](/)切换到所需主体层或完整图标，然后复制 SVG，或下载独立的 `.svg`、Vue `.vue` 与 React `.tsx` 文件。下载组件不依赖本图标包，保留规范 viewBox、品牌色与 `currentColor` 行为。
+
 ## UnoCSS
 
 在 `uno.config.ts` 中将包内 IconifyJSON 注册为 `ylf` 集合：

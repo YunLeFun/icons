@@ -20,6 +20,9 @@ catalog:
   '@types/node': ^26.1.2
   '@vitejs/plugin-vue': ^6.0.8
   '@vue/test-utils': ^2.4.11
+  bumpp: ^12.2.0
+  conventional-changelog: 8.1.0
+  conventional-changelog-angular: ^9.2.1
   eslint: ^10.8.0
   happy-dom: ^20.11.1
   tsx: ^4.23.10

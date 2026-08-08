@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import IconCatalog from '../.vitepress/components/IconCatalog.vue'
 import { iconPreviewStorageKey } from '../.vitepress/components/icon-preview'
@@ -11,6 +11,8 @@ describe('IconCatalog preview controls', () => {
 
   afterEach(() => {
     document.body.innerHTML = ''
+    vi.useRealTimers()
+    vi.restoreAllMocks()
   })
 
   it('labels the preview as a YunLeFun reference', () => {
@@ -26,6 +28,41 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('[data-testid="preview-guides"]').attributes('aria-pressed')).toBe('false')
     expect(wrapper.findAll('.icon-card')).toHaveLength(8)
     expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-app-icon')
+    expect(wrapper.get('[data-icon="brand"] .icon-glyph').classes()).toContain('i-ylf-brand-mark')
+    expect(wrapper.get('[data-icon="brand"] .icon-glyph').attributes('aria-label')).toContain('未提供完整图标')
+    expect(wrapper.get('[data-icon="brand"] .preview-stage').attributes('data-mode')).toBe('mark')
+    expect(wrapper.get('[data-icon="brand"] .preview-stage').attributes('style')).toContain('--preview-mask-radius: 0')
+    expect(wrapper.get('[data-icon="brand"] .icon-style').text()).toBe('MARK ONLY')
+    expect(wrapper.get('[data-testid="copy-class-brand"]').attributes('disabled')).toBeUndefined()
+    expect(wrapper.get('[data-icon="brand"] .source-status').text()).toBe('SYNC')
+    expect(wrapper.get('[data-icon="drive"] .source-status').text()).toBe('DERIVED')
+  })
+
+  it('copies and downloads the currently previewed variant', async () => {
+    vi.useFakeTimers()
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    const createObjectURL = vi.fn().mockReturnValue('blob:ylf-icon')
+    const revokeObjectURL = vi.fn()
+    const anchorClick = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
+    Object.defineProperty(URL, 'createObjectURL', { configurable: true, value: createObjectURL })
+    Object.defineProperty(URL, 'revokeObjectURL', { configurable: true, value: revokeObjectURL })
+
+    const wrapper = mount(IconCatalog)
+    await wrapper.get('[data-testid="copy-svg-drive"]').trigger('click')
+
+    expect(writeText).toHaveBeenCalledWith(expect.stringContaining('id="ylf-drive-app-icon-svgID0"'))
+
+    const downloadMenu = wrapper.get('[data-icon="drive"] .download-menu')
+    downloadMenu.element.setAttribute('open', '')
+    await wrapper.get('[data-testid="download-vue-drive"]').trigger('click')
+
+    expect(createObjectURL).toHaveBeenCalledOnce()
+    expect(anchorClick).toHaveBeenCalledOnce()
+    expect(revokeObjectURL).not.toHaveBeenCalled()
+    vi.advanceTimersByTime(1000)
+    expect(revokeObjectURL).toHaveBeenCalledWith('blob:ylf-icon')
+    expect(downloadMenu.attributes('open')).toBeUndefined()
   })
 
   it('switches between mark, complete icon, and platform output', async () => {
@@ -36,8 +73,8 @@ describe('IconCatalog preview controls', () => {
 
     expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-app-icon')
     expect(wrapper.get('[data-icon="drive"] .preview-stage').attributes('style')).toContain('--preview-mask-radius: 0')
-    expect(wrapper.get('[data-icon="brand"] .preview-unavailable').text()).toBe('仅提供主体层')
-    expect(wrapper.get('[data-icon="brand"] .icon-style').text()).toBe('N/A')
+    expect(wrapper.get('[data-icon="brand"] .icon-glyph').classes()).toContain('i-ylf-brand-mark')
+    expect(wrapper.get('[data-icon="brand"] .icon-style').text()).toBe('MARK ONLY')
 
     await wrapper.get('[data-testid="preview-mode-platform"]').trigger('click')
     await nextTick()
@@ -56,7 +93,7 @@ describe('IconCatalog preview controls', () => {
     await wrapper.get('[data-testid="preview-guides"]').trigger('click')
     await nextTick()
 
-    const stage = wrapper.get('.preview-stage')
+    const stage = wrapper.get('[data-icon="drive"] .preview-stage')
     expect(wrapper.get('[data-testid="preview-template-tvos"]').attributes('aria-pressed')).toBe('true')
     expect(wrapper.get('[data-testid="preview-size-24"]').attributes('aria-pressed')).toBe('true')
     expect(wrapper.get('[data-testid="preview-guides"]').attributes('aria-pressed')).toBe('true')
@@ -65,7 +102,7 @@ describe('IconCatalog preview controls', () => {
     expect(stage.attributes('style')).toContain('--preview-canvas-width: 24px')
     expect(stage.attributes('style')).toContain('--preview-canvas-height: 14.4px')
     expect(stage.attributes('style')).toContain('--preview-icon-size: 24px')
-    expect(wrapper.findAll('.guide-mask')).toHaveLength(7)
+    expect(wrapper.findAll('.guide-mask')).toHaveLength(8)
     expect(wrapper.text()).toContain('正式提交需单独准备 800 × 480 分层资产')
   })
 
@@ -79,6 +116,7 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('[data-testid="preview-guides"]').attributes('aria-pressed')).toBe('true')
     expect(wrapper.get('[data-icon="drive"] .preview-stage').attributes('style')).toContain('--preview-keyline-size: 80%')
     expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-mark')
+    expect(wrapper.get('[data-icon="brand"] .icon-style').text()).toBe('MARK')
     expect(wrapper.findAll('.preview-guides')).toHaveLength(8)
     expect(wrapper.text()).toContain('参考关键线 / 输出边界')
   })
