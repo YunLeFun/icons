@@ -6,7 +6,7 @@
 
 1. 确认图标来自 YunLeFun 品牌或应用仓库，并找到可追溯的 SVG 源文件。
 2. 应用必须同时提供 `<product>-mark` 与 `<product>-app-icon`；品牌可以只提供 `-mark`。
-3. 在 `packages/icons/metadata.json` 添加变体角色、检索标签和 GitHub 源链接。派生资产必须设置 `source.sync: false` 并说明 `derivation`。
+3. 在 `packages/icons/metadata.json` 添加变体角色、检索标签和 GitHub 源链接；产品有独立站点时，在所有变体中设置相同的 HTTPS `website`。派生资产必须设置 `source.sync: false` 并说明 `derivation`。
 4. 新仓库需要先在 `icons.config.ts` 登记本地 checkout，然后运行 `pnpm icons:collect` 收集可直接同步的上游 SVG。
 5. 运行完整校验。
 

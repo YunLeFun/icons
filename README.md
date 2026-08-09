@@ -14,6 +14,7 @@ YunLeFun 品牌与应用图标的统一 SVG、Iconify 和 UnoCSS 图标集。
 - VitePress 图标目录支持主体、完整图标和 Apple HIG 启发的平台效果分类预览
 - 图标目录可复制 SVG，并下载独立 SVG、Vue SFC 与 React TSX 组件
 - 每枚图标记录上游仓库与源文件路径
+- 有独立站点的产品在元数据与目录卡片中提供快速跳转链接
 - 图标目录显示自动同步或派生维护状态
 
 ## 设计规范
@@ -86,7 +87,7 @@ addCollection(icons)
 ## 添加图标
 
 1. 应用同时添加 `<product>-mark` 和 `<product>-app-icon`，品牌可以只提供 `-mark`。
-2. 在 `packages/icons/metadata.json` 为每个资产添加变体角色、检索信息和来源。
+2. 在 `packages/icons/metadata.json` 为每个资产添加变体角色、检索信息和来源；如产品有独立站点，同时添加 `website`。
 3. 如果来源是新的子应用仓库，在 `icons.config.ts` 登记它的本地 checkout。
 4. 运行 `pnpm icons:collect`，更新标记为 `source.sync: true` 的上游 SVG。
 5. 运行 `pnpm build && pnpm test && pnpm docs:build`。

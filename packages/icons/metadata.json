@@ -9,6 +9,7 @@
     "category": "brand",
     "style": "monotone",
     "tags": ["yunlefun", "云乐坊", "brand", "logo", "品牌", "mark", "主体"],
+    "website": "https://www.yunle.fun/",
     "source": {
       "repository": "YunLeFun/www.yunle.fun",
       "path": "public/ylf-logo.svg",
@@ -26,6 +27,7 @@
     "category": "application",
     "style": "color",
     "tags": ["apps", "应用", "应用中心", "launcher", "yunlefun", "mark", "主体"],
+    "website": "https://apps.yunle.fun/",
     "source": {
       "repository": "YunLeFun/apps.yunle.fun",
       "path": "public/ylf-square.svg",
@@ -44,6 +46,7 @@
     "category": "application",
     "style": "color",
     "tags": ["apps", "应用", "应用中心", "launcher", "yunlefun", "app icon", "完整图标"],
+    "website": "https://apps.yunle.fun/",
     "source": {
       "repository": "YunLeFun/apps.yunle.fun",
       "path": "public/ylf-square.svg",
@@ -61,6 +64,7 @@
     "category": "application",
     "style": "color",
     "tags": ["home", "首页", "云之彼端", "cloud", "portal", "mark", "主体"],
+    "website": "https://www.yunle.fun/",
     "source": {
       "repository": "YunLeFun/www.yunle.fun",
       "path": "public/app-icons/home-brand-mark.svg",
@@ -79,6 +83,7 @@
     "category": "application",
     "style": "color",
     "tags": ["home", "首页", "云之彼端", "cloud", "portal", "app icon", "完整图标"],
+    "website": "https://www.yunle.fun/",
     "source": {
       "repository": "YunLeFun/www.yunle.fun",
       "path": "public/app-icons/home-brand-mark.svg",
@@ -97,6 +102,7 @@
     "category": "application",
     "style": "color",
     "tags": ["play", "游戏", "game", "乐园", "cloud", "mark", "主体"],
+    "website": "https://play.yunle.fun/",
     "source": {
       "repository": "YunLeFun/play",
       "path": "apps/web/public/assets/play-app-icon-v1.svg",
@@ -114,6 +120,7 @@
     "category": "application",
     "style": "color",
     "tags": ["play", "游戏", "game", "乐园", "cloud", "app icon", "完整图标"],
+    "website": "https://play.yunle.fun/",
     "source": {
       "repository": "YunLeFun/play",
       "path": "apps/web/public/assets/play-app-icon-v1.svg",
@@ -132,6 +139,7 @@
     "category": "application",
     "style": "color",
     "tags": ["drive", "云盘", "storage", "上传", "media", "mark", "主体"],
+    "website": "https://drive.yunle.fun/",
     "source": {
       "repository": "YunLeFun/drive",
       "path": "packages/ui/assets/drive-mark.svg",
@@ -150,6 +158,7 @@
     "category": "application",
     "style": "color",
     "tags": ["drive", "云盘", "storage", "上传", "media", "app icon", "完整图标"],
+    "website": "https://drive.yunle.fun/",
     "source": {
       "repository": "YunLeFun/drive",
       "path": "packages/ui/assets/drive-mark.svg",
@@ -168,6 +177,7 @@
     "category": "application",
     "style": "color",
     "tags": ["support", "支持", "帮助", "feedback", "ticket", "mark", "主体"],
+    "website": "https://support.yunle.fun/",
     "source": {
       "repository": "YunLeFun/support.yunle.fun",
       "path": "apps/web/public/support-mark.svg",
@@ -185,6 +195,7 @@
     "category": "application",
     "style": "color",
     "tags": ["support", "支持", "帮助", "feedback", "ticket", "app icon", "完整图标"],
+    "website": "https://support.yunle.fun/",
     "source": {
       "repository": "YunLeFun/support.yunle.fun",
       "path": "apps/web/public/support-mark.svg",
@@ -203,6 +214,7 @@
     "category": "application",
     "style": "color",
     "tags": ["cms", "文栈", "内容", "content", "publishing", "mark", "主体"],
+    "website": "https://cms.yunle.fun/",
     "source": {
       "repository": "YunLeFun/cms",
       "path": "apps/web/public/icon.svg",
@@ -220,6 +232,7 @@
     "category": "application",
     "style": "color",
     "tags": ["cms", "文栈", "内容", "content", "publishing", "app icon", "完整图标"],
+    "website": "https://cms.yunle.fun/",
     "source": {
       "repository": "YunLeFun/cms",
       "path": "apps/web/public/icon.svg",

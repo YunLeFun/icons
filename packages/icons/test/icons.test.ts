@@ -45,6 +45,32 @@ describe('@yunlefun/icons', () => {
     }
   })
 
+  it('provides consistent HTTPS website links for products that have sites', () => {
+    const expectedWebsites: Record<string, string | undefined> = {
+      apps: 'https://apps.yunle.fun/',
+      brand: 'https://www.yunle.fun/',
+      cms: 'https://cms.yunle.fun/',
+      drive: 'https://drive.yunle.fun/',
+      home: 'https://www.yunle.fun/',
+      play: 'https://play.yunle.fun/',
+      skykeeper: undefined,
+      support: 'https://support.yunle.fun/',
+    }
+    const products = [...new Set(metadataJSON.map(item => item.product))]
+
+    expect(products.sort()).toEqual(Object.keys(expectedWebsites).sort())
+
+    for (const product of products) {
+      const entries = metadataJSON.filter(item => item.product === product)
+      const websites = entries.map(entry => 'website' in entry ? entry.website : undefined)
+
+      expect(new Set(websites).size).toBe(1)
+      expect(websites[0]).toBe(expectedWebsites[product])
+      if (websites[0])
+        expect(new URL(websites[0]).protocol).toBe('https:')
+    }
+  })
+
   it('renders every icon through UnoCSS preset-icons', async () => {
     const generator = await createGenerator({
       presets: [

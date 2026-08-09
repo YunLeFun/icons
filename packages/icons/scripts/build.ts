@@ -11,6 +11,7 @@ interface SourceMetadata {
   variant: 'app-icon' | 'mark'
   category: 'application' | 'brand'
   style: 'color' | 'monotone'
+  website?: string
   source: {
     repository: string
     path: string
@@ -64,6 +65,12 @@ for (const icon of metadata) {
   if (!icon.source.sync && !icon.source.derivation)
     throw new Error(`Derived icon ${icon.name} must describe its derivation`)
 
+  if (icon.website !== undefined) {
+    const website = new URL(icon.website)
+    if (website.protocol !== 'https:')
+      throw new Error(`Website for ${icon.name} must use HTTPS`)
+  }
+
   const colorStrategy = getIconColorStrategy(icon.name)
   if (icon.style === 'monotone' && colorStrategy.mode !== 'current-color')
     throw new Error(`Monotone icon ${icon.name} must use the current-color strategy`)
@@ -73,6 +80,7 @@ for (const icon of metadata) {
 
 const productVariants = new Map<string, Set<SourceMetadata['variant']>>()
 const productCategories = new Map<string, SourceMetadata['category']>()
+const productWebsites = new Map<string, string | undefined>()
 
 for (const icon of metadata) {
   const existingCategory = productCategories.get(icon.product)
@@ -80,6 +88,11 @@ for (const icon of metadata) {
     throw new Error(`Product ${icon.product} mixes icon categories`)
 
   productCategories.set(icon.product, icon.category)
+
+  if (productWebsites.has(icon.product) && productWebsites.get(icon.product) !== icon.website)
+    throw new Error(`Product ${icon.product} mixes website URLs across variants`)
+
+  productWebsites.set(icon.product, icon.website)
   const variants = productVariants.get(icon.product) ?? new Set<SourceMetadata['variant']>()
   if (variants.has(icon.variant))
     throw new Error(`Product ${icon.product} contains duplicate ${icon.variant} variants`)

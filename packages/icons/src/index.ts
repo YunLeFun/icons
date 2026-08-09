@@ -27,6 +27,7 @@ export interface IconMetadata {
   category: IconCategory
   style: IconStyle
   tags: string[]
+  website?: string
   source: IconSource
 }
 

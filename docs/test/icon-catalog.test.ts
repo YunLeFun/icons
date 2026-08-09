@@ -38,6 +38,17 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('[data-icon="drive"] .source-status').text()).toBe('DERIVED')
   })
 
+  it('links products to their independent sites when available', () => {
+    const wrapper = mount(IconCatalog)
+    const appsLink = wrapper.get('[data-testid="website-link-apps"]')
+
+    expect(appsLink.attributes('href')).toBe('https://apps.yunle.fun/')
+    expect(appsLink.attributes('target')).toBe('_blank')
+    expect(appsLink.attributes('rel')).toBe('noopener noreferrer')
+    expect(appsLink.attributes('aria-label')).toBe('云乐坊应用中心：访问站点')
+    expect(wrapper.find('[data-testid="website-link-skykeeper"]').exists()).toBe(false)
+  })
+
   it('copies and downloads the currently previewed variant', async () => {
     vi.useFakeTimers()
     const writeText = vi.fn().mockResolvedValue(undefined)

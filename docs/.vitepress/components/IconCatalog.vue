@@ -24,6 +24,7 @@ interface IconProduct {
   titleZh: string
   description: string
   category: IconCategory
+  website?: string
   variants: Partial<Record<IconVariant, IconMetadata>>
   searchText: string
 }
@@ -55,6 +56,7 @@ const iconProducts: IconProduct[] = [...new Set(iconMetadata.map(icon => icon.pr
     titleZh: primary.titleZh,
     description: primary.description,
     category: primary.category,
+    website: primary.website,
     variants,
     searchText: entries.flatMap(icon => [
       icon.name,
@@ -63,6 +65,7 @@ const iconProducts: IconProduct[] = [...new Set(iconMetadata.map(icon => icon.pr
       icon.description,
       icon.category,
       icon.style,
+      icon.website ?? '',
       ...icon.tags,
     ]).join(' ').toLocaleLowerCase(),
   }
@@ -541,6 +544,17 @@ onBeforeUnmount(() => {
               >
                 {{ sourceStatusLabel(previewVariant(product)!) }}
               </span>
+              <a
+                v-if="product.website"
+                class="source-link website-link"
+                :href="product.website"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="`${product.titleZh}：访问站点`"
+                :data-testid="`website-link-${product.id}`"
+              >
+                访问站点 ↗
+              </a>
               <a
                 class="source-link"
                 :href="previewVariant(product)?.source.url"
