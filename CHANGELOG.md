@@ -1,3 +1,10 @@
+# 0.2.0 (2026-08-09)
+
+### Features
+
+* add icon downloads and release workflow ([34d8f28](https://github.com/YunLeFun/icons/commit/34d8f28a4a41a5c9c5777a586b064b4de7ce7218))
+* add product website links ([2116cae](https://github.com/YunLeFun/icons/commit/2116caea7e55abd402fdf9be4b0c0979087c8c01))
+
 # 0.1.0 (2026-08-07)
 
 ### Bug Fixes
