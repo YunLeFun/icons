@@ -42,7 +42,9 @@ let copiedTimer: number | undefined
 const categoryOptions: { label: string, value: CategoryFilter }[] = [
   { label: '全部', value: 'all' },
   { label: '品牌', value: 'brand' },
-  { label: '应用', value: 'application' },
+  { label: '官方站点', value: 'official-site' },
+  { label: '效率工具', value: 'utility' },
+  { label: '趣味应用', value: 'fun-app' },
 ]
 
 const iconProducts: IconProduct[] = [...new Set(iconMetadata.map(icon => icon.product))].map((productId) => {
@@ -282,7 +284,7 @@ onBeforeUnmount(() => {
         </p>
         <h1>云乐坊图标</h1>
         <p class="catalog-intro">
-          云乐坊品牌与应用图标的统一来源。浏览主体层、完整构图与平台效果，复制即可使用。
+          云乐坊品牌、官方站点、效率工具与趣味应用图标的统一来源。浏览主体层、完整构图与平台效果，复制即可使用。
         </p>
       </div>
       <dl class="masthead-stats">
@@ -314,6 +316,7 @@ onBeforeUnmount(() => {
               type="button"
               :class="{ active: category === option.value }"
               :aria-pressed="category === option.value"
+              :data-testid="`category-filter-${option.value}`"
               @click="category = option.value"
             >
               <span>{{ option.label }}</span>
@@ -337,7 +340,7 @@ onBeforeUnmount(() => {
             data-testid="icon-search"
             type="search"
             autocomplete="off"
-            placeholder="名称、应用、中文标签…"
+            placeholder="名称、产品、中文标签…"
           >
           <span class="result-count" aria-live="polite">{{ filteredProducts.length }} / {{ iconProducts.length }}</span>
         </div>

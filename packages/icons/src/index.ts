@@ -5,7 +5,7 @@ import type { IconName } from './generated'
 export { iconNames, prefix } from './generated'
 export type { IconName } from './generated'
 
-export type IconCategory = 'application' | 'brand'
+export type IconCategory = 'brand' | 'fun-app' | 'official-site' | 'utility'
 export type IconStyle = 'color' | 'monotone'
 export type IconVariant = 'app-icon' | 'mark'
 

@@ -1,6 +1,6 @@
 # YunLeFun Icons
 
-YunLeFun 品牌与应用图标的统一 SVG、Iconify 和 UnoCSS 图标集。
+YunLeFun 品牌、官方站点、效率工具与趣味应用的统一 SVG、Iconify 和 UnoCSS 图标集。
 
 [浏览图标目录](https://icons.yunle.fun/)
 
@@ -10,6 +10,7 @@ YunLeFun 品牌与应用图标的统一 SVG、Iconify 和 UnoCSS 图标集。
 - 应用资产显式区分 `-mark` 透明主体层和 `-app-icon` 无遮罩完整图标
 - 构建时清洗 SVG 并生成 IconifyJSON 格式的 `icons.json`
 - 发布包 `@yunlefun/icons` 提供图标数据、名称类型与检索元数据
+- 元数据使用 `brand`、`official-site`、`utility`、`fun-app` 表达产品分类
 - UnoCSS 使用 `i-ylf-<name>` 类名按需渲染
 - VitePress 图标目录支持主体、完整图标和 Apple HIG 启发的平台效果分类预览
 - 图标目录可复制 SVG，并下载独立 SVG、Vue SFC 与 React TSX 组件
@@ -86,7 +87,7 @@ addCollection(icons)
 
 ## 添加图标
 
-1. 应用同时添加 `<product>-mark` 和 `<product>-app-icon`，品牌可以只提供 `-mark`。
+1. 除纯品牌外的产品同时添加 `<product>-mark` 和 `<product>-app-icon`；品牌可以只提供 `-mark`。
 2. 在 `packages/icons/metadata.json` 为每个资产添加变体角色、检索信息和来源；如产品有独立站点，同时添加 `website`。
 3. 如果来源是新的子应用仓库，在 `icons.config.ts` 登记它的本地 checkout。
 4. 运行 `pnpm icons:collect`，更新标记为 `source.sync: true` 的上游 SVG。

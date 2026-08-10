@@ -28,6 +28,10 @@ describe('@yunlefun/icons', () => {
     expect(icons.icons['brand-mark'].body).toContain('currentColor')
     expect(icons.icons['apps-app-icon'].body).toContain('#0078e7')
     expect(icons.icons['apps-app-icon'].body).toContain('#fff')
+    expect(icons.icons['go-far-away-mark'].body).toContain('currentColor')
+    expect(icons.icons['go-far-away-mark'].body).toContain('#1e91fd')
+    expect(icons.icons['go-far-away-mark'].body).toContain('#82c14a')
+    expect(icons.icons['go-far-away-app-icon'].body).not.toContain('currentColor')
   })
 
   it('provides explicitly named mark and app-icon variants', () => {
@@ -40,7 +44,7 @@ describe('@yunlefun/icons', () => {
       for (const entry of entries)
         expect(entry.name).toBe(`${entry.product}-${entry.variant}`)
 
-      if (entries[0].category === 'application')
+      if (entries[0].category !== 'brand')
         expect(entries.some(item => item.variant === 'app-icon')).toBe(true)
     }
   })
@@ -51,6 +55,7 @@ describe('@yunlefun/icons', () => {
       brand: 'https://www.yunle.fun/',
       cms: 'https://cms.yunle.fun/',
       drive: 'https://drive.yunle.fun/',
+      'go-far-away': 'https://go-far-away.yyj.moe/',
       home: 'https://www.yunle.fun/',
       play: 'https://play.yunle.fun/',
       skykeeper: undefined,

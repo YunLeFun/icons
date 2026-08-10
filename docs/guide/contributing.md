@@ -4,8 +4,8 @@
 
 ## 流程
 
-1. 确认图标来自 YunLeFun 品牌或应用仓库，并找到可追溯的 SVG 源文件。
-2. 应用必须同时提供 `<product>-mark` 与 `<product>-app-icon`；品牌可以只提供 `-mark`。
+1. 确认图标来自 YunLeFun 品牌或产品仓库，并找到可追溯的 SVG 源文件。
+2. 除纯品牌外的产品必须同时提供 `<product>-mark` 与 `<product>-app-icon`；品牌可以只提供 `-mark`。
 3. 在 `packages/icons/metadata.json` 添加变体角色、检索标签和 GitHub 源链接；产品有独立站点时，在所有变体中设置相同的 HTTPS `website`。派生资产必须设置 `source.sync: false` 并说明 `derivation`。
 4. 新仓库需要先在 `icons.config.ts` 登记本地 checkout，然后运行 `pnpm icons:collect` 收集可直接同步的上游 SVG。
 5. 运行完整校验。
@@ -19,6 +19,8 @@ pnpm docs:build
 ```
 
 构建链会执行 SVG 清理与 SVGO 优化，并检查 SVG 文件和元数据是否一一对应。
+
+`category` 使用以下稳定分类：`brand`（品牌）、`official-site`（官方站点）、`utility`（效率工具）、`fun-app`（趣味应用）。同一产品的所有变体必须属于同一分类；新增类别时需要同步更新公开类型、目录筛选与测试。
 
 `pnpm icons:collect:check` 只比较 `source.sync: true` 的子应用源文件与仓库内 SVG 快照，不写文件。派生变体由本仓库管理 canonical SVG，但仍保留上游 provenance。默认从本仓库的同级目录查找其他 YunLeFun 仓库，可通过 `YLF_REPOSITORIES_ROOT` 覆盖仓库根目录。普通构建不会访问这些仓库。
 
@@ -50,4 +52,4 @@ Apple 的网格、居中、安全区域和光学校准原则用于指导视觉�
 - `<product>` 只作为同一产品资产的分组标识，不创建 `drive.svg` 这类无后缀 SVG，也不添加指向某个变体的 alias。
 - 消费方必须根据场景显式选择变体；仓库不定义容易产生歧义的“默认图标”。
 - 不为同一图形创建重复文件；多个应用共用品牌标记时使用 `brand-mark`。
-- 不把来源不明或仅用于页面装饰的 SVG 收入应用图标集。
+- 不把来源不明或仅用于页面装饰的 SVG 收入产品图标集。

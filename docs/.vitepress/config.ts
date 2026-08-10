@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: 'zh-CN',
   title: 'YunLeFun Icons',
-  description: '云乐坊品牌与应用图标集',
+  description: '云乐坊品牌与产品图标集',
   cleanUrls: true,
   sitemap: {
     hostname: 'https://icons.yunle.fun',

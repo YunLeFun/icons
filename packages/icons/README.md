@@ -1,6 +1,6 @@
 # @yunlefun/icons
 
-YunLeFun 品牌与应用的 SVG、IconifyJSON 和 UnoCSS 图标集合。
+YunLeFun 品牌、官方站点、效率工具与趣味应用的 SVG、IconifyJSON 和 UnoCSS 图标集合。
 
 ```bash
 pnpm add @yunlefun/icons

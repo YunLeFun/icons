@@ -9,7 +9,7 @@ interface SourceMetadata {
   name: string
   product: string
   variant: 'app-icon' | 'mark'
-  category: 'application' | 'brand'
+  category: 'brand' | 'fun-app' | 'official-site' | 'utility'
   style: 'color' | 'monotone'
   website?: string
   source: {
@@ -105,8 +105,8 @@ for (const [product, variants] of productVariants) {
   if (!variants.has('mark'))
     throw new Error(`Product ${product} must provide a mark variant`)
 
-  if (productCategories.get(product) === 'application' && !variants.has('app-icon'))
-    throw new Error(`Application ${product} must provide an app-icon variant`)
+  if (productCategories.get(product) !== 'brand' && !variants.has('app-icon'))
+    throw new Error(`Product ${product} must provide an app-icon variant`)
 }
 
 const iconSet = await importDirectory(svgDirectory, {

@@ -79,12 +79,12 @@ import {
 
 - `icons`：完整 IconifyJSON 集合。
 - `iconNames`：全部规范资产名称，可用于类型约束和 safelist；每个名称都显式包含 `-mark` 或 `-app-icon`。
-- `iconMetadata`：中英文名称、标签、样式类型与来源。
+- `iconMetadata`：中英文名称、标签、产品分类、样式类型与来源。
 - `prefix`：固定为 `ylf`。
 
 ## 色彩行为
 
-`brand-mark` 是单色图标，可通过 `color` 改色。应用图标保留产品原始色板，UnoCSS 会自动使用适合多色 SVG 的背景图模式。
+`brand-mark` 是单色图标，可通过 `color` 改色。产品图标保留其原始色板，UnoCSS 会自动使用适合多色 SVG 的背景图模式。
 
 ## 主体与完整图标
 

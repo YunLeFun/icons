@@ -88,7 +88,7 @@ const iconsConfig: IconsConfig = {
   },
   package: {
     name: '@yunlefun/icons',
-    description: 'YunLeFun brand and application icons in IconifyJSON format',
+    description: 'YunLeFun brand and product icons in IconifyJSON format',
     license: 'MIT',
     homepage: 'https://icons.yunle.fun/',
     repository: {
@@ -113,8 +113,9 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/drive': 'drive',
       'YunLeFun/play': 'play',
       'YunLeFun/skykeeper': 'skykeeper',
-      'YunLeFun/support.yunle.fun': 'support.yunle.fun',
+      'YunLeFun/support': 'support',
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
+      'YunYouJun/go-far-away': '../YunYouJun/go-far-away',
     },
   },
 }

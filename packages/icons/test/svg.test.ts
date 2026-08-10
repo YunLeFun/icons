@@ -5,7 +5,7 @@ import { createOptimizedSVG } from '../scripts/svg'
 import metadata from '../metadata.json' with { type: 'json' }
 
 describe('SVG color strategies', () => {
-  it('preserves application colors', () => {
+  it('preserves product colors', () => {
     const svg = createOptimizedSVG(
       '<svg viewBox="0 0 24 24"><path fill="#123456" d="M0 0h24v24H0z"/></svg>',
       { mode: 'preserve' },
