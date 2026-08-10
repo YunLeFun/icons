@@ -238,7 +238,7 @@
       "path": "apps/web/public/icon.svg",
       "url": "https://github.com/YunLeFun/cms/blob/main/apps/web/public/icon.svg",
       "sync": false,
-      "derivation": "在原透明主体后增加无遮罩的满幅方形背景。"
+      "derivation": "在原透明主体后增加无遮罩的满幅方形背景，并按安全区缩放主体。"
     }
   },
   {
