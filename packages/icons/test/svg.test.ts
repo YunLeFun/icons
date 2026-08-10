@@ -36,6 +36,14 @@ describe('SVG color strategies', () => {
 })
 
 describe('application icon canvases', () => {
+  it('keeps the CMS app icon artwork inside a symmetric safe area', async () => {
+    const content = await readFile(resolve(import.meta.dirname, '../svg/cms-app-icon.svg'), 'utf8')
+    const transform = content.match(/matrix\(([\d.]+) 0 0 ([\d.]+) ([\d.]+) ([\d.]+)\)/)
+
+    expect(transform).not.toBeNull()
+    expect(transform?.slice(1).map(Number)).toEqual([0.86, 0.86, 4.48, 4.48])
+  })
+
   it('uses full square backgrounds without precomposed corner masks', async () => {
     const appIcons = metadata.filter(icon => icon.variant === 'app-icon')
 
