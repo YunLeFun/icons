@@ -1,6 +1,6 @@
 {
   "prefix": "ylf",
-  "lastModified": 1786450500,
+  "lastModified": 1786450638,
   "icons": {
     "apps-app-icon": {
       "body": "<g fill=\"#0078e7\"><path d=\"M0 0h128v128H0z\"/><path fill=\"#fff\" d=\"m58.857 64-14.143 8.295v-16.59zm25.714 0c0 4.328-3.453 7.837-7.714 7.837-4.26 0-7.714-3.509-7.714-7.837s3.454-7.837 7.714-7.837 7.714 3.509 7.714 7.837\"/><path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M94 33.524H34v13.061H21.143v34.83H34v13.061h60V81.415h12.857v-34.83H94zm0 13.061H34v34.83h60z\" clip-rule=\"evenodd\"/></g>",
