@@ -111,6 +111,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/apps.yunle.fun': 'apps.yunle.fun',
       'YunLeFun/cms': 'cms',
       'YunLeFun/drive': 'drive',
+      'YunLeFun/fc': 'fc',
       'YunLeFun/play': 'play',
       'YunLeFun/skykeeper': 'skykeeper',
       'YunLeFun/support': 'support',
