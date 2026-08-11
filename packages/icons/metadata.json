@@ -312,5 +312,41 @@
       "url": "https://github.com/YunYouJun/go-far-away/blob/main/public/img/go-far-away-app-icon.svg",
       "sync": true
     }
+  },
+  {
+    "name": "smap-mark",
+    "product": "smap",
+    "variant": "mark",
+    "title": "SMAP",
+    "titleZh": "SMAP 星际导航",
+    "description": "星际航线、导航箭头与星体端点组成的透明主体标记。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["smap", "星际导航", "interstellar", "navigation", "map", "地图", "space", "mark", "主体"],
+    "website": "https://smap.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/smap",
+      "path": "apps/smap/public/smap-mark.svg",
+      "url": "https://github.com/YunYouJun/smap/blob/main/apps/smap/public/smap-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "smap-app-icon",
+    "product": "smap",
+    "variant": "app-icon",
+    "title": "SMAP",
+    "titleZh": "SMAP 星际导航",
+    "description": "深空蓝满幅背景与星际导航主体组成的方形应用图标。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["smap", "星际导航", "interstellar", "navigation", "map", "地图", "space", "app icon", "完整图标"],
+    "website": "https://smap.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/smap",
+      "path": "apps/smap/public/smap-app-icon.svg",
+      "url": "https://github.com/YunYouJun/smap/blob/main/apps/smap/public/smap-app-icon.svg",
+      "sync": true
+    }
   }
 ]

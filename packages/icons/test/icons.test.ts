@@ -59,6 +59,7 @@ describe('@yunlefun/icons', () => {
       home: 'https://www.yunle.fun/',
       play: 'https://play.yunle.fun/',
       skykeeper: undefined,
+      smap: 'https://smap.yunle.fun/',
       support: 'https://support.yunle.fun/',
     }
     const products = [...new Set(metadataJSON.map(item => item.product))]
