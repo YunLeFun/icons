@@ -111,11 +111,13 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/apps.yunle.fun': 'apps.yunle.fun',
       'YunLeFun/cms': 'cms',
       'YunLeFun/drive': 'drive',
+      'YunLeFun/fc': 'fc',
       'YunLeFun/play': 'play',
       'YunLeFun/skykeeper': 'skykeeper',
       'YunLeFun/support': 'support',
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
       'YunYouJun/go-far-away': '../YunYouJun/go-far-away',
+      'YunYouJun/smap': '../YunYouJun/smap',
     },
   },
 }

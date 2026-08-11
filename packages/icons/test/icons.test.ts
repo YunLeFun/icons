@@ -32,6 +32,9 @@ describe('@yunlefun/icons', () => {
     expect(icons.icons['go-far-away-mark'].body).toContain('#1e91fd')
     expect(icons.icons['go-far-away-mark'].body).toContain('#82c14a')
     expect(icons.icons['go-far-away-app-icon'].body).not.toContain('currentColor')
+    expect(icons.icons['fc-mark'].body).toContain('#da4a4a')
+    expect(icons.icons['fc-app-icon'].body).toContain('#da4a4a')
+    expect(icons.icons['fc-app-icon'].body).toContain('#fff')
   })
 
   it('provides explicitly named mark and app-icon variants', () => {
@@ -55,10 +58,12 @@ describe('@yunlefun/icons', () => {
       brand: 'https://www.yunle.fun/',
       cms: 'https://cms.yunle.fun/',
       drive: 'https://drive.yunle.fun/',
+      fc: 'https://fc.yunle.fun/',
       'go-far-away': 'https://go-far-away.yyj.moe/',
       home: 'https://www.yunle.fun/',
       play: 'https://play.yunle.fun/',
       skykeeper: undefined,
+      smap: 'https://smap.yunle.fun/',
       support: 'https://support.yunle.fun/',
     }
     const products = [...new Set(metadataJSON.map(item => item.product))]

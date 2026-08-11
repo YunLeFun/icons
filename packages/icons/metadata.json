@@ -312,5 +312,77 @@
       "url": "https://github.com/YunYouJun/go-far-away/blob/main/public/img/go-far-away-app-icon.svg",
       "sync": true
     }
+  },
+  {
+    "name": "smap-mark",
+    "product": "smap",
+    "variant": "mark",
+    "title": "SMAP",
+    "titleZh": "SMAP 星际导航",
+    "description": "星际航线、导航箭头与星体端点组成的透明主体标记。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["smap", "星际导航", "interstellar", "navigation", "map", "地图", "space", "mark", "主体"],
+    "website": "https://smap.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/smap",
+      "path": "apps/smap/public/smap-mark.svg",
+      "url": "https://github.com/YunYouJun/smap/blob/main/apps/smap/public/smap-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "smap-app-icon",
+    "product": "smap",
+    "variant": "app-icon",
+    "title": "SMAP",
+    "titleZh": "SMAP 星际导航",
+    "description": "深空蓝满幅背景与星际导航主体组成的方形应用图标。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["smap", "星际导航", "interstellar", "navigation", "map", "地图", "space", "app icon", "完整图标"],
+    "website": "https://smap.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/smap",
+      "path": "apps/smap/public/smap-app-icon.svg",
+      "url": "https://github.com/YunYouJun/smap/blob/main/apps/smap/public/smap-app-icon.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "fc-mark",
+    "product": "fc",
+    "variant": "mark",
+    "title": "YunLeFun FC",
+    "titleZh": "怀旧游戏机",
+    "description": "红色手柄轮廓与十字键、按键组成的透明主体标记。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["fc", "nes", "怀旧游戏机", "红白机", "game", "emulator", "mark", "主体"],
+    "website": "https://fc.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/fc",
+      "path": "public/fc-mark.svg",
+      "url": "https://github.com/YunLeFun/fc/blob/main/public/fc-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "fc-app-icon",
+    "product": "fc",
+    "variant": "app-icon",
+    "title": "YunLeFun FC",
+    "titleZh": "怀旧游戏机",
+    "description": "满幅红色背景与白色手柄主体组成的方形应用图标。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["fc", "nes", "怀旧游戏机", "红白机", "game", "emulator", "app icon", "完整图标"],
+    "website": "https://fc.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/fc",
+      "path": "public/icon.svg",
+      "url": "https://github.com/YunLeFun/fc/blob/main/public/icon.svg",
+      "sync": true
+    }
   }
 ]
