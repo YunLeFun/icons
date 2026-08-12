@@ -1,6 +1,10 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/products/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Content-Type: image/svg+xml
+
 /*
   Permissions-Policy: camera=(), geolocation=(), microphone=()
   Referrer-Policy: strict-origin-when-cross-origin

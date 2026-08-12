@@ -1,4 +1,6 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vitepress'
+import { publishCanonicalIconAssets } from './published-icon-assets.ts'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -7,6 +9,12 @@ export default defineConfig({
   cleanUrls: true,
   sitemap: {
     hostname: 'https://icons.yunle.fun',
+  },
+  buildEnd: async ({ outDir }) => {
+    await publishCanonicalIconAssets(
+      resolve(import.meta.dirname, '../../packages/icons/svg'),
+      outDir,
+    )
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
