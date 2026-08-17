@@ -37,6 +37,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "files": [
+    "TRADEMARKS.md",
     "dist",
     "icons.json",
     "metadata.json",

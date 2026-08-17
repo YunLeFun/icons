@@ -17,3 +17,7 @@ import { iconMetadata, iconNames, icons } from '@yunlefun/icons'
 图标名称必须包含明确变体，例如 `ylf:drive-mark` 或 `ylf:drive-app-icon`。
 
 [图标目录](https://icons.yunle.fun/) · [GitHub](https://github.com/YunLeFun/icons)
+
+## License
+
+源代码和 SVG 文件依据 [MIT License](./LICENSE) 授权。YunLeFun、云乐坊、相关产品名称、Logo 和品牌标记的使用同时受[商标政策](./TRADEMARKS.md)约束；MIT License 不授予商标权。

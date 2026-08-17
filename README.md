@@ -137,4 +137,4 @@ npm trust github @yunlefun/icons \
 
 ## License
 
-[MIT](./LICENSE)
+源代码和 SVG 文件依据 [MIT License](./LICENSE) 授权。YunLeFun、云乐坊、相关产品名称、Logo 和品牌标记的使用同时受[商标政策](./TRADEMARKS.md)约束；MIT License 不授予商标权。

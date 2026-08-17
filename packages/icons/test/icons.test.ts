@@ -1,4 +1,6 @@
 import type { IconifyJSON } from '@iconify/types'
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 import { createGenerator, presetIcons } from 'unocss'
 import { describe, expect, it } from 'vitest'
 import iconsConfig from '../../../icons.config'
@@ -9,6 +11,18 @@ import { iconNames } from '../src'
 const icons = iconsJSON as IconifyJSON
 
 describe('@yunlefun/icons', () => {
+  it('ships the canonical trademark policy with the package', async () => {
+    const packageRoot = resolve(import.meta.dirname, '..')
+    const [rootPolicy, packagePolicy, packageJSON] = await Promise.all([
+      readFile(resolve(packageRoot, '../../TRADEMARKS.md'), 'utf8'),
+      readFile(resolve(packageRoot, 'TRADEMARKS.md'), 'utf8'),
+      readFile(resolve(packageRoot, 'package.json'), 'utf8').then(content => JSON.parse(content)),
+    ])
+
+    expect(packagePolicy).toBe(rootPolicy)
+    expect(packageJSON.files).toContain('TRADEMARKS.md')
+  })
+
   it('exports a complete Iconify collection', () => {
     const exportedIconNames = Object.keys(icons.icons).sort()
     const metadataNames = metadataJSON.map(item => item.name).sort()
