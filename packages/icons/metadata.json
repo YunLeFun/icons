@@ -168,6 +168,78 @@
     }
   },
   {
+    "name": "cards-mark",
+    "product": "cards",
+    "variant": "mark",
+    "title": "YunLe Cards",
+    "titleZh": "云乐卡册",
+    "description": "层叠卡页与云乐坊播放、连接符号组成的透明主体标记。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["cards", "卡牌", "卡册", "collection", "gallery", "yunlefun", "mark", "主体"],
+    "website": "https://cards.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/cards",
+      "path": "apps/web/public/brand/cards-mark.svg",
+      "url": "https://github.com/YunLeFun/cards/blob/main/apps/web/public/brand/cards-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "cards-app-icon",
+    "product": "cards",
+    "variant": "app-icon",
+    "title": "YunLe Cards",
+    "titleZh": "云乐卡册",
+    "description": "满幅宣纸色背景与层叠人物卡页组成的方形应用图标。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["cards", "卡牌", "卡册", "collection", "gallery", "yunlefun", "app icon", "完整图标"],
+    "website": "https://cards.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/cards",
+      "path": "apps/web/public/brand/cards-app-icon.svg",
+      "url": "https://github.com/YunLeFun/cards/blob/main/apps/web/public/brand/cards-app-icon.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "cook-mark",
+    "product": "cook",
+    "variant": "mark",
+    "title": "Cook",
+    "titleZh": "食用手册",
+    "description": "俯视锅具与绿叶、番茄、谷物组成的透明主体标记。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["cook", "食用手册", "菜谱", "recipe", "cooking", "锅", "mark", "主体"],
+    "website": "https://cook.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/cook",
+      "path": "public/brand/cook-mark.svg",
+      "url": "https://github.com/YunYouJun/cook/blob/main/public/brand/cook-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "cook-app-icon",
+    "product": "cook",
+    "variant": "app-icon",
+    "title": "Cook",
+    "titleZh": "食用手册",
+    "description": "满幅祖母绿背景与俯视锅具、三色食材组成的方形应用图标。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["cook", "食用手册", "菜谱", "recipe", "cooking", "锅", "app icon", "完整图标"],
+    "website": "https://cook.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/cook",
+      "path": "public/brand/cook-app-icon.svg",
+      "url": "https://github.com/YunYouJun/cook/blob/main/public/brand/cook-app-icon.svg",
+      "sync": true
+    }
+  },
+  {
     "name": "support-mark",
     "product": "support",
     "variant": "mark",

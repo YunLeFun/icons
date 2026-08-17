@@ -56,7 +56,9 @@ describe('@yunlefun/icons', () => {
     const expectedWebsites: Record<string, string | undefined> = {
       apps: 'https://apps.yunle.fun/',
       brand: 'https://www.yunle.fun/',
+      cards: 'https://cards.yunle.fun/',
       cms: 'https://cms.yunle.fun/',
+      cook: 'https://cook.yunle.fun/',
       drive: 'https://drive.yunle.fun/',
       fc: 'https://fc.yunle.fun/',
       'go-far-away': 'https://go-far-away.yyj.moe/',

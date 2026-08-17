@@ -109,6 +109,7 @@ const iconsConfig: IconsConfig = {
     repositoriesRoot,
     repositories: {
       'YunLeFun/apps.yunle.fun': 'apps.yunle.fun',
+      'YunLeFun/cards': 'cards',
       'YunLeFun/cms': 'cms',
       'YunLeFun/drive': 'drive',
       'YunLeFun/fc': 'fc',
@@ -116,6 +117,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/skykeeper': 'skykeeper',
       'YunLeFun/support': 'support',
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
+      'YunYouJun/cook': '../YunYouJun/cook',
       'YunYouJun/go-far-away': '../YunYouJun/go-far-away',
       'YunYouJun/smap': '../YunYouJun/smap',
     },
