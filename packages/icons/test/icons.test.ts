@@ -68,6 +68,7 @@ describe('@yunlefun/icons', () => {
 
   it('provides consistent HTTPS website links for products that have sites', () => {
     const expectedWebsites: Record<string, string | undefined> = {
+      advjs: 'https://advjs.org/',
       'advjs-studio': 'https://advjs.yunle.fun/',
       apps: 'https://apps.yunle.fun/',
       brand: 'https://www.yunle.fun/',

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+	<defs>
+		<radialGradient id="svgID0" cx="54%" cy="38%" r="82%">
+			<stop stop-color="#232c4e" />
+			<stop offset=".56" stop-color="#14182d" />
+			<stop offset="1" stop-color="#090b16" />
+		</radialGradient>
+		<radialGradient id="svgID1">
+			<stop stop-color="#32dbe8" stop-opacity=".3" />
+			<stop offset="1" stop-color="#32dbe8" stop-opacity="0" />
+		</radialGradient>
+		<linearGradient id="svgID2" x1="4" x2="18" y1="4" y2="21" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#22ffe9" />
+			<stop offset="1" stop-color="#2595e9" />
+		</linearGradient>
+		<filter id="svgID3" width="170%" height="180%" x="-35%" y="-35%">
+			<feDropShadow dx="0" dy=".32" flood-color="#02050d" flood-opacity=".48" stdDeviation=".42" />
+		</filter>
+	</defs>
+	<path fill="url(#svgID0)" d="M0 0h1024v1024H0z" />
+	<circle cx="528" cy="487" r="386" fill="url(#svgID1)" />
+	<g filter="url(#svgID3)" transform="rotate(-4 1347.724 -1050.085)scale(34)">
+		<path fill="url(#svgID2)" d="M14 10.25 17 8v6l-3-2.25V14H7V8h7zM5.763 17H20V5H4v13.385zm.692 2L2 22.5V4a1 1 0 011-1h18a1 1 0 011 1v14a1 1 0 01-1 1z" />
+	</g>
+</svg>

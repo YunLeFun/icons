@@ -1,13 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
 	<defs>
-		<radialGradient id="svgID0" cx="50%" cy="42%" r="72%">
-			<stop offset="0" stop-color="#5b2dd6" />
-			<stop offset="1" stop-color="#3d247a" />
+		<radialGradient id="svgID0" cx="54%" cy="38%" r="82%">
+			<stop stop-color="#3f2868" />
+			<stop offset=".56" stop-color="#211438" />
+			<stop offset="1" stop-color="#100a1d" />
 		</radialGradient>
+		<radialGradient id="svgID1">
+			<stop stop-color="#6e5aef" stop-opacity=".36" />
+			<stop offset="1" stop-color="#6e5aef" stop-opacity="0" />
+		</radialGradient>
+		<linearGradient id="svgID2" x1="4" x2="18" y1="4" y2="21" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#22ffe9" />
+			<stop offset=".56" stop-color="#41bdf0" />
+			<stop offset="1" stop-color="#7469ed" />
+		</linearGradient>
+		<linearGradient id="svgID3" x1="8" x2="16" y1="8" y2="14" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ffd166" />
+			<stop offset=".5" stop-color="#ff8a4c" />
+			<stop offset="1" stop-color="#ff4f45" />
+		</linearGradient>
+		<filter id="svgID4" width="170%" height="180%" x="-35%" y="-35%">
+			<feDropShadow dx="0" dy=".32" flood-color="#08030f" flood-opacity=".5" stdDeviation=".42" />
+		</filter>
 	</defs>
-	<path fill="url(#svgID0)" d="M0 0h64v64H0z" />
-	<path fill="#fff3d6" d="M33.308 6.07c3.552 5.106 3.626 11.026.592 16.28-1.924 3.33-.592 6.364 4.07 8.806 6.586 3.478 8.88 8.954 6.808 14.578-2.368 6.438-8.436 10.138-15.836 8.51l-6.66 5.994 1.628-8.288c-6.586-3.552-9.25-10.212-7.03-16.946 1.998-5.994 6.956-10.286 11.1-15.836 3.108-4.218 5.106-8.51 5.328-13.098" />
-	<path fill="#ff6a3d" d="M34.196 22.202c-.666 4.144.888 7.178 5.032 9.398 4.366 2.368 6.438 5.476 5.994 9.62-1.554-3.7-4.292-5.772-7.844-7.474-4.366-2.072-5.402-6.438-3.182-11.544" />
-	<path fill="none" stroke="#ffb347" stroke-linecap="round" stroke-width="1.036" d="M34.788 23.756c-.148 3.996 1.702 6.438 5.328 8.436" />
+	<path fill="url(#svgID0)" d="M0 0h1024v1024H0z" />
+	<circle cx="528" cy="487" r="386" fill="url(#svgID1)" />
+	<g filter="url(#svgID4)" transform="rotate(-4 1347.724 -1050.085)scale(34)">
+		<path fill="url(#svgID2)" d="M5.763 17H20V5H4v13.385zm.692 2L2 22.5V4a1 1 0 011-1h18a1 1 0 011 1v14a1 1 0 01-1 1z" />
+		<path fill="url(#svgID3)" d="M14 10.25 17 8v6l-3-2.25V14H7V8h7z" />
+	</g>
 </svg>
 

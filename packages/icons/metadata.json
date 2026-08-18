@@ -458,12 +458,48 @@
     }
   },
   {
+    "name": "advjs-mark",
+    "product": "advjs",
+    "variant": "mark",
+    "title": "ADV.JS",
+    "titleZh": "ADV.JS 互动叙事引擎",
+    "description": "沿用 ADV.JS 首页青蓝渐变的对话框与摄像机透明主体标记。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["advjs", "互动叙事", "视觉小说", "visual novel", "engine", "story", "mark", "主体"],
+    "website": "https://advjs.org/",
+    "source": {
+      "repository": "YunYouJun/advjs",
+      "path": "docs/public/brand/advjs-mark.svg",
+      "url": "https://github.com/YunYouJun/advjs/blob/main/docs/public/brand/advjs-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "advjs-app-icon",
+    "product": "advjs",
+    "variant": "app-icon",
+    "title": "ADV.JS",
+    "titleZh": "ADV.JS 互动叙事引擎",
+    "description": "深夜蓝背景与青蓝渐变对话框摄像机组成的方形引擎图标。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["advjs", "互动叙事", "视觉小说", "visual novel", "engine", "story", "app icon", "完整图标"],
+    "website": "https://advjs.org/",
+    "source": {
+      "repository": "YunYouJun/advjs",
+      "path": "docs/public/brand/advjs-app-icon.svg",
+      "url": "https://github.com/YunYouJun/advjs/blob/main/docs/public/brand/advjs-app-icon.svg",
+      "sync": true
+    }
+  },
+  {
     "name": "advjs-studio-mark",
     "product": "advjs-studio",
     "variant": "mark",
     "title": "ADV.JS Studio",
     "titleZh": "ADV.JS Studio 互动叙事工作室",
-    "description": "由展开书页、故事火种与对话尾巴融合而成的透明主体标记。",
+    "description": "青蓝渐变对话框与橙红创作镜头组成的透明 Studio 主体标记。",
     "category": "utility",
     "style": "color",
     "tags": ["advjs", "studio", "互动叙事", "视觉小说", "visual novel", "branch", "mark", "主体"],
@@ -481,7 +517,7 @@
     "variant": "app-icon",
     "title": "ADV.JS Studio",
     "titleZh": "ADV.JS Studio 互动叙事工作室",
-    "description": "暮夜紫背景与羊皮纸故事火焰组成的方形冒险创作应用图标。",
+    "description": "暮光紫背景、青蓝对话框与橙红创作镜头组成的方形冒险创作图标。",
     "category": "utility",
     "style": "color",
     "tags": ["advjs", "studio", "互动叙事", "视觉小说", "visual novel", "branch", "app icon", "完整图标"],
