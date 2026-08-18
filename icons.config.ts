@@ -117,6 +117,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/skykeeper': 'skykeeper',
       'YunLeFun/support': 'support',
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
+      'YunYouJun/advjs': '../YunYouJun/advjs',
       'YunYouJun/cook': '../YunYouJun/cook',
       'YunYouJun/go-far-away': '../YunYouJun/go-far-away',
       'YunYouJun/smap': '../YunYouJun/smap',

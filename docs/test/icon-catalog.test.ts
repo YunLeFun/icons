@@ -26,7 +26,7 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('[data-testid="preview-template-ios"]').attributes('aria-pressed')).toBe('true')
     expect(wrapper.get('[data-testid="preview-size-128"]').attributes('aria-pressed')).toBe('true')
     expect(wrapper.get('[data-testid="preview-guides"]').attributes('aria-pressed')).toBe('false')
-    expect(wrapper.findAll('.icon-card')).toHaveLength(13)
+    expect(wrapper.findAll('.icon-card')).toHaveLength(14)
     expect(wrapper.get('[data-icon="cards"] .icon-glyph').classes()).toContain('i-ylf-cards-app-icon')
     expect(wrapper.get('[data-icon="cook"] .icon-glyph').classes()).toContain('i-ylf-cook-app-icon')
     expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-app-icon')
@@ -129,7 +129,7 @@ describe('IconCatalog preview controls', () => {
     expect(stage.attributes('style')).toContain('--preview-canvas-width: 24px')
     expect(stage.attributes('style')).toContain('--preview-canvas-height: 14.4px')
     expect(stage.attributes('style')).toContain('--preview-icon-size: 24px')
-    expect(wrapper.findAll('.guide-mask')).toHaveLength(13)
+    expect(wrapper.findAll('.guide-mask')).toHaveLength(14)
     expect(wrapper.text()).toContain('正式提交需单独准备 800 × 480 分层资产')
   })
 
@@ -144,7 +144,7 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('[data-icon="drive"] .preview-stage').attributes('style')).toContain('--preview-keyline-size: 80%')
     expect(wrapper.get('[data-icon="drive"] .icon-glyph').classes()).toContain('i-ylf-drive-mark')
     expect(wrapper.get('[data-icon="brand"] .icon-style').text()).toBe('MARK')
-    expect(wrapper.findAll('.preview-guides')).toHaveLength(13)
+    expect(wrapper.findAll('.preview-guides')).toHaveLength(14)
     expect(wrapper.text()).toContain('参考关键线 / 输出边界')
   })
 

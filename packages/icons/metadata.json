@@ -456,5 +456,41 @@
       "url": "https://github.com/YunLeFun/fc/blob/main/public/icon.svg",
       "sync": true
     }
+  },
+  {
+    "name": "advjs-studio-mark",
+    "product": "advjs-studio",
+    "variant": "mark",
+    "title": "ADV.JS Studio",
+    "titleZh": "ADV.JS Studio 互动叙事工作室",
+    "description": "由展开书页、故事火种与对话尾巴融合而成的透明主体标记。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["advjs", "studio", "互动叙事", "视觉小说", "visual novel", "branch", "mark", "主体"],
+    "website": "https://advjs.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/advjs",
+      "path": "apps/studio/public/brand/advjs-studio-mark.svg",
+      "url": "https://github.com/YunYouJun/advjs/blob/main/apps/studio/public/brand/advjs-studio-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "advjs-studio-app-icon",
+    "product": "advjs-studio",
+    "variant": "app-icon",
+    "title": "ADV.JS Studio",
+    "titleZh": "ADV.JS Studio 互动叙事工作室",
+    "description": "暮夜紫背景与羊皮纸故事火焰组成的方形冒险创作应用图标。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["advjs", "studio", "互动叙事", "视觉小说", "visual novel", "branch", "app icon", "完整图标"],
+    "website": "https://advjs.yunle.fun/",
+    "source": {
+      "repository": "YunYouJun/advjs",
+      "path": "apps/studio/public/brand/advjs-studio-app-icon.svg",
+      "url": "https://github.com/YunYouJun/advjs/blob/main/apps/studio/public/brand/advjs-studio-app-icon.svg",
+      "sync": true
+    }
   }
 ]
