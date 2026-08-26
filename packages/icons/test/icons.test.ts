@@ -83,6 +83,7 @@ describe('@yunlefun/icons', () => {
       skykeeper: undefined,
       smap: 'https://smap.yunle.fun/',
       support: 'https://support.yunle.fun/',
+      wenta: 'https://wenta.yunle.fun/',
     }
     const products = [...new Set(metadataJSON.map(item => item.product))]
 

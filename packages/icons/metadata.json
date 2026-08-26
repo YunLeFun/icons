@@ -528,5 +528,41 @@
       "url": "https://github.com/YunYouJun/advjs/blob/main/apps/studio/public/brand/advjs-studio-app-icon.svg",
       "sync": true
     }
+  },
+  {
+    "name": "wenta-mark",
+    "product": "wenta",
+    "variant": "mark",
+    "title": "Wenta",
+    "titleZh": "问 TA",
+    "description": "粉橙渐变爱心与浅蓝对话氛围组成的透明主体标记。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["wenta", "问 TA", "问答", "conversation", "relationship", "heart", "mark", "主体"],
+    "website": "https://wenta.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/wenta",
+      "path": "docs/public/brand/wenta-mark.svg",
+      "url": "https://github.com/YunLeFun/wenta/blob/main/docs/public/brand/wenta-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "wenta-app-icon",
+    "product": "wenta",
+    "variant": "app-icon",
+    "title": "Wenta",
+    "titleZh": "问 TA",
+    "description": "满幅白色背景与粉橙爱心、浅蓝对话氛围组成的方形应用图标。",
+    "category": "fun-app",
+    "style": "color",
+    "tags": ["wenta", "问 TA", "问答", "conversation", "relationship", "heart", "app icon", "完整图标"],
+    "website": "https://wenta.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/wenta",
+      "path": "docs/public/brand/wenta-app-icon.svg",
+      "url": "https://github.com/YunLeFun/wenta/blob/main/docs/public/brand/wenta-app-icon.svg",
+      "sync": true
+    }
   }
 ]

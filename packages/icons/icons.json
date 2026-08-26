@@ -1,6 +1,6 @@
 {
   "prefix": "ylf",
-  "lastModified": 1787052915,
+  "lastModified": 1787741116,
   "icons": {
     "advjs-app-icon": {
       "body": "<defs><radialGradient id=\"svgID0\" cx=\"54%\" cy=\"38%\" r=\"82%\"><stop stop-color=\"#232c4e\"/><stop offset=\".56\" stop-color=\"#14182d\"/><stop offset=\"1\" stop-color=\"#090b16\"/></radialGradient><radialGradient id=\"svgID1\"><stop stop-color=\"#32dbe8\" stop-opacity=\".3\"/><stop offset=\"1\" stop-color=\"#32dbe8\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"svgID2\" x1=\"4\" x2=\"18\" y1=\"4\" y2=\"21\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#22ffe9\"/><stop offset=\"1\" stop-color=\"#2595e9\"/></linearGradient><filter id=\"svgID3\" width=\"170%\" height=\"180%\" x=\"-35%\" y=\"-35%\"><feDropShadow dx=\"0\" dy=\".32\" flood-color=\"#02050d\" flood-opacity=\".48\" stdDeviation=\".42\"/></filter></defs><path fill=\"url(#svgID0)\" d=\"M0 0h1024v1024H0z\"/><circle cx=\"528\" cy=\"487\" r=\"386\" fill=\"url(#svgID1)\"/><g filter=\"url(#svgID3)\" transform=\"rotate(-4 1347.724 -1050.085)scale(34)\"><path fill=\"url(#svgID2)\" d=\"M14 10.25 17 8v6l-3-2.25V14H7V8h7zM5.763 17H20V5H4v13.385zm.692 2L2 22.5V4a1 1 0 011-1h18a1 1 0 011 1v14a1 1 0 01-1 1z\"/></g>",
@@ -112,6 +112,12 @@
       "body": "<g fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"#2563eb\" stroke-width=\"3.2\" d=\"M12.6 34.4h15.6l7.2 5.2-.2-6.4c5.1-.7 8.8-4.9 8.8-9.9 0-5.6-4.5-10.1-10.1-10.1h-.5a12.7 12.7 0 00-23.2 4.5A8.6 8.6 0 004 26.1c0 4.6 3.8 8.3 8.6 8.3\"/><path stroke=\"#0891b2\" stroke-width=\"3\" d=\"m16.5 24.2 5.2 5 10.1-9.9\"/></g>",
       "width": 48,
       "height": 48
+    },
+    "wenta-app-icon": {
+      "body": "<defs><linearGradient id=\"svgID0\" x1=\"14\" x2=\"50\" y1=\"13\" y2=\"52\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#ff5c8a\"/><stop offset=\"1\" stop-color=\"#ff9f1c\"/></linearGradient></defs><path fill=\"#fff\" d=\"M0 0h64v64H0z\"/><circle cx=\"39\" cy=\"25\" r=\"15\" fill=\"#22b8f0\" opacity=\".16\"/><path fill=\"url(#svgID0)\" d=\"M32 52S14 40.8 14 27.2C14 18 21 13 26 13c3 0 5 1.5 6 3 1-1.5 3-3 6-3 5 0 12 5 12 14.2C50 40.8 32 52 32 52\"/>"
+    },
+    "wenta-mark": {
+      "body": "<defs><linearGradient id=\"svgID0\" x1=\"14\" x2=\"50\" y1=\"13\" y2=\"52\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#ff5c8a\"/><stop offset=\"1\" stop-color=\"#ff9f1c\"/></linearGradient></defs><circle cx=\"39\" cy=\"25\" r=\"15\" fill=\"#22b8f0\" opacity=\".16\"/><path fill=\"url(#svgID0)\" d=\"M32 52S14 40.8 14 27.2C14 18 21 13 26 13c3 0 5 1.5 6 3 1-1.5 3-3 6-3 5 0 12 5 12 14.2C50 40.8 32 52 32 52\"/>"
     }
   },
   "width": 64,

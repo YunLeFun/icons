@@ -116,6 +116,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/play': 'play',
       'YunLeFun/skykeeper': 'skykeeper',
       'YunLeFun/support': 'support',
+      'YunLeFun/wenta': 'wenta',
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
       'YunYouJun/advjs': '../YunYouJun/advjs',
       'YunYouJun/cook': '../YunYouJun/cook',
