@@ -98,3 +98,9 @@ import {
 [Design](https://ui.yunle.fun/) 管理设计规范、组件和 `vitepress-theme-yunlefun`；本仓库独立管理图形、来源元数据和 Iconify 发布。两个仓库通过包依赖和导航链接连接。
 
 Design 使用 `ylf:design-mark`（跟随 `currentColor`）与 `ylf:design-app-icon`（品牌蓝方形图标）；文档与 Wiki 复用 `ylf:brand-mark`。修改图形时只更新这里的 SVG，再升级消费者依赖。
+
+## 共享文档主题
+
+本站复用 `vitepress-theme-yunlefun` 的导航、搜索、Markdown 排版与亮暗设计变量，和[设计系统](https://ui.yunle.fun/)、[文档](https://docs.yunle.fun/)保持一致。图标目录保留主体／完整图标／平台预览、尺寸、辅助线、复制与下载功能，产品图标保留原有配色。
+
+工作台网格、面板与透明棋盘格从主题的 `workbench.css` 按需引入，站点不再复制一套全局配色。

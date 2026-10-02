@@ -1,5 +1,7 @@
 minimumReleaseAgeExclude:
   - tsx@4.23.10
+  - '@yunlefun/icons@0.3.1'
+  - '@yunlefun/ui@0.0.6'
 
 shellEmulator: true
 trustPolicy: no-downgrade
@@ -13,7 +15,6 @@ packages:
 
 catalog:
   '@antfu/eslint-config': ^9.3.0
-  '@fontsource-variable/ibm-plex-sans': ^5.3.0
   '@fontsource/ibm-plex-mono': ^5.3.0
   '@iconify/tools': ^5.0.12
   '@iconify/types': ^2.0.0
@@ -31,5 +32,6 @@ catalog:
   unocss: ^66.7.5
   vite: ^8.2.0
   vitepress: ^2.0.0-alpha.19
+  vitepress-theme-yunlefun: https://github.com/YunLeFun/design/releases/download/theme-v0.3.0/vitepress-theme-yunlefun-0.3.0.tgz
   vitest: ^4.1.10
   vue: ^3.5.41

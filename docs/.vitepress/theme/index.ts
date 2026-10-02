@@ -1,8 +1,8 @@
-import '@fontsource-variable/ibm-plex-sans'
+import Theme from 'vitepress-theme-yunlefun'
 import '@fontsource/ibm-plex-mono/400.css'
 import 'uno.css'
+import 'vitepress-theme-yunlefun/style.css'
+import 'vitepress-theme-yunlefun/workbench.css'
 import './style.css'
-
-import Theme from 'vitepress/theme'
 
 export default Theme

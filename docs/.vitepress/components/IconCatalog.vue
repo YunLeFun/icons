@@ -268,7 +268,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="catalog-shell">
+  <main class="catalog-shell ylf-workbench">
     <header class="catalog-masthead">
       <div class="masthead-brand">
         <span
@@ -345,7 +345,7 @@ onBeforeUnmount(() => {
           <span class="result-count" aria-live="polite">{{ filteredProducts.length }} / {{ iconProducts.length }}</span>
         </div>
 
-        <section class="preview-toolbar" aria-label="图标预览设置">
+        <section class="preview-toolbar ylf-workbench-panel ylf-workbench-grid" aria-label="图标预览设置">
           <div class="preview-toolbar-heading">
             <p>YunLeFun Preview Reference</p>
             <strong>{{ selectedPreviewMode.label }}</strong>
@@ -446,7 +446,7 @@ onBeforeUnmount(() => {
           <article v-for="product in filteredProducts" :key="product.id" class="icon-card" :data-icon="product.id">
             <div class="icon-preview">
               <div
-                class="preview-stage"
+                class="preview-stage ylf-workbench-checker"
                 :data-template="previewTemplate"
                 :data-mask="selectedPreviewTemplate.mask"
                 :data-mode="previewModeForProduct(product)"

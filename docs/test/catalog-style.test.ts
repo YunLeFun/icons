@@ -12,7 +12,7 @@ describe('catalog responsive and focus styles', () => {
   })
 
   it('distinguishes keyboard focus from the selected state', () => {
-    expect(catalogStyles).toMatch(/\.preview-options button:focus-visible\s*{[^}]*outline:\s*2px solid var\(--catalog-orange\)/s)
-    expect(catalogStyles).toMatch(/\.preview-guide-toggle:focus-visible\s*{[^}]*outline:\s*2px solid var\(--catalog-orange\)/s)
+    expect(catalogStyles).toMatch(/\.preview-options button:focus-visible\s*{[^}]*outline:\s*2px solid var\(--catalog-accent\)/s)
+    expect(catalogStyles).toMatch(/\.preview-guide-toggle:focus-visible\s*{[^}]*outline:\s*2px solid var\(--catalog-accent\)/s)
   })
 })

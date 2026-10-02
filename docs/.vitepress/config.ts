@@ -1,10 +1,11 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vitepress'
+import { withYunlefun, yunlefunMarkdown, zhThemeConfig } from 'vitepress-theme-yunlefun/config'
 import { publishCanonicalIconAssets } from './published-icon-assets.ts'
 
-export default defineConfig({
+export default defineConfig(withYunlefun({
   lang: 'zh-CN',
-  title: 'YunLeFun Icons',
+  title: '云乐坊图标',
   description: '云乐坊品牌与产品图标集',
   cleanUrls: true,
   sitemap: {
@@ -18,10 +19,12 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-    ['meta', { name: 'theme-color', content: '#F4F1E8' }],
+    ['meta', { name: 'theme-color', content: '#f8fafc' }],
   ],
+  markdown: { config: md => md.use(yunlefunMarkdown) },
   themeConfig: {
-    logo: '/favicon.svg',
+    ...zhThemeConfig,
+    brand: { icon: 'brand-mark' },
     nav: [
       { text: '图标目录', link: '/' },
       { text: '设计系统', link: 'https://ui.yunle.fun/' },
@@ -36,9 +39,6 @@ export default defineConfig({
         ],
       },
     ],
-    search: {
-      provider: 'local',
-    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/YunLeFun/icons' },
     ],
@@ -47,4 +47,4 @@ export default defineConfig({
       copyright: 'Copyright © 2026 YunLeFun',
     },
   },
-})
+}))

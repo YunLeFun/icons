@@ -10,10 +10,10 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@fontsource-variable/ibm-plex-sans": "catalog:",
     "@fontsource/ibm-plex-mono": "catalog:",
     "@yunlefun/icons": "workspace:*",
     "vitepress": "catalog:",
+    "vitepress-theme-yunlefun": "catalog:",
     "vue": "catalog:"
   },
   "devDependencies": {
