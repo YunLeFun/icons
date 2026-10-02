@@ -138,3 +138,9 @@ npm trust github @yunlefun/icons \
 ## License
 
 源代码和 SVG 文件依据 [MIT License](./LICENSE) 授权。YunLeFun、云乐坊、相关产品名称、Logo 和品牌标记的使用同时受[商标政策](./TRADEMARKS.md)约束；MIT License 不授予商标权。
+
+## 与设计系统协作
+
+[Design](https://ui.yunle.fun/) 管理设计规范、组件和 `vitepress-theme-yunlefun`；本仓库独立管理图形、来源元数据和 Iconify 发布。两个仓库通过包依赖和导航链接连接。
+
+Design 使用 `ylf:design-mark`（跟随 `currentColor`）与 `ylf:design-app-icon`（品牌蓝方形图标）；文档与 Wiki 复用 `ylf:brand-mark`。修改图形时只更新这里的 SVG，再升级消费者依赖。

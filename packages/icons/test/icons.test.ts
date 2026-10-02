@@ -40,6 +40,8 @@ describe('@yunlefun/icons', () => {
 
   it('applies configured color strategies', () => {
     expect(icons.icons['brand-mark'].body).toContain('currentColor')
+    expect(icons.icons['design-mark'].body).toContain('currentColor')
+    expect(icons.icons['design-app-icon'].body).not.toContain('currentColor')
     expect(icons.icons['apps-app-icon'].body).toContain('#0078e7')
     expect(icons.icons['apps-app-icon'].body).toContain('#fff')
     expect(icons.icons['go-far-away-mark'].body).toContain('currentColor')
@@ -75,6 +77,7 @@ describe('@yunlefun/icons', () => {
       cards: 'https://cards.yunle.fun/',
       cms: 'https://cms.yunle.fun/',
       cook: 'https://cook.yunle.fun/',
+      design: 'https://ui.yunle.fun/',
       drive: 'https://drive.yunle.fun/',
       fc: 'https://fc.yunle.fun/',
       'go-far-away': 'https://go-far-away.yyj.moe/',

@@ -1,3 +1,10 @@
+# 0.3.0 (2026-10-02)
+
+### Features
+
+* Add the Design mark and app icon, and link the catalog to the design system.
+* Include the Wenta brand family added since 0.2.0.
+
 # 0.2.0 (2026-08-09)
 
 ### Features

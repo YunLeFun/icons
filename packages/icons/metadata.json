@@ -1,5 +1,43 @@
 [
   {
+    "name": "design-mark",
+    "product": "design",
+    "variant": "mark",
+    "title": "YunLeFun Design",
+    "titleZh": "云乐坊设计系统",
+    "description": "组件画布与四角控制点组成的设计系统标记。",
+    "category": "official-site",
+    "style": "monotone",
+    "tags": ["design", "设计系统", "组件", "canvas", "yunlefun", "mark"],
+    "website": "https://ui.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/icons",
+      "path": "packages/icons/svg/design-mark.svg",
+      "url": "https://github.com/YunLeFun/icons/blob/main/packages/icons/svg/design-mark.svg",
+      "sync": false,
+      "derivation": "为 YunLeFun Design 原创的组件画布图形；以本仓库 SVG 为唯一图形来源。"
+    }
+  },
+  {
+    "name": "design-app-icon",
+    "product": "design",
+    "variant": "app-icon",
+    "title": "YunLeFun Design",
+    "titleZh": "云乐坊设计系统",
+    "description": "品牌蓝满幅背景与白色组件画布组成的方形应用图标。",
+    "category": "official-site",
+    "style": "color",
+    "tags": ["design", "设计系统", "组件", "canvas", "yunlefun", "app-icon"],
+    "website": "https://ui.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/icons",
+      "path": "packages/icons/svg/design-app-icon.svg",
+      "url": "https://github.com/YunLeFun/icons/blob/main/packages/icons/svg/design-app-icon.svg",
+      "sync": false,
+      "derivation": "为 YunLeFun Design 原创的组件画布图形；以本仓库 SVG 为唯一图形来源。"
+    }
+  },
+  {
     "name": "brand-mark",
     "product": "brand",
     "variant": "mark",

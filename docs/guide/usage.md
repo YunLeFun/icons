@@ -92,3 +92,9 @@ import {
 - `-app-icon` 包含完整方形背景，但不包含平台圆角遮罩。
 - `<product>` 只用于元数据分组，不是图标名称。调用时必须明确选择变体，例如使用 `ylf:drive-mark` 或 `ylf:drive-app-icon`，不能使用 `ylf:drive`。
 - 集合不提供无后缀名称，也不提供指向某个变体的兼容 alias。
+
+## 与设计系统协作
+
+[Design](https://ui.yunle.fun/) 管理设计规范、组件和 `vitepress-theme-yunlefun`；本仓库独立管理图形、来源元数据和 Iconify 发布。两个仓库通过包依赖和导航链接连接。
+
+Design 使用 `ylf:design-mark`（跟随 `currentColor`）与 `ylf:design-app-icon`（品牌蓝方形图标）；文档与 Wiki 复用 `ylf:brand-mark`。修改图形时只更新这里的 SVG，再升级消费者依赖。

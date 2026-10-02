@@ -24,6 +24,7 @@ export default defineConfig({
     logo: '/favicon.svg',
     nav: [
       { text: '图标目录', link: '/' },
+      { text: '设计系统', link: 'https://ui.yunle.fun/' },
       { text: '接入指南', link: '/guide/usage' },
     ],
     sidebar: [

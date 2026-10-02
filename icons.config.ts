@@ -102,6 +102,7 @@ const iconsConfig: IconsConfig = {
     default: { mode: 'preserve' },
     icons: {
       'brand-mark': { mode: 'current-color' },
+      'design-mark': { mode: 'current-color' },
       'apps-app-icon': { mode: 'replace-current-color', color: '#0078E7' },
     },
   },
@@ -112,6 +113,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/cards': 'cards',
       'YunLeFun/cms': 'cms',
       'YunLeFun/drive': 'drive',
+      'YunLeFun/icons': 'icons',
       'YunLeFun/fc': 'fc',
       'YunLeFun/play': 'play',
       'YunLeFun/skykeeper': 'skykeeper',
