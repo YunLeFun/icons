@@ -1,3 +1,10 @@
+## 0.3.1 (2026-10-02)
+
+### Bug Fixes
+
+* Resolve pnpm catalog dependencies before publishing the npm tarball.
+* Validate packed dependencies so workspace-only protocols cannot reach consumers.
+
 # 0.3.0 (2026-10-02)
 
 ### Features

@@ -1,7 +1,7 @@
 {
   "name": "@yunlefun/icons",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "YunLeFun brand and product icons in IconifyJSON format",
   "author": "YunLeFun",
   "license": "MIT",
@@ -48,7 +48,7 @@
     "collect": "tsx scripts/collect.ts",
     "collect:check": "tsx scripts/collect.ts --check",
     "dev": "unbuild --stub",
-    "pack:check": "pnpm build && npm pack --dry-run --json",
+    "pack:check": "pnpm build && node scripts/check-package.mjs",
     "prepublishOnly": "pnpm build && pnpm test && pnpm typecheck",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json"

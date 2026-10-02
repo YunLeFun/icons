@@ -39,4 +39,5 @@ jobs:
         working-directory: packages/icons
         run: |
           RELEASE_DIST_TAG=$(node -p "const version = require('./package.json').version; version.includes('-') ? version.split('-')[1].split('.')[0] : 'latest'")
-          npm publish --tag "$RELEASE_DIST_TAG"
+          pnpm pack --out "$RUNNER_TEMP/yunlefun-icons.tgz"
+          npm publish "$RUNNER_TEMP/yunlefun-icons.tgz" --tag "$RELEASE_DIST_TAG"
