@@ -1,15 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>云乐盘应用图标</title>
   <defs>
-    <linearGradient id="drive-app-gradient" x1="8" y1="6" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#075985"/>
-      <stop offset=".62" stop-color="#0284C7"/>
-      <stop offset="1" stop-color="#38BDF8"/>
+    <linearGradient id="drive-sky" x1="32" y1="0" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#55aaff"/>
+      <stop offset="1" stop-color="#2563eb"/>
     </linearGradient>
-    <mask id="drive-app-arrow" x="0" y="0" width="64" height="64" maskUnits="userSpaceOnUse" mask-type="luminance">
-      <rect width="64" height="64" fill="#FFF"/>
-      <path d="m21.75 28 10.25 9.5L42.25 28M32 37.5v10" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-    </mask>
   </defs>
-  <rect width="64" height="64" fill="url(#drive-app-gradient)"/>
-  <path fill="#F8FCFF" mask="url(#drive-app-arrow)" d="M17.2 47.5h29.6c5.7 0 10.2-4.3 10.2-9.7 0-4.9-3.7-9-8.6-9.7-1.8-7.3-8.2-12.6-16-12.6-7.4 0-13.7 4.8-15.7 11.7C11.1 28.1 7 32.7 7 38.3c0 5.1 4.5 9.2 10.2 9.2Z"/>
+  <rect width="64" height="64" fill="url(#drive-sky)"/>
+  <g fill="#ffffff">
+    <path d="M16.5 37C11.806 37 8 33.194 8 28.5S11.806 20 16.5 20C17.93 20 19.28 20.353 20.466 20.978C21.786 15.815 26.465 12 32 12S42.214 15.815 43.534 20.978C44.72 20.353 46.07 20 47.5 20C52.194 20 56 23.806 56 28.5S52.194 37 47.5 37H16.5Z"/>
+    <path fill-rule="evenodd" d="M16 41H48C50.209 41 52 42.791 52 45V48C52 50.209 50.209 52 48 52H16C13.791 52 12 50.209 12 48V45C12 42.791 13.791 41 16 41ZM27 45A1.5 1.5 0 0 0 27 48H37A1.5 1.5 0 0 0 37 45H27Z"/>
+  </g>
 </svg>

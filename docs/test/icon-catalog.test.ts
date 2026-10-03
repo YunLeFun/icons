@@ -38,7 +38,8 @@ describe('IconCatalog preview controls', () => {
     expect(wrapper.get('[data-icon="brand"] .icon-style').text()).toBe('MARK ONLY')
     expect(wrapper.get('[data-testid="copy-class-brand"]').attributes('disabled')).toBeUndefined()
     expect(wrapper.get('[data-icon="brand"] .source-status').text()).toBe('SYNC')
-    expect(wrapper.get('[data-icon="drive"] .source-status').text()).toBe('DERIVED')
+    expect(wrapper.get('[data-icon="drive"] .source-status').text()).toBe('SYNC')
+    expect(wrapper.get('[data-icon="play"] .source-status').text()).toBe('DERIVED')
   })
 
   it('links products to their independent sites when available', () => {
