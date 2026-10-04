@@ -172,18 +172,17 @@
     "product": "drive",
     "variant": "mark",
     "title": "YunLe Drive",
-    "titleZh": "云盘",
-    "description": "彩色云朵与下载符号组成的透明主体标记。",
+    "titleZh": "云乐盘",
+    "description": "晴空蓝云朵与收纳匣组成的透明云盘标记。",
     "category": "utility",
     "style": "color",
-    "tags": ["drive", "云盘", "storage", "上传", "media", "mark", "主体"],
+    "tags": ["drive", "云乐盘", "云盘", "storage", "收纳", "media", "mark", "主体"],
     "website": "https://drive.yunle.fun/",
     "source": {
       "repository": "YunLeFun/drive",
       "path": "packages/ui/assets/drive-mark.svg",
       "url": "https://github.com/YunLeFun/drive/blob/main/packages/ui/assets/drive-mark.svg",
-      "sync": false,
-      "derivation": "移除预裁圆角底板，保留云朵与箭头主体。"
+      "sync": true
     }
   },
   {
@@ -191,18 +190,17 @@
     "product": "drive",
     "variant": "app-icon",
     "title": "YunLe Drive",
-    "titleZh": "云盘",
-    "description": "满幅蓝色渐变背景与白色云朵组成的方形应用图标。",
+    "titleZh": "云乐盘",
+    "description": "满幅晴空蓝背景与白色云朵、收纳匣组成的方形应用图标。",
     "category": "utility",
     "style": "color",
-    "tags": ["drive", "云盘", "storage", "上传", "media", "app icon", "完整图标"],
+    "tags": ["drive", "云乐盘", "云盘", "storage", "收纳", "media", "app icon", "完整图标"],
     "website": "https://drive.yunle.fun/",
     "source": {
       "repository": "YunLeFun/drive",
-      "path": "packages/ui/assets/drive-mark.svg",
-      "url": "https://github.com/YunLeFun/drive/blob/main/packages/ui/assets/drive-mark.svg",
-      "sync": false,
-      "derivation": "将原圆角底板改为无遮罩的满幅方形背景。"
+      "path": "packages/ui/assets/drive-app-icon.svg",
+      "url": "https://github.com/YunLeFun/drive/blob/main/packages/ui/assets/drive-app-icon.svg",
+      "sync": true
     }
   },
   {
