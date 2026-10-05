@@ -100,6 +100,23 @@ function toJsx(body: string): string {
   return body.replace(attributePattern, attribute => `${jsxAttributeNames[attribute.slice(0, -1)]}=`)
 }
 
+// Static name prefixes isolate different icons, but repeated instances also need an ID.
+// Bind definitions and references together; keep the framework ID intact (including React's colons).
+function bindInstanceIds(body: string, format: 'react' | 'vue'): string {
+  const ids = new Set([...body.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]))
+  return body.replace(/([\w:-]+)="([^"]*)"/g, (attribute, name: string, value: string) => {
+    let dynamic = name === 'id' && ids.has(value) ? `\${id}-${value}` : value
+    for (const id of ids) {
+      dynamic = dynamic.replaceAll(`url(#${id})`, `url(#\${id}-${id})`)
+      if ((name === 'href' || name === 'xlink:href') && value === `#${id}`)
+        dynamic = `#\${id}-${id}`
+    }
+    if (dynamic === value)
+      return attribute
+    return format === 'vue' ? `:${name}="\`${dynamic}\`"` : `${name}={\`${dynamic}\`}`
+  })
+}
+
 export function createSvgSource(name: IconName): string {
   const icon = getIconSource(name)
   return [
@@ -113,9 +130,11 @@ export function createSvgSource(name: IconName): string {
 export function createVueComponentSource(name: IconName): string {
   const icon = getIconSource(name)
   const namePascal = componentName(name)
+  const hasIds = /\bid="/.test(icon.body)
 
   return [
     '<script setup lang="ts">',
+    ...(hasIds ? ["import { useId } from 'vue'", '', "const id = `ylf-vue-${useId()}`", ''] : []),
     'interface Props {',
     '  size?: number | string',
     '  title?: string',
@@ -139,7 +158,7 @@ export function createVueComponentSource(name: IconName): string {
     '    v-bind="$attrs"',
     '  >',
     '    <title v-if="title">{{ title }}</title>',
-    formatSvgBody(icon.body, '    '),
+    formatSvgBody(bindInstanceIds(icon.body, 'vue'), '    '),
     '  </svg>',
     '</template>',
     '',
@@ -149,9 +168,11 @@ export function createVueComponentSource(name: IconName): string {
 export function createReactComponentSource(name: IconName): string {
   const icon = getIconSource(name)
   const namePascal = componentName(name)
+  const hasIds = /\bid="/.test(icon.body)
 
   return [
     "import type { SVGProps } from 'react'",
+    ...(hasIds ? ["import { useId } from 'react'"] : []),
     '',
     `export type ${namePascal}Props = Omit<SVGProps<SVGSVGElement>, 'title'> & {`,
     '  size?: number | string',
@@ -159,6 +180,7 @@ export function createReactComponentSource(name: IconName): string {
     '}',
     '',
     `export function ${namePascal}({ size = '1em', title, ...props }: ${namePascal}Props) {`,
+    ...(hasIds ? ['  const id = `ylf-react-${useId()}`'] : []),
     '  return (',
     '    <svg',
     '      xmlns="http://www.w3.org/2000/svg"',
@@ -170,7 +192,7 @@ export function createReactComponentSource(name: IconName): string {
     '      {...props}',
     '    >',
     '      {title ? <title>{title}</title> : null}',
-    formatSvgBody(toJsx(icon.body), '      '),
+    formatSvgBody(toJsx(bindInstanceIds(icon.body, 'react')), '      '),
     '    </svg>',
     '  )',
     '}',

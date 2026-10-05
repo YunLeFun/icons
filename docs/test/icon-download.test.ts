@@ -25,6 +25,9 @@ describe('icon downloads', () => {
     expect(source).toContain(':width="size"')
     expect(source).toContain('<title v-if="title">{{ title }}</title>')
     expect(source).toContain('viewBox="0 0 64 64"')
+    expect(source).toContain("import { useId } from 'vue'")
+    expect(source).toContain(':id="`${id}-ylf-drive-app-icon-svgID0`"')
+    expect(source).toContain(':fill="`url(#${id}-ylf-drive-app-icon-svgID0)`"')
   })
 
   it('creates valid React-style SVG attributes', () => {
@@ -34,9 +37,17 @@ describe('icon downloads', () => {
     expect(source).toContain("import type { SVGProps } from 'react'")
     expect(source).toContain('fillRule="evenodd"')
     expect(source).toContain('stopColor=')
+    expect(source).toContain("import { useId } from 'react'")
+    expect(source).toContain('id={`${id}-ylf-drive-app-icon-svgID0`}')
+    expect(source).toContain('fill={`url(#${id}-ylf-drive-app-icon-svgID0)`}')
     expect(source).not.toContain('fill-rule=')
     expect(strokedSource).toContain('strokeLinecap="round"')
     expect(strokedSource).not.toContain('stroke-linecap=')
+  })
+
+  it('keeps simple components free of unnecessary ID hooks', () => {
+    expect(createVueComponentSource('brand-mark')).not.toContain('useId')
+    expect(createReactComponentSource('brand-mark')).not.toContain('useId')
   })
 
   it('uses stable filenames for every download format', () => {

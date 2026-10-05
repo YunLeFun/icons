@@ -12,13 +12,18 @@ allowBuilds:
 packages:
   - docs
   - packages/*
+  - tests/consumer
 
 catalog:
   '@antfu/eslint-config': ^9.3.0
   '@fontsource/ibm-plex-mono': ^5.3.0
   '@iconify/tools': ^5.0.12
   '@iconify/types': ^2.0.0
+  '@iconify/vue': ^5.0.3
+  '@playwright/test': ^1.63.0
   '@types/node': ^26.1.2
+  '@types/react': ^19.3.0
+  '@types/react-dom': ^19.3.0
   '@vitejs/plugin-vue': ^6.0.8
   '@vue/test-utils': ^2.4.11
   bumpp: ^12.2.0
@@ -26,6 +31,9 @@ catalog:
   conventional-changelog-angular: ^9.2.1
   eslint: ^10.8.0
   happy-dom: ^20.11.1
+  pngjs: ^7.0.0
+  react: ^19.3.0
+  react-dom: ^19.3.0
   tsx: ^4.23.10
   typescript: ^5.9.3
   unbuild: ^3.6.1
@@ -35,3 +43,4 @@ catalog:
   vitepress-theme-yunlefun: https://github.com/YunLeFun/design/releases/download/theme-v0.3.0/vitepress-theme-yunlefun-0.3.0.tgz
   vitest: ^4.1.10
   vue: ^3.5.41
+  vue-tsc: ^3.3.12

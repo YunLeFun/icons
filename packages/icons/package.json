@@ -26,7 +26,9 @@
       "import": "./dist/index.mjs"
     },
     "./icons.json": "./icons.json",
+    "./icons/*": "./icons/*.json",
     "./metadata.json": "./metadata.json",
+    "./svg/*.svg": "./svg/*.svg",
     "./svg/*": "./svg/*.svg"
   },
   "main": "./dist/index.mjs",
@@ -39,6 +41,7 @@
   "files": [
     "TRADEMARKS.md",
     "dist",
+    "icons",
     "icons.json",
     "metadata.json",
     "svg"

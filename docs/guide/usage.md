@@ -11,6 +11,8 @@ pnpm add -D unocss
 
 也可以直接在[图标目录](/)切换到所需主体层或完整图标，然后复制 SVG，或下载独立的 `.svg`、Vue `.vue` 与 React `.tsx` 文件。下载组件不依赖本图标包，保留规范 viewBox、品牌色与 `currentColor` 行为。
 
+含渐变、遮罩或裁剪定义的下载组件使用框架 `useId`，重复挂载时每个实例有独立 SVG ID；需要 Vue 3.5+ / React 18+。同页多个独立应用应分别设置 Vue 的 `app.config.idPrefix` 或 React 的 `identifierPrefix`，SSR 时保持服务端和客户端配置一致。独立 SVG 适合 `<img>`；重复内联原始 SVG 时仍需自行隔离 ID。
+
 ## UnoCSS
 
 在 `uno.config.ts` 中将包内 IconifyJSON 注册为 `ylf` 集合：
@@ -52,6 +54,21 @@ export default defineConfig({
 
 集合前缀是 `ylf`，标准名称为 `ylf:<name>`。
 
+按需导入单枚图标：
+
+```vue
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
+import driveMark from '@yunlefun/icons/icons/drive-mark'
+</script>
+
+<template>
+  <Icon :icon="driveMark" />
+</template>
+```
+
+需要运行时通过字符串选择整个集合时，可以使用下面的 `addCollection`。它会引入完整集合；`icons.icons[name]` 也不能保证 tree-shaking，应在体积敏感场景使用上面的单图标入口。
+
 ```ts
 import { addCollection } from '@iconify/vue'
 import icons from '@yunlefun/icons/icons.json'
@@ -84,7 +101,11 @@ import {
 
 ## 色彩行为
 
-`brand-mark` 是单色图标，可通过 `color` 改色。产品图标保留其原始色板，UnoCSS 会自动使用适合多色 SVG 的背景图模式。
+`brand-mark` 和 `design-mark` 是单色图标，可通过 `color` 改色。固定配色的产品图标由 UnoCSS 使用背景图模式。
+
+`go-far-away-mark` 同时包含 currentColor 主体和固定蓝绿细节。UnoCSS 默认选择 mask，会将细节一起染为单色；强制 `?bg` 也不能继承页面的 currentColor。需要完整配色时使用 Iconify、下载的 Vue/React 组件，或固定配色的 `go-far-away-app-icon`。
+
+仓库中的[消费者验收说明](https://github.com/YunLeFun/icons/blob/main/tests/consumer/README.md)提供本地 tarball 消费样例、浏览器对比截图和按需体积检查。发布预检通过 `pnpm consumer:check` 运行该流程。
 
 ## 主体与完整图标
 

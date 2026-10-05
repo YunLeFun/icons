@@ -10,6 +10,10 @@
   "scripts": {
     "build": "pnpm --filter @yunlefun/icons build",
     "changelog": "pnpm --dir packages/icons exec conventional-changelog -p angular -i ../../CHANGELOG.md -s -r 0",
+    "consumer:browser:install": "pnpm --filter @yunlefun/icons-consumer-tests browser:install",
+    "consumer:check": "pnpm build && pnpm --filter @yunlefun/icons-consumer-tests check",
+    "consumer:prepare": "pnpm build && pnpm --filter @yunlefun/icons-consumer-tests prepare:fixture",
+    "consumer:preview": "pnpm --dir .artifacts/consumer/project preview",
     "dev": "pnpm docs:dev",
     "docs:build": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons-docs build",
     "docs:dev": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons-docs dev",
@@ -19,7 +23,7 @@
     "lint": "eslint .",
     "pack:check": "pnpm --filter @yunlefun/icons pack:check",
     "release": "pnpm release:preflight && pnpm release:version",
-    "release:preflight": "pnpm build && pnpm test && pnpm lint && pnpm typecheck && pnpm docs:build && pnpm pack:check",
+    "release:preflight": "pnpm build && pnpm test && pnpm lint && pnpm typecheck && pnpm docs:build && pnpm pack:check && pnpm consumer:check",
     "release:version": "bumpp",
     "test": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons test && pnpm --filter @yunlefun/icons-docs test",
     "typecheck": "pnpm --filter @yunlefun/icons build && pnpm --filter @yunlefun/icons typecheck"

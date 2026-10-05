@@ -1,0 +1,14 @@
+:root { font-family: system-ui, sans-serif; line-height: 16px; color: #253346; background: #f5f7fa; }
+body { margin: 0; padding: 24px; }
+main { width: 910px; margin: auto; }
+h1 { font-size: 24px; line-height: 32px; letter-spacing: -.5px; margin: 0 0 8px; }
+p { font-size: 13px; line-height: 20px; color: #64748b; margin: 0 0 24px; }
+.row { display: grid; grid-template-columns: 190px repeat(5, 144px); align-items: center; border-bottom: 1px solid #dbe2eb; padding: 8px 0; }
+.heading { font-size: 12px; text-transform: uppercase; font-weight: 700; }
+.label { font-size: 12px; font-family: monospace; }
+.label small { display: block; color: #9a5800; font: 11px system-ui; margin-top: 6px; }
+.pair { display: flex; gap: 4px; }
+.sample { display: inline-flex; width: 64px; height: 64px; color: #c026d3; background: repeating-conic-gradient(#e4eaf1 0% 25%, #fff 0% 50%) 0 0 / 16px 16px; }
+.sample[data-copy="1"] { color: #0891b2; }
+.sample > .glyph { display: block; width: 64px; height: 64px; flex: none; }
+.omitted { color: #94a3b8; margin: auto; }

@@ -33,8 +33,16 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Verify tag matches package version
         run: node -e "const { version } = require('./packages/icons/package.json'); const expected = 'v' + version; if (process.env.GITHUB_REF_NAME !== expected) { console.error('Expected tag ' + expected + ', received ' + process.env.GITHUB_REF_NAME); process.exit(1) }"
-      - name: Run release preflight
+      - name: Install consumer browser
+        run: pnpm --filter @yunlefun/icons-consumer-tests exec playwright install --with-deps chromium
+      - name: Validate release assets
         run: pnpm release:preflight
+      - name: Upload consumer evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: consumer-acceptance
+          path: .artifacts/consumer/results
       - name: Publish with npm trusted publishing
         working-directory: packages/icons
         run: |

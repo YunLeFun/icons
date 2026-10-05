@@ -53,6 +53,14 @@ describe('@yunlefun/icons', () => {
     expect(icons.icons['fc-app-icon'].body).toContain('#fff')
   })
 
+  it('generates standalone Iconify data with explicit inherited dimensions', async () => {
+    for (const name of iconNames) {
+      const single = JSON.parse(await readFile(resolve(import.meta.dirname, `../icons/${name}.json`), 'utf8'))
+      const expected = icons.icons[name]!
+      expect(single).toEqual({ ...expected, width: expected.width ?? icons.width ?? 16, height: expected.height ?? icons.height ?? 16 })
+    }
+  })
+
   it('provides explicitly named mark and app-icon variants', () => {
     const products = [...new Set(metadataJSON.map(item => item.product))]
 

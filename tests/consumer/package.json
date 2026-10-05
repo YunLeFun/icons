@@ -1,0 +1,26 @@
+{
+  "name": "@yunlefun/icons-consumer-tests",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "prepare:fixture": "node prepare.mjs",
+    "check": "node prepare.mjs && node verify.mjs",
+    "browser:install": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@iconify/vue": "catalog:",
+    "@playwright/test": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "pngjs": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "unocss": "catalog:",
+    "vite": "catalog:",
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

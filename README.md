@@ -48,7 +48,11 @@ pnpm test
 pnpm lint
 pnpm typecheck
 pnpm docs:build
+pnpm consumer:browser:install # 首次安装浏览器
+pnpm consumer:check
 ```
+
+[消费者验收样例与说明](./tests/consumer/README.md)会将本地 tarball 安装到独立项目，验证 UnoCSS、Iconify Vue 和目录下载的 Vue/React 组件。`pnpm consumer:preview` 可查看生成样例，截图和体积报告位于 `.artifacts/consumer/results/`。
 
 ## UnoCSS
 
@@ -85,6 +89,8 @@ addCollection(icons)
 
 图标名称使用 `ylf:<product>-<variant>`，例如 `ylf:drive-mark` 和 `ylf:drive-app-icon`。必须明确选择变体，`ylf:drive` 不是有效名称。
 
+`addCollection` 会引入完整集合。只需要一枚图标时，使用 `import icon from '@yunlefun/icons/icons/brand-mark'`，并将它传给 Iconify 的 `icon` 属性。
+
 ## 添加图标
 
 1. 除纯品牌外的产品同时添加 `<product>-mark` 和 `<product>-app-icon`；品牌可以只提供 `-mark`。
@@ -113,7 +119,7 @@ pnpm icons:collect       # 更新仓库内的规范 SVG 快照
 本地准备版本：
 
 ```bash
-pnpm release:preflight        # 完整校验与 pack dry-run
+pnpm release:preflight        # 完整校验、真实 pack 与浏览器消费验收
 pnpm release                 # 交互选择版本，更新 CHANGELOG、提交并创建 tag
 git push origin main --follow-tags
 ```

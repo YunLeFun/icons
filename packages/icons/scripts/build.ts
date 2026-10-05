@@ -1,5 +1,5 @@
 import type { IconifyJSON } from '@iconify/types'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { importDirectory } from '@iconify/tools'
 import iconsConfig, { getIconColorStrategy } from '../../../icons.config'
@@ -177,5 +177,18 @@ await Promise.all([
   writeFile(outputPath, `${JSON.stringify(iconifyJSON, null, 2)}\n`),
   writeFile(generatedPath, generatedSource),
 ])
+
+// Standalone data avoids retaining the collection object when a runtime needs one icon.
+const individualDirectory = resolve(packageRoot, 'icons')
+await rm(individualDirectory, { recursive: true, force: true })
+await mkdir(individualDirectory, { recursive: true })
+await Promise.all(iconNames.map((name) => {
+  const icon = sortedIcons[name]!
+  return writeFile(resolve(individualDirectory, `${name}.json`), `${JSON.stringify({
+    ...icon,
+    width: icon.width ?? iconifyJSON.width ?? 16,
+    height: icon.height ?? iconifyJSON.height ?? 16,
+  })}\n`)
+}))
 
 console.log(`Built ${iconNames.length} icons with prefix \"${iconsConfig.prefix}\"`)
