@@ -15,6 +15,7 @@ interface SourceMetadata {
   website?: string
   source: {
     repository: string
+    ref?: string
     path: string
     url: string
     sync: boolean
@@ -59,7 +60,11 @@ for (const icon of metadata) {
   if (!iconsConfig.sources.repositories[icon.source.repository])
     throw new Error(`No source checkout configured for ${icon.source.repository}`)
 
-  const expectedSourceUrl = `https://github.com/${icon.source.repository}/blob/main/${icon.source.path}`
+  const sourceRef = icon.source.ref ?? 'main'
+  if (!sourceRef || sourceRef.trim() !== sourceRef)
+    throw new Error(`Invalid source ref for ${icon.name}`)
+
+  const expectedSourceUrl = `https://github.com/${icon.source.repository}/blob/${sourceRef}/${icon.source.path}`
   if (icon.source.url !== expectedSourceUrl)
     throw new Error(`Invalid source URL for ${icon.name}: expected ${expectedSourceUrl}`)
 

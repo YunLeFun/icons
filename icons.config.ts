@@ -122,6 +122,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
       'YunYouJun/advjs': '../YunYouJun/advjs',
       'YunYouJun/cook': '../YunYouJun/cook',
+      'YunYouJun/el-bot': '../YunYouJun/el-bot',
       'YunYouJun/go-far-away': '../YunYouJun/go-far-away',
       'YunYouJun/smap': '../YunYouJun/smap',
     },

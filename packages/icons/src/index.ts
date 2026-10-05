@@ -11,6 +11,7 @@ export type IconVariant = 'app-icon' | 'mark'
 
 export interface IconSource {
   repository: string
+  ref?: string
   path: string
   url: string
   sync: boolean

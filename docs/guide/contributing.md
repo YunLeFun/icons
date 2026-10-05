@@ -24,6 +24,8 @@ pnpm docs:build
 
 `pnpm icons:collect:check` 只比较 `source.sync: true` 的子应用源文件与仓库内 SVG 快照，不写文件。派生变体由本仓库管理 canonical SVG，但仍保留上游 provenance。默认从本仓库的同级目录查找其他 YunLeFun 仓库，可通过 `YLF_REPOSITORIES_ROOT` 覆盖仓库根目录。普通构建不会访问这些仓库。
 
+`source.ref` 可指定上游分支或 Git ref，省略时使用 `main`；`source.url` 必须指向相同的 ref 和文件路径。例如 el-bot 使用 `ref: "dev"` 与 `https://github.com/YunYouJun/el-bot/blob/dev/assets/brand/el-bot-mark.svg`。收集命令读取当前本地 checkout 的文件，请检出相应分支后再同步。
+
 ## 视觉规范
 
 YunLeFun 图标以 Apple Human Interface Guidelines 的图标原则和官方生产模板作为视觉参考基线：

@@ -87,6 +87,7 @@ describe('@yunlefun/icons', () => {
       cook: 'https://cook.yunle.fun/',
       design: 'https://ui.yunle.fun/',
       drive: 'https://drive.yunle.fun/',
+      'el-bot': 'https://docs.bot.elpsy.cn/',
       fc: 'https://fc.yunle.fun/',
       'go-far-away': 'https://go-far-away.yyj.moe/',
       home: 'https://www.yunle.fun/',
