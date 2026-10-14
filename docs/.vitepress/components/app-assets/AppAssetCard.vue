@@ -8,6 +8,8 @@ const props = defineProps<{ asset: AppAsset, size: number, rounded: boolean }>()
 const identityLabel = computed(() => identityLabels[props.asset.applicationIdentity.status])
 const source = computed(() => props.asset.desktopAsset.source)
 const sourceLabel = computed(() => source.value.repository || source.value.tool || '正式品牌资源')
+const adoption = computed(() => props.asset.desktopAsset.adoption)
+const archived = computed(() => props.asset.previousIcon?.archivedArtwork)
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const sourceLabel = computed(() => source.value.repository || source.value.tool 
       <span class="asset-kind" :data-kind="asset.desktopAsset.kind">{{ asset.desktopAsset.kind === 'official' ? '正式来源' : '生成变体' }}</span>
     </div>
     <AssetImage :url="asset.desktopAsset.thumbnail.url" :label="`${asset.title}：桌面当前图标`" :size="size" :rounded="rounded" />
-    <div class="asset-file-row"><span>桌面采用 · {{ asset.desktopAsset.version }}</span><span>256px WebP · {{ formatBytes(asset.desktopAsset.thumbnail.bytes) }}</span></div>
+    <div class="asset-file-row"><span>{{ adoption ? '已选用新版图标' : '桌面采用' }} · {{ asset.desktopAsset.version }}</span><span>256px WebP · {{ formatBytes(asset.desktopAsset.thumbnail.bytes) }}</span></div>
     <p class="asset-description">{{ asset.description }}</p>
     <div class="asset-actions">
       <a :href="asset.desktopAsset.thumbnail.url" target="_blank" rel="noopener noreferrer">256px 缩略图 ↗</a>
@@ -25,16 +27,22 @@ const sourceLabel = computed(() => source.value.repository || source.value.tool 
     </div>
     <dl class="asset-provenance">
       <div><dt>应用身份</dt><dd>{{ identityLabel }}</dd></div>
+      <div v-if="adoption"><dt>新版选用</dt><dd>维护者已确认 · {{ adoption.approvedAt }}</dd></div>
       <div><dt>站点核实</dt><dd>{{ publicationLabels[asset.websitePublication.status] }}</dd></div>
       <div><dt>素材来源</dt><dd><a v-if="source.url" :href="source.url" target="_blank" rel="noopener noreferrer">{{ sourceLabel }} ↗</a><span v-else>{{ sourceLabel }}</span></dd></div>
     </dl>
-    <p v-if="asset.desktopAsset.kind === 'generated'" class="asset-candidate-note">仅作为桌面目录变体；未替换应用正式品牌。</p>
+    <p v-if="adoption" class="asset-candidate-note">维护者选用此画笔稿作为新版应用图标；站点发布状态单独核实。</p>
+    <p v-else-if="asset.desktopAsset.kind === 'generated'" class="asset-candidate-note">仅作为桌面目录变体；未替换应用正式品牌。</p>
     <details v-if="asset.previousIcon || asset.candidates.length" class="asset-comparison">
       <summary>原图与候选对照</summary>
       <div class="asset-comparison-grid">
         <figure v-if="asset.previousIcon">
           <AssetImage :url="asset.previousIcon.url" :label="`${asset.title}：原项目资源`" :size="56" />
           <figcaption>{{ asset.previousIcon.label }}<a :href="asset.previousIcon.source?.url || asset.previousIcon.url" target="_blank" rel="noopener noreferrer">查看来源 ↗</a></figcaption>
+        </figure>
+        <figure v-if="archived">
+          <AssetImage :url="archived.thumbnail.url" :label="`${asset.title}：已归档的上一版桌面图`" :size="56" :rounded="rounded" />
+          <figcaption>上一版桌面图 · 已归档<a :href="archived.master.url" target="_blank" rel="noopener noreferrer">1024px 原图 ↗</a></figcaption>
         </figure>
         <figure v-for="candidate in asset.candidates" :key="candidate.thumbnail.url">
           <AssetImage :url="candidate.thumbnail.url" :label="`${asset.title}：未采用候选图`" :size="56" :rounded="rounded" />
@@ -49,6 +57,7 @@ const sourceLabel = computed(() => source.value.repository || source.value.tool 
       <p v-if="source.commit"><strong>源码 commit</strong> {{ source.commit }}</p>
       <p><strong>WebP SHA-256</strong> {{ asset.desktopAsset.thumbnail.sha256 }}</p>
       <p><strong>PNG 存储对象 SHA-256</strong> {{ asset.desktopAsset.master.sha256 }}</p>
+      <p v-if="archived"><strong>上一版桌面图 WebP SHA-256</strong> {{ archived.thumbnail.sha256 }}</p>
       <p v-if="asset.websitePublication.iconUrl"><a :href="asset.websitePublication.iconUrl" target="_blank" rel="noopener noreferrer">站点声明或已核实的图标资源 ↗</a></p>
       <p class="asset-evidence-note">源码 commit 与站点部署版本分别记录；本目录不声明新素材已在应用网站发布。</p>
     </details>

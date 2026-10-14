@@ -5,8 +5,8 @@ describe('external app asset contract', () => {
   it('keeps selected official sources, generated desktop variants and candidates separate', () => {
     const assets = appAssetManifest.assets
     expect(assets).toHaveLength(28)
-    expect(filterAppAssets(assets, '', 'official')).toHaveLength(17)
-    expect(filterAppAssets(assets, '', 'generated')).toHaveLength(11)
+    expect(filterAppAssets(assets, '', 'official')).toHaveLength(16)
+    expect(filterAppAssets(assets, '', 'generated')).toHaveLength(12)
     const cook = assets.find(asset => asset.slug === 'cook')!
     expect(cook.desktopAsset.kind).toBe('official')
     expect(cook.desktopAsset.thumbnail.url).toContain('/v2/cook.webp')
@@ -23,8 +23,51 @@ describe('external app asset contract', () => {
 
   it('searches names and provenance without ignoring the selected source filter', () => {
     expect(filterAppAssets(appAssetManifest.assets, '  云风扇 ', 'all').map(asset => asset.slug)).toEqual(['electric-fan'])
-    expect(filterAppAssets(appAssetManifest.assets, 'YunYouJun/saier', 'official').map(asset => asset.slug)).toEqual(['pixi-painter'])
+    expect(filterAppAssets(appAssetManifest.assets, 'YunYouJun/saier', 'generated').map(asset => asset.slug)).toEqual(['pixi-painter'])
+    expect(filterAppAssets(appAssetManifest.assets, 'YunYouJun/saier', 'official')).toEqual([])
     expect(filterAppAssets(appAssetManifest.assets, 'cook', 'generated')).toEqual([])
+  })
+
+  it('selects the approved Saier artwork while preserving the old application and stored object records', () => {
+    const assets = appAssetManifest.assets
+    const saier = assets.find(asset => asset.slug === 'pixi-painter')!
+    expect(saier.desktopAsset.kind).toBe('generated')
+    expect(saier.desktopAsset.thumbnail.url).toContain('/v1/pixi-painter.webp')
+    expect(saier.desktopAsset.status).toBeUndefined()
+    expect(saier.desktopAsset.adoption).toEqual({ status: 'maintainer-approved', approvedAt: '2026-10-14', scope: 'application-icon' })
+    expect(saier.candidates).toHaveLength(0)
+    expect(saier.previousIcon!.url).toContain('/site/public/logo.svg')
+    const archived = saier.previousIcon!.archivedArtwork!
+    expect(archived.kind).toBe('official')
+    expect(archived.usage).toBe('comparison-only')
+    expect(archived.status).toBe('superseded')
+    expect(archived.thumbnail.url).toContain('/v2/pixi-painter.webp')
+    expect(archived.master.sha256).toBe('5597d94e453c78742432f515db061fbee514f033985ec8dcf98467a53e262f92')
+    expect(saier.applicationIdentity.source!.repository).toBe('YunYouJun/saier')
+    expect(saier.websitePublication.status).toBe('declared-only')
+    expect(assets.flatMap(asset => asset.candidates)).toHaveLength(4)
+    expect(assets.filter(asset => asset.previousIcon)).toHaveLength(16)
+    expect(new Set(assets.flatMap(asset => [asset.desktopAsset.thumbnail.url,
+      ...asset.candidates.map(candidate => candidate.thumbnail.url),
+      ...(asset.previousIcon?.archivedArtwork ? [asset.previousIcon.archivedArtwork.thumbnail.url] : [])])).size).toBe(33)
+  })
+
+  it('rejects selected candidate or superseded records and approval attached to comparison artwork', () => {
+    const selectedCandidate = structuredClone(appAssetManifest)
+    selectedCandidate.assets[0].desktopAsset.status = 'candidate'
+    expect(() => parseAppAssetManifest(selectedCandidate)).toThrow('artwork status')
+    const promotedArchive = structuredClone(appAssetManifest)
+    const saier = promotedArchive.assets.find(asset => asset.slug === 'pixi-painter')!
+    saier.desktopAsset = structuredClone(saier.previousIcon!.archivedArtwork!)
+    saier.desktopAsset.usage = 'desktop-selected'
+    expect(() => parseAppAssetManifest(promotedArchive)).toThrow('artwork status')
+    const archivedApproval = structuredClone(appAssetManifest)
+    const archivedSaier = archivedApproval.assets.find(asset => asset.slug === 'pixi-painter')!
+    archivedSaier.previousIcon!.archivedArtwork!.adoption = archivedSaier.desktopAsset.adoption
+    expect(() => parseAppAssetManifest(archivedApproval)).toThrow('adoption is only valid')
+    const invalidDate = structuredClone(appAssetManifest)
+    invalidDate.assets.find(asset => asset.slug === 'pixi-painter')!.desktopAsset.adoption!.approvedAt = '2026-02-30'
+    expect(() => parseAppAssetManifest(invalidDate)).toThrow('approval date')
   })
 
   it('rejects duplicate slugs, tampered destinations and invalid file identities', () => {

@@ -20,9 +20,9 @@ const generatedCount = assets.length - officialCount
     <header class="app-assets-heading">
       <p class="app-assets-eyebrow">YunLeFun · App artwork</p>
       <h1>应用图标素材</h1>
-      <p class="app-assets-intro">统一查看桌面目录使用的图标、原项目资源和生成候选。SVG / Iconify 品牌集合继续独立维护。</p>
+      <p class="app-assets-intro">统一查看桌面目录使用的图标、原项目资源、生成候选与维护者选用记录。SVG / Iconify 品牌集合继续独立维护。</p>
       <p class="app-assets-summary">{{ assets.length }} 个桌面图标 · {{ officialCount }} 个正式来源 · {{ generatedCount }} 个生成变体</p>
-      <p class="app-assets-note">“桌面采用”表示目录当前选择；应用身份与站点发布状态单独核实。生成变体保持候选身份，不因上传而成为正式品牌。</p>
+      <p class="app-assets-note">“桌面采用”表示目录当前选择；生成来源与维护者选用分别记录。一般生成变体保持候选品牌身份，Saier 的历史画笔稿已获维护者选用为应用图标；网站发布状态仍需单独核实。</p>
     </header>
     <AppAssetFilters v-model:query="query" v-model:filter="filter" v-model:size="size" v-model:rounded="rounded" :count="visibleAssets.length" />
     <div v-if="visibleAssets.length" class="app-assets-grid">

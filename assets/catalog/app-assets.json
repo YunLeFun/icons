@@ -209,37 +209,39 @@
         "工具"
       ],
       "desktopAsset": {
-        "kind": "official",
-        "version": "v2",
+        "kind": "generated",
+        "version": "v1",
         "usage": "desktop-selected",
         "thumbnail": {
-          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/pixi-painter.webp",
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/pixi-painter.webp",
           "width": 256,
           "height": 256,
           "mime": "image/webp",
-          "bytes": 4540,
-          "sha256": "70f70c8ca676826d2649ec6136cc9ae24ef6bab634fe8f3a5e318a33723933e9"
+          "bytes": 6578,
+          "sha256": "e2b2b2f7dc0eb2e1279e796c2197ea6b2c0babd84bbf2a49cc320f9b969396af"
         },
         "master": {
-          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/pixi-painter.png",
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/pixi-painter.png",
           "width": 1024,
           "height": 1024,
           "mime": "image/png",
-          "bytes": 45476,
-          "sha256": "5597d94e453c78742432f515db061fbee514f033985ec8dcf98467a53e262f92"
+          "bytes": 1188171,
+          "sha256": "49bb33e486d6326f19e57bf7e06c6d7df19a39fd954f06f1daf5724ba1e16e4d"
         },
         "source": {
-          "kind": "official-source",
-          "sha256": "48404703c7fbb525caa50368a7a741b07515a076e4c3e0427094313e09e909d9",
-          "url": "https://raw.githubusercontent.com/YunYouJun/saier/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg",
-          "repository": "YunYouJun/saier",
-          "path": "site/public/logo.svg",
-          "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290"
+          "kind": "generated-artwork",
+          "sha256": "cff313cc215138a54d5dc3d5d95cd5bcf4afc921fd4ba0be94557a770c729230",
+          "tool": "OpenAI image_gen"
+        },
+        "adoption": {
+          "status": "maintainer-approved",
+          "approvedAt": "2026-10-14",
+          "scope": "application-icon"
         }
       },
       "applicationIdentity": {
         "status": "formal_app_icon",
-        "notes": "原仓库重定向 YunYouJun/saier，旧 pixi-painter 为 deprecated alias。Saier 云绘专属彩色 S 笔触标记，logo.svg 与 favicon.svg 相同且 PWA 声明。SVG 128 方形，2px 外透明边距、124px 白底圆角32，不裁切或重绘。",
+        "notes": "原仓库重定向 YunYouJun/saier，旧 pixi-painter 为 deprecated alias。Saier 云绘专属彩色 S 笔触标记，logo.svg 与 favicon.svg 相同且 PWA 声明。SVG 128 方形，2px 外透明边距、124px 白底圆角32，不裁切或重绘。 维护者选用历史画笔稿作为新版图标，官网发布状态单独验证。",
         "source": {
           "repository": "YunYouJun/saier",
           "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290",
@@ -254,35 +256,7 @@
         "checkedAt": "2026-10-14",
         "iconUrl": "https://pixi-painter.pages.dev/favicon.svg"
       },
-      "candidates": [
-        {
-          "kind": "generated",
-          "version": "v1",
-          "usage": "comparison-only",
-          "thumbnail": {
-            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/pixi-painter.webp",
-            "width": 256,
-            "height": 256,
-            "mime": "image/webp",
-            "bytes": 6578,
-            "sha256": "e2b2b2f7dc0eb2e1279e796c2197ea6b2c0babd84bbf2a49cc320f9b969396af"
-          },
-          "master": {
-            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/pixi-painter.png",
-            "width": 1024,
-            "height": 1024,
-            "mime": "image/png",
-            "bytes": 1188171,
-            "sha256": "49bb33e486d6326f19e57bf7e06c6d7df19a39fd954f06f1daf5724ba1e16e4d"
-          },
-          "source": {
-            "kind": "generated-artwork",
-            "sha256": "cff313cc215138a54d5dc3d5d95cd5bcf4afc921fd4ba0be94557a770c729230",
-            "tool": "OpenAI image_gen"
-          },
-          "status": "candidate"
-        }
-      ],
+      "candidates": [],
       "previousIcon": {
         "url": "https://raw.githubusercontent.com/YunYouJun/saier/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg",
         "label": "原项目资源",
@@ -292,6 +266,36 @@
           "path": "site/public/logo.svg",
           "sha256": "48404703c7fbb525caa50368a7a741b07515a076e4c3e0427094313e09e909d9",
           "url": "https://github.com/YunYouJun/saier/blob/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg"
+        },
+        "archivedArtwork": {
+          "kind": "official",
+          "version": "v2",
+          "usage": "comparison-only",
+          "thumbnail": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/pixi-painter.webp",
+            "width": 256,
+            "height": 256,
+            "mime": "image/webp",
+            "bytes": 4540,
+            "sha256": "70f70c8ca676826d2649ec6136cc9ae24ef6bab634fe8f3a5e318a33723933e9"
+          },
+          "master": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/pixi-painter.png",
+            "width": 1024,
+            "height": 1024,
+            "mime": "image/png",
+            "bytes": 45476,
+            "sha256": "5597d94e453c78742432f515db061fbee514f033985ec8dcf98467a53e262f92"
+          },
+          "source": {
+            "kind": "official-source",
+            "sha256": "48404703c7fbb525caa50368a7a741b07515a076e4c3e0427094313e09e909d9",
+            "url": "https://raw.githubusercontent.com/YunYouJun/saier/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg",
+            "repository": "YunYouJun/saier",
+            "path": "site/public/logo.svg",
+            "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290"
+          },
+          "status": "superseded"
         }
       }
     },

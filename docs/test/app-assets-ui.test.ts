@@ -31,13 +31,29 @@ describe('app artwork preview', () => {
     const wrapper = mount(AppAssetCatalog)
     const official = wrapper.findAll('button').find(button => button.text() === '正式来源')!
     await official.trigger('click')
-    expect(wrapper.findAll('article')).toHaveLength(17)
+    expect(wrapper.findAll('article')).toHaveLength(16)
     const larger = wrapper.findAll('button').find(button => button.text() === '128px')!
     await larger.trigger('click')
     expect(wrapper.get('article img').attributes('style')).toContain('width: 128px')
     const mask = wrapper.findAll('button').find(button => button.text() === '圆角预览')!
     await mask.trigger('click')
     expect(wrapper.get('article img').attributes('style')).toContain('border-radius: 0')
+    wrapper.unmount()
+  })
+
+  it('shows the selected Saier paintbrush and keeps the previous official export clearly archived', () => {
+    const wrapper = mount(AppAssetCatalog)
+    const saier = wrapper.get('[data-asset="pixi-painter"]')
+    expect(saier.get('img').attributes('src')).toContain('/v1/pixi-painter.webp')
+    expect(saier.text()).toContain('已选用新版图标 · v1')
+    expect(saier.text()).toContain('维护者已确认 · 2026-10-14')
+    expect(saier.text()).toContain('上一版桌面图 · 已归档')
+    expect(saier.text()).toContain('站点声明已核实，图像访问未确认')
+    expect(saier.text()).not.toContain('生成候选 · 未采用')
+    expect(saier.text()).not.toContain('仅作为桌面目录变体')
+    const archive = saier.findAll('figure').find(figure => figure.text().includes('已归档'))!
+    expect(archive.get('img').attributes('src')).toContain('/v2/pixi-painter.webp')
+    expect(archive.get('a').attributes('href')).toContain('/masters/v2/pixi-painter.png')
     wrapper.unmount()
   })
 

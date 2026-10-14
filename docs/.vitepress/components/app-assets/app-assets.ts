@@ -23,7 +23,8 @@ export interface AppArtwork {
   kind: 'official' | 'generated'
   version: string
   usage: 'desktop-selected' | 'comparison-only'
-  status?: 'candidate'
+  status?: 'candidate' | 'superseded'
+  adoption?: { status: 'maintainer-approved', approvedAt: string, scope: 'application-icon' }
   thumbnail: AssetFile
   master: AssetFile
   source: AssetSource
@@ -43,7 +44,7 @@ export interface AppAsset {
     checkedAt?: string
   }
   candidates: AppArtwork[]
-  previousIcon?: { url: string, label: string, source?: AssetSource, width?: number, height?: number }
+  previousIcon?: { url: string, label: string, source?: AssetSource, width?: number, height?: number, archivedArtwork?: AppArtwork }
 }
 
 export interface AppAssetManifest {
@@ -109,13 +110,20 @@ function validateSource(value: unknown): void {
     requireValue(typeof value.commit === 'string' && /^[a-f0-9]{40}$/.test(value.commit), 'source commit is invalid')
 }
 
-function validateArtwork(value: unknown, slug: string, selected: boolean): void {
+function validateArtwork(value: unknown, slug: string, role: 'selected' | 'candidate' | 'superseded'): void {
   requireValue(record(value), 'artwork is required')
   requireValue(value.kind === 'official' || value.kind === 'generated', 'artwork kind is invalid')
   requireValue(typeof value.version === 'string' && /^v\d+$/.test(value.version), 'artwork version is invalid')
+  const selected = role === 'selected'
   requireValue(value.usage === (selected ? 'desktop-selected' : 'comparison-only'), 'artwork usage is invalid')
-  if (!selected)
-    requireValue(value.status === 'candidate', 'comparison artwork must remain a candidate')
+  requireValue(value.status === (selected ? undefined : role), 'artwork status does not match its role')
+  if (value.adoption !== undefined) {
+    requireValue(selected && record(value.adoption) && value.adoption.status === 'maintainer-approved'
+      && value.adoption.scope === 'application-icon', 'adoption is only valid for a maintainer-approved selected application icon')
+    const date = value.adoption.approvedAt
+    requireValue(typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)
+      && !Number.isNaN(Date.parse(date)) && new Date(date).toISOString().startsWith(date), 'adoption approval date is invalid')
+  }
   for (const [key, size, mime, path] of [
     ['thumbnail', 256, 'image/webp', `/desktop/app-icons/${value.version}/${slug}.webp`],
     ['master', 1024, 'image/png', `/desktop/app-icons/masters/${value.version}/${slug}.png`],
@@ -144,7 +152,7 @@ export function parseAppAssetManifest(value: unknown): AppAssetManifest {
     slugs.add(asset.slug)
     requireValue(typeof asset.title === 'string' && !!asset.title.trim() && typeof asset.description === 'string', 'display copy is required')
     requireValue(Array.isArray(asset.tags) && asset.tags.every(tag => typeof tag === 'string'), 'tags are invalid')
-    validateArtwork(asset.desktopAsset, asset.slug, true)
+    validateArtwork(asset.desktopAsset, asset.slug, 'selected')
     requireValue(record(asset.applicationIdentity) && typeof asset.applicationIdentity.notes === 'string'
       && typeof asset.applicationIdentity.status === 'string' && Object.hasOwn(identityLabels, asset.applicationIdentity.status), 'application identity is invalid')
     if (asset.applicationIdentity.source)
@@ -157,12 +165,14 @@ export function parseAppAssetManifest(value: unknown): AppAssetManifest {
     }
     requireValue(Array.isArray(asset.candidates), 'candidates must be explicit')
     for (const candidate of asset.candidates)
-      validateArtwork(candidate, asset.slug, false)
+      validateArtwork(candidate, asset.slug, 'candidate')
     if (asset.previousIcon !== undefined) {
       requireValue(record(asset.previousIcon) && isPublicHttpsUrl(asset.previousIcon.url)
         && typeof asset.previousIcon.label === 'string', 'previous icon is invalid')
       if (asset.previousIcon.source)
         validateSource(asset.previousIcon.source)
+      if (asset.previousIcon.archivedArtwork !== undefined)
+        validateArtwork(asset.previousIcon.archivedArtwork, asset.slug, 'superseded')
     }
   }
   return value as unknown as AppAssetManifest
@@ -175,7 +185,8 @@ export function filterAppAssets(assets: readonly AppAsset[], query: string, filt
       ? !!asset.previousIcon || asset.candidates.length > 0
       : asset.desktopAsset.kind === filter)
     const text = [asset.slug, asset.title, asset.description, ...asset.tags,
-      asset.desktopAsset.source.repository ?? '', identityLabels[asset.applicationIdentity.status]].join(' ').toLocaleLowerCase()
+      asset.desktopAsset.source.repository ?? '', asset.applicationIdentity.source?.repository ?? '',
+      identityLabels[asset.applicationIdentity.status]].join(' ').toLocaleLowerCase()
     return matches && (!needle || text.includes(needle))
   })
 }

@@ -32,13 +32,15 @@
 
 ## 明确区分三件事
 
-- **桌面采用**：`desktopAsset.usage = desktop-selected` 表示当前目录选择，`kind` 区分正式来源和生成素材。当前 28 项默认包含 17 个正式来源与 11 个生成桌面变体。
+- **桌面采用**：`desktopAsset.usage = desktop-selected` 表示当前目录选择，`kind` 区分正式来源和生成素材。当前 28 项默认包含 16 个正式来源与 12 个生成素材；素材来源与维护者是否选用分别记录。
 - **应用身份**：`applicationIdentity` 记录正式图标、专属 mark、选用标记、旧图待确认、通用 favicon、框架默认或第三方品牌。空目录 logo 不等于应用原来没有图标。
 - **网站发布**：`websitePublication` 的 `verified-resource` 仅表示指定公开资源已核实；`declared-only` 表示站点声明可见但图片访问未确认；`unverified` 表示本目录未核实。Git source commit 不代表线上部署 commit。
 
-16 个新生成素材均保持候选品牌身份。5 个应用已有明确正式图标，桌面优先使用正式来源的 v2 导出，其 v1 新图保留在 `candidates` 作对照。其余 11 个生成图可作为桌面目录变体，不自动替换应用网站 favicon 或原生图标。
+16 个生成素材中，4 个未采用版本保留在 `candidates` 作对照，对应应用的桌面默认继续使用正式来源的 v2 导出。其余 12 个用于当前桌面目录；一般生成变体仍是候选品牌素材，不因目录采用或上传而成为应用的正式身份。
 
-`previousIcon` 保留可追溯的原项目图片或站点旧图。旧图访问失败时页面显示提示和来源链接，不用另一个未知图片代替。Explosions 的框架默认图标和 WC GitHub Corners 的第三方 favicon 可推荐以后建立独立品牌；本次没有执行网站品牌发布。
+Saier（`pixi-painter`）是维护者明确选用的例外：2026-10-14 选用历史生成画笔稿 v1 作为应用图标，因此它成为桌面默认，`kind` 仍为 `generated`。`desktopAsset.adoption` 单独记录 `status: maintainer-approved`、`approvedAt: 2026-10-14` 与 `scope: application-icon`。这条采用记录不改写生成来源，也不意味着网站 favicon、PWA 或原生安装包已更新；`applicationIdentity` 与 `websitePublication` 保留各自核实的事实，新图是否在线发布需要另行验证。
+
+`previousIcon` 保留 16 个可追溯的原项目图片或站点旧图。Saier 的旧 v2 正式导出完整记录归档到 `previousIcon.archivedArtwork`，标记 `usage: comparison-only`、`status: superseded`，只供历史对照，不能被同步为当前默认。旧图访问失败时页面显示提示和来源链接，不用另一个未知图片代替。Explosions 的框架默认图标和 WC GitHub Corners 的第三方 favicon 可推荐以后建立独立品牌；本次没有执行网站品牌发布。
 
 ## 维护与验证
 
