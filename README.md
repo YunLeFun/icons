@@ -33,6 +33,8 @@ Icon Composer 的实际分层交付使用 `-mark` 前景并在 Composer 中配�
 
 ## 开发
 
+独立的 [应用目录素材](./docs/guide/app-artwork.md)通过 `assets/catalog/app-assets.json` 预览外链 WebP / PNG、正式来源与候选对照。它不参与 SVG / Iconify 构建；文档站入口为 `/app-assets`，消费者只从每项的 `desktopAsset.thumbnail` 读取当前桌面选择。
+
 ```bash
 pnpm install
 pnpm build

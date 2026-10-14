@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import { copyFile, mkdir } from 'node:fs/promises'
 import { defineConfig } from 'vitepress'
 import { withYunlefun, yunlefunMarkdown, zhThemeConfig } from 'vitepress-theme-yunlefun/config'
 import { publishCanonicalIconAssets } from './published-icon-assets.ts'
@@ -16,6 +17,9 @@ export default defineConfig(withYunlefun({
       resolve(import.meta.dirname, '../../packages/icons/svg'),
       outDir,
     )
+    const metadataDir = resolve(outDir, 'app-assets')
+    await mkdir(metadataDir, { recursive: true })
+    await copyFile(resolve(import.meta.dirname, '../../assets/catalog/app-assets.json'), resolve(metadataDir, 'manifest.json'))
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
@@ -27,6 +31,7 @@ export default defineConfig(withYunlefun({
     brand: { icon: 'brand-mark' },
     nav: [
       { text: '图标目录', link: '/' },
+      { text: '应用素材', link: '/app-assets' },
       { text: '设计系统', link: 'https://ui.yunle.fun/' },
       { text: '接入指南', link: '/guide/usage' },
     ],
@@ -36,6 +41,7 @@ export default defineConfig(withYunlefun({
         items: [
           { text: '接入指南', link: '/guide/usage' },
           { text: '贡献图标', link: '/guide/contributing' },
+          { text: '应用素材契约', link: '/guide/app-artwork' },
         ],
       },
     ],
