@@ -1,0 +1,1724 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-14",
+  "scope": "desktop-catalog-artwork",
+  "hashMeaning": "sha256 identifies the stored object; COS PNG imageSlim responses may transform master bytes",
+  "assets": [
+    {
+      "slug": "air-conditioner",
+      "title": "云空调",
+      "description": "云空调，便携小空调！其实是个冷笑话，随身携带的毫无制冷效果的仿真小空调",
+      "tags": [
+        "air-conditioner",
+        "整活"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/air-conditioner.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 2206,
+          "sha256": "2e79c4de540c704947abc09d1d73d62a827aaf738eca70f7fca5cec10230b608"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/air-conditioner.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 929324,
+          "sha256": "8093c1944fef327debeb22b06c3248ebaf4fa2e55a2a15c8011a85df24ca0280"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "5d89ae44f23ea143900e0801054d6f2988a0f6b0c9b2fa912979d18fb8911c0c",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "generic_project_favicon",
+        "notes": "实际站点/PWA 声明蓝色空调 SVG；SVG class 明示 icon-park，是项目选用的通用图标，未见项目自绘专属高分辨率品牌。不能称原来只有 emoji。",
+        "source": {
+          "repository": "YunYouJun/air-conditioner",
+          "commit": "fa1a9d592b64b981a6f4b62056c4b54a62e90494",
+          "path": "packages/react/public/favicon.svg",
+          "sha256": "7ce9e50ad6e0d1a54eb999102efb6651db97860808ee89a607eb07b393a12398",
+          "url": "https://github.com/YunYouJun/air-conditioner/blob/fa1a9d592b64b981a6f4b62056c4b54a62e90494/packages/react/public/favicon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://ac.yunyoujun.cn",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://ac.yunyoujun.cn/favicon.svg"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/air-conditioner/fa1a9d592b64b981a6f4b62056c4b54a62e90494/packages/react/public/favicon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/air-conditioner",
+          "commit": "fa1a9d592b64b981a6f4b62056c4b54a62e90494",
+          "path": "packages/react/public/favicon.svg",
+          "sha256": "7ce9e50ad6e0d1a54eb999102efb6651db97860808ee89a607eb07b393a12398",
+          "url": "https://github.com/YunYouJun/air-conditioner/blob/fa1a9d592b64b981a6f4b62056c4b54a62e90494/packages/react/public/favicon.svg"
+        }
+      }
+    },
+    {
+      "slug": "char-dust",
+      "title": "Char Dust",
+      "description": "在线图片转字符画",
+      "tags": [
+        "char-dust",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/char-dust.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 3116,
+          "sha256": "58b8778d91d2fa5710101d0b2590bfd2f7c366b4ff7281058f0164c25ad7c0df"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/char-dust.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 969389,
+          "sha256": "d3efe9a09d736bec41d6a1ead999c81335e20689eb5ee75eddeecceb32f67a8d"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "04cbc1bab69a2c604ef491b3789623e0f7016b3b10d78167d23838a30bfa6102",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "legacy_icon_unverified",
+        "notes": "存在 200px logo.png、32px ICO 和 512px PWA 图。未确认自绘/正式品牌声明；线上 manifest 缺 name 且 icons 使用域名根绝对路径，不能据此叫高质量完整正式 app-icon。",
+        "source": {
+          "repository": "YunYouJun/char-dust",
+          "commit": "08d0eeb16441fb02e870946da7973ed5532081d4",
+          "path": "demo/public/logo.png",
+          "sha256": "6218446a2a62c3da0e2393ae40746dc7205a39339c831085e1ae7e746eb37d3f",
+          "url": "https://github.com/YunYouJun/char-dust/blob/08d0eeb16441fb02e870946da7973ed5532081d4/demo/public/logo.png"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://yunyoujun.github.io/char-dust/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://yunyoujun.github.io/char-dust/logo.png"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/char-dust/08d0eeb16441fb02e870946da7973ed5532081d4/demo/public/logo.png",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/char-dust",
+          "commit": "08d0eeb16441fb02e870946da7973ed5532081d4",
+          "path": "demo/public/logo.png",
+          "sha256": "6218446a2a62c3da0e2393ae40746dc7205a39339c831085e1ae7e746eb37d3f",
+          "url": "https://github.com/YunYouJun/char-dust/blob/08d0eeb16441fb02e870946da7973ed5532081d4/demo/public/logo.png"
+        },
+        "width": 200,
+        "height": 200
+      }
+    },
+    {
+      "slug": "color-dust",
+      "title": "Color Dust",
+      "description": "基于 K-Means 色彩聚类提取主题色",
+      "tags": [
+        "color-dust",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/color-dust.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4898,
+          "sha256": "1c5879a1642b7181dca624a754e48e5e91da78f11d55d36366b2138b113d8bbd"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/color-dust.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 1106771,
+          "sha256": "d299adf0d326023873329e0ee6c500dadacaa76b8755425d3876be4113f16c6b"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "68efdfafc8e9e6e40695c98fcfcac57e9d81bb3ab3d787106946ace02b594291",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "project_selected_logo_mark",
+        "notes": "ColorLogo.vue 明确引用 200px icon.png，线上 PWA 从此生成 512px 图；仓库另有 1024 viewBox 彩色色轮 static/color.svg，含 iconfont 风格 p-id。确有原视觉标记，非只 emoji；未确认自绘 provenance/独立完整 app-icon。",
+        "source": {
+          "repository": "YunYouJun/color-dust",
+          "commit": "24ad73c2ede1d97ccdbb39f55da40856e8d26b1f",
+          "path": "static/icon.png",
+          "sha256": "8905ad49192c30aa42c9ca6e39ac8f7a5539d72e2a740756c3add604cddd07fd",
+          "url": "https://github.com/YunYouJun/color-dust/blob/24ad73c2ede1d97ccdbb39f55da40856e8d26b1f/static/icon.png"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://color-dust.yunyoujun.cn",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://color-dust.yunyoujun.cn/favicon.ico"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/color-dust/24ad73c2ede1d97ccdbb39f55da40856e8d26b1f/static/icon.png",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/color-dust",
+          "commit": "24ad73c2ede1d97ccdbb39f55da40856e8d26b1f",
+          "path": "static/icon.png",
+          "sha256": "8905ad49192c30aa42c9ca6e39ac8f7a5539d72e2a740756c3add604cddd07fd",
+          "url": "https://github.com/YunYouJun/color-dust/blob/24ad73c2ede1d97ccdbb39f55da40856e8d26b1f/static/icon.png"
+        },
+        "width": 200,
+        "height": 200
+      }
+    },
+    {
+      "slug": "pixi-painter",
+      "title": "云绘 Saier",
+      "description": "基于 Pixi.js 的绘图工具 + AI LCM",
+      "tags": [
+        "pixi-painter",
+        "工具"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v2",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/pixi-painter.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4540,
+          "sha256": "70f70c8ca676826d2649ec6136cc9ae24ef6bab634fe8f3a5e318a33723933e9"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/pixi-painter.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 45476,
+          "sha256": "5597d94e453c78742432f515db061fbee514f033985ec8dcf98467a53e262f92"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "48404703c7fbb525caa50368a7a741b07515a076e4c3e0427094313e09e909d9",
+          "url": "https://raw.githubusercontent.com/YunYouJun/saier/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg",
+          "repository": "YunYouJun/saier",
+          "path": "site/public/logo.svg",
+          "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "原仓库重定向 YunYouJun/saier，旧 pixi-painter 为 deprecated alias。Saier 云绘专属彩色 S 笔触标记，logo.svg 与 favicon.svg 相同且 PWA 声明。SVG 128 方形，2px 外透明边距、124px 白底圆角32，不裁切或重绘。",
+        "source": {
+          "repository": "YunYouJun/saier",
+          "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290",
+          "path": "site/public/logo.svg",
+          "sha256": "48404703c7fbb525caa50368a7a741b07515a076e4c3e0427094313e09e909d9",
+          "url": "https://github.com/YunYouJun/saier/blob/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://pixi-painter.pages.dev",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://pixi-painter.pages.dev/favicon.svg"
+      },
+      "candidates": [
+        {
+          "kind": "generated",
+          "version": "v1",
+          "usage": "comparison-only",
+          "thumbnail": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/pixi-painter.webp",
+            "width": 256,
+            "height": 256,
+            "mime": "image/webp",
+            "bytes": 6578,
+            "sha256": "e2b2b2f7dc0eb2e1279e796c2197ea6b2c0babd84bbf2a49cc320f9b969396af"
+          },
+          "master": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/pixi-painter.png",
+            "width": 1024,
+            "height": 1024,
+            "mime": "image/png",
+            "bytes": 1188171,
+            "sha256": "49bb33e486d6326f19e57bf7e06c6d7df19a39fd954f06f1daf5724ba1e16e4d"
+          },
+          "source": {
+            "kind": "generated-artwork",
+            "sha256": "cff313cc215138a54d5dc3d5d95cd5bcf4afc921fd4ba0be94557a770c729230",
+            "tool": "OpenAI image_gen"
+          },
+          "status": "candidate"
+        }
+      ],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/saier/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/saier",
+          "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290",
+          "path": "site/public/logo.svg",
+          "sha256": "48404703c7fbb525caa50368a7a741b07515a076e4c3e0427094313e09e909d9",
+          "url": "https://github.com/YunYouJun/saier/blob/277dfaf239b6df6caea313adc01e8ff3ff8ec290/site/public/logo.svg"
+        }
+      }
+    },
+    {
+      "slug": "fc",
+      "title": "FC 红白机",
+      "description": "基于 JSNES 与 Vue 实现的红白机 FC",
+      "tags": [
+        "fc",
+        "整活"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v2",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/fc.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 3010,
+          "sha256": "314be0d67cb4b7ecc1f6ee88ab63b0dbf271a3857e8c10542fc1e9b30ffb87ab"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/fc.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 21660,
+          "sha256": "0a29532d701cafab6f1d068440df19d2772da6612d218b64a3049a854eb6e946"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "e502a0468757feecd1c064c2106213821033fb39593620d63bef3abf3f419f78",
+          "url": "https://raw.githubusercontent.com/YunLeFun/fc/f075eb20982d545fe9859dcae658a4e5316456de/public/icon.svg",
+          "repository": "YunLeFun/fc",
+          "path": "public/icon.svg",
+          "commit": "f075eb20982d545fe9859dcae658a4e5316456de"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "明确满幅红色+白色手柄完整 app-icon；icons 已有 canonical mark/app-icon。新银色手柄仅桌面候选变体，不覆盖红白机既有身份。",
+        "source": {
+          "repository": "YunLeFun/fc",
+          "commit": "f075eb20982d545fe9859dcae658a4e5316456de",
+          "path": "public/icon.svg",
+          "sha256": "e502a0468757feecd1c064c2106213821033fb39593620d63bef3abf3f419f78",
+          "url": "https://github.com/YunLeFun/fc/blob/f075eb20982d545fe9859dcae658a4e5316456de/public/icon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://fc.yunle.fun/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://fc.yunle.fun/icon.svg"
+      },
+      "candidates": [
+        {
+          "kind": "generated",
+          "version": "v1",
+          "usage": "comparison-only",
+          "thumbnail": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/fc.webp",
+            "width": 256,
+            "height": 256,
+            "mime": "image/webp",
+            "bytes": 3112,
+            "sha256": "fd6d142ce5851401deac627466e69d302908875d4e647d935178a10d01799c6e"
+          },
+          "master": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/fc.png",
+            "width": 1024,
+            "height": 1024,
+            "mime": "image/png",
+            "bytes": 968460,
+            "sha256": "e59452d8e1921d3bd597a54d593811288012f85b1540480880cf15dede7b37d3"
+          },
+          "source": {
+            "kind": "generated-artwork",
+            "sha256": "55ef00378f058dd29631fad4704a05792aba947a8f38b671c52f2bbb757cbd06",
+            "tool": "OpenAI image_gen"
+          },
+          "status": "candidate"
+        }
+      ],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunLeFun/fc/f075eb20982d545fe9859dcae658a4e5316456de/public/icon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunLeFun/fc",
+          "commit": "f075eb20982d545fe9859dcae658a4e5316456de",
+          "path": "public/icon.svg",
+          "sha256": "e502a0468757feecd1c064c2106213821033fb39593620d63bef3abf3f419f78",
+          "url": "https://github.com/YunLeFun/fc/blob/f075eb20982d545fe9859dcae658a4e5316456de/public/icon.svg"
+        }
+      }
+    },
+    {
+      "slug": "chat-generator",
+      "title": "Chat Generator",
+      "description": "经典聊天记录橱窗，生成聊天记录，小丑模拟器",
+      "tags": [
+        "chat-generator",
+        "整活"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/chat-generator.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 3640,
+          "sha256": "586955a719e7717a97ea3b2a76210cb521ba1b45c9492fed807276d2fddcc393"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/chat-generator.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 878926,
+          "sha256": "e6db41fdda8c6e29a2d1515d6e70a942a061a81f39e4df841b2a06a287a29e66"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "5027f5ce843763642f590774cb892364d4a02fbe8ccc7c8bee9ccbee9698d4a2",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "generic_project_favicon",
+        "notes": "当前站点声明 24x24 三点聊天框单色 SVG favicon，通用符号；PWA 配置没有 icons。未见专属完整 app-icon，不把现有 favicon 说成缺失。",
+        "source": {
+          "repository": "YunYouJun/chat-generator",
+          "commit": "f98cf5df532d51eab1a30b6739bdd13a8ea46c48",
+          "path": "public/favicon.svg",
+          "sha256": "06a7c84fc176d1198f46967aca4bf70e49ab74b52917112455c704d6adf06fd5",
+          "url": "https://github.com/YunYouJun/chat-generator/blob/f98cf5df532d51eab1a30b6739bdd13a8ea46c48/public/favicon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://chat.yunyoujun.cn",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://chat.yunyoujun.cn/favicon.svg"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/chat-generator/f98cf5df532d51eab1a30b6739bdd13a8ea46c48/public/favicon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/chat-generator",
+          "commit": "f98cf5df532d51eab1a30b6739bdd13a8ea46c48",
+          "path": "public/favicon.svg",
+          "sha256": "06a7c84fc176d1198f46967aca4bf70e49ab74b52917112455c704d6adf06fd5",
+          "url": "https://github.com/YunYouJun/chat-generator/blob/f98cf5df532d51eab1a30b6739bdd13a8ea46c48/public/favicon.svg"
+        }
+      }
+    },
+    {
+      "slug": "web-resume",
+      "title": "Web Resume",
+      "description": "可在线编辑的 Web 简历，斩获 BAT Offer 未尝败绩",
+      "tags": [
+        "web-resume",
+        "工具"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v2",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/web-resume.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 3920,
+          "sha256": "8da74a26db44d88a713d3daa503993746f259532becb9883a02b07819c4eb7c1"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/web-resume.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 27990,
+          "sha256": "3d12869167748343794fd333042f12babaf4a20dfb11cab474a01e7e4711de91"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "919d8879133400ec19d6cc112e1d08e34f957985772b3081aa4e6b8cdf2b0665",
+          "url": "https://raw.githubusercontent.com/YunYouJun/web-resume/e56147cac81cb89d390eb1a04cf05ea0e83b82c6/apps/web/public/img/icons/web-resume-app-icon.svg",
+          "repository": "YunYouJun/web-resume",
+          "path": "apps/web/public/img/icons/web-resume-app-icon.svg",
+          "commit": "e56147cac81cb89d390eb1a04cf05ea0e83b82c6"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "当前 GitHub main 已迁移 apps/web。专属蓝色简历卡+乳白满幅 app-icon，配套自适应 favicon、180px Apple touch、192/512px PWA 与 maskable。旧本地 HEAD 的文档通用 favicon 不能代表当前主线。",
+        "source": {
+          "repository": "YunYouJun/web-resume",
+          "commit": "e56147cac81cb89d390eb1a04cf05ea0e83b82c6",
+          "path": "apps/web/public/img/icons/web-resume-app-icon.svg",
+          "sha256": "919d8879133400ec19d6cc112e1d08e34f957985772b3081aa4e6b8cdf2b0665",
+          "url": "https://github.com/YunYouJun/web-resume/blob/e56147cac81cb89d390eb1a04cf05ea0e83b82c6/apps/web/public/img/icons/web-resume-app-icon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://resume.yunle.fun/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://resume.yunle.fun/img/icons/favicon.svg"
+      },
+      "candidates": [
+        {
+          "kind": "generated",
+          "version": "v1",
+          "usage": "comparison-only",
+          "thumbnail": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/web-resume.webp",
+            "width": 256,
+            "height": 256,
+            "mime": "image/webp",
+            "bytes": 2510,
+            "sha256": "3a691529905f76f0b1201cb4cf2ae7e65e1be9657fe161c3358364b30e437bc1"
+          },
+          "master": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/web-resume.png",
+            "width": 1024,
+            "height": 1024,
+            "mime": "image/png",
+            "bytes": 878044,
+            "sha256": "5138294e9bba0635eb175646c173da9157cfbec63209eb9154d30f856756db26"
+          },
+          "source": {
+            "kind": "generated-artwork",
+            "sha256": "bda4dba22761b28c6ae88eabe5ba2b99c58e7d9f4c345768c704bf67abef05f7",
+            "tool": "OpenAI image_gen"
+          },
+          "status": "candidate"
+        }
+      ],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/web-resume/e56147cac81cb89d390eb1a04cf05ea0e83b82c6/apps/web/public/img/icons/web-resume-app-icon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/web-resume",
+          "commit": "e56147cac81cb89d390eb1a04cf05ea0e83b82c6",
+          "path": "apps/web/public/img/icons/web-resume-app-icon.svg",
+          "sha256": "919d8879133400ec19d6cc112e1d08e34f957985772b3081aa4e6b8cdf2b0665",
+          "url": "https://github.com/YunYouJun/web-resume/blob/e56147cac81cb89d390eb1a04cf05ea0e83b82c6/apps/web/public/img/icons/web-resume-app-icon.svg"
+        }
+      }
+    },
+    {
+      "slug": "explosions",
+      "title": "Explosions",
+      "description": "爆裂吧！取名自惠惠的爆裂魔法，放一些前端动效的实现",
+      "tags": [
+        "explosions",
+        "设计"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/explosions.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4916,
+          "sha256": "f49ed85eef53e00bca253e747813c6df55ae7c3f9b99ae400211262324af11e7"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/explosions.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 1009982,
+          "sha256": "b42b8aeda4a97bdcbf3445d29a7cbb010c0f89f3f54ed4ef9cf9abdec2968769"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "2275c97e1709607e0f12827330c35f8ef3562ed4e5d45fb06f9a9988271d9988",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "framework_default",
+        "notes": "源代码/实际站点 SVG favicon 明确 href=/nuxt.svg，是 Nuxt 框架默认；仓库另存 IconPark 巫师帽 favicon.svg，但当前 head 没声明它。未见专属正式 Explosions 品牌，新图可推荐采纳。",
+        "source": {
+          "repository": "YunYouJun/explosions",
+          "commit": "c6790f9681220dd0e53eefff7786f6ebc9c772ee",
+          "path": "playground/public/favicon.svg",
+          "sha256": "37d95b1427e95a8acc0b4c7389f4ad848ce0e0dc29c60a68f127e2f628d62001",
+          "url": "https://github.com/YunYouJun/explosions/blob/c6790f9681220dd0e53eefff7786f6ebc9c772ee/playground/public/favicon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://explosions.yunyoujun.cn/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://explosions.yunyoujun.cn/favicon.ico"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/explosions/c6790f9681220dd0e53eefff7786f6ebc9c772ee/playground/public/favicon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/explosions",
+          "commit": "c6790f9681220dd0e53eefff7786f6ebc9c772ee",
+          "path": "playground/public/favicon.svg",
+          "sha256": "37d95b1427e95a8acc0b4c7389f4ad848ce0e0dc29c60a68f127e2f628d62001",
+          "url": "https://github.com/YunYouJun/explosions/blob/c6790f9681220dd0e53eefff7786f6ebc9c772ee/playground/public/favicon.svg"
+        }
+      }
+    },
+    {
+      "slug": "augma",
+      "title": "AUGMA",
+      "description": "刀剑神域-序列之争 AUGMA AR UI 组件库",
+      "tags": [
+        "augma",
+        "设计"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/augma.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4234,
+          "sha256": "a510c78e2a9a49fad179099205f38549b3fd89d90017f3e40761e1da5d1aaaff"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/augma.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 931350,
+          "sha256": "2104c248136925880d45d9fc5f7b67401f20c4cb8dbcd3925c6c92a8212b374d"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "da9e63ecd57ef37aa7a5cacb293ecd9dc3272e91ffc6626a6d343fbbbd290627",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "project_mark_only",
+        "notes": "存在项目专属 A 字母/橙斜线 favicon，深蓝32px圆角底，可无损矢量放大；未发现完整 app-icon/高分辨率 PWA。此 A 标记不能说只有 emoji，新护目镜仅候选变体，原品牌需对照保留。",
+        "source": {
+          "repository": "YunYouJun/augma",
+          "commit": "d876b60512c0ff70c8e15956c3f5a1eccb56dcfc",
+          "path": "apps/site/public/favicon.svg",
+          "sha256": "1bbdf216ff4edfa09816f4ff3c5ce3b64f74767ae7ed54e0376c5e7260ed7495",
+          "url": "https://github.com/YunYouJun/augma/blob/d876b60512c0ff70c8e15956c3f5a1eccb56dcfc/apps/site/public/favicon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://augma.elpsy.cn/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://augma.elpsy.cn/favicon.svg"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/augma/d876b60512c0ff70c8e15956c3f5a1eccb56dcfc/apps/site/public/favicon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/augma",
+          "commit": "d876b60512c0ff70c8e15956c3f5a1eccb56dcfc",
+          "path": "apps/site/public/favicon.svg",
+          "sha256": "1bbdf216ff4edfa09816f4ff3c5ce3b64f74767ae7ed54e0376c5e7260ed7495",
+          "url": "https://github.com/YunYouJun/augma/blob/d876b60512c0ff70c8e15956c3f5a1eccb56dcfc/apps/site/public/favicon.svg"
+        }
+      }
+    },
+    {
+      "slug": "everything-generator",
+      "title": "Everything Generator",
+      "description": "愿望补完器",
+      "tags": [
+        "everything-generator",
+        "AI"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v2",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/everything-generator.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 5610,
+          "sha256": "545041fb9e9526437c75a27e349a64ba3d62bea54187b6867ac73eb359b9588f"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/everything-generator.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 44187,
+          "sha256": "cb0a9ef90667a01cee69be70d46856a2e0146267cadba82b44a0ce0027022c96"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "1e9bca3c03603812185bd473c6c3aea101d37c9ed72dbe2c7b2144a725a72a6f",
+          "url": "https://dao.yunle.fun/generator-icon.svg",
+          "repository": "YunYouJun/everything-generator",
+          "path": "public/generator-icon.svg",
+          "commit": "a25e52b00fed7f14d64f8c3da73560115e990ff8"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "当前公开站点明确声明 /generator-icon.svg；512 方形 SVG aria-label Everything Generator icon，深色底+青/粉对话框及黄色闪电。不是框架默认。仓库当前 private，匿名 raw 返回404，不使用临时下载 token。",
+        "source": {
+          "repository": "YunYouJun/everything-generator",
+          "commit": "a25e52b00fed7f14d64f8c3da73560115e990ff8",
+          "path": "public/generator-icon.svg",
+          "sha256": "1e9bca3c03603812185bd473c6c3aea101d37c9ed72dbe2c7b2144a725a72a6f",
+          "url": "https://github.com/YunYouJun/everything-generator/blob/a25e52b00fed7f14d64f8c3da73560115e990ff8/public/generator-icon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://dao.yunle.fun",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://dao.yunle.fun/generator-icon.svg"
+      },
+      "candidates": [
+        {
+          "kind": "generated",
+          "version": "v1",
+          "usage": "comparison-only",
+          "thumbnail": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/everything-generator.webp",
+            "width": 256,
+            "height": 256,
+            "mime": "image/webp",
+            "bytes": 3710,
+            "sha256": "d0bf1fceee781c888de768a75df5ceb847dc41ea5f5099e97044961530a9b98e"
+          },
+          "master": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/everything-generator.png",
+            "width": 1024,
+            "height": 1024,
+            "mime": "image/png",
+            "bytes": 944509,
+            "sha256": "247157a9a881fe58012020d4d1e6b944e0e31e89bf0f98a07e2ddd2d9b052689"
+          },
+          "source": {
+            "kind": "generated-artwork",
+            "sha256": "5b177ca5e463f9dd4322e6e280e5b0ac372d61768e07e069d65636882bb4bd1c",
+            "tool": "OpenAI image_gen"
+          },
+          "status": "candidate"
+        }
+      ],
+      "previousIcon": {
+        "url": "https://dao.yunle.fun/generator-icon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/everything-generator",
+          "commit": "a25e52b00fed7f14d64f8c3da73560115e990ff8",
+          "path": "public/generator-icon.svg",
+          "sha256": "1e9bca3c03603812185bd473c6c3aea101d37c9ed72dbe2c7b2144a725a72a6f",
+          "url": "https://github.com/YunYouJun/everything-generator/blob/a25e52b00fed7f14d64f8c3da73560115e990ff8/public/generator-icon.svg"
+        }
+      }
+    },
+    {
+      "slug": "wc-github-corners",
+      "title": "WC GitHub Corners",
+      "description": "可以在任意地方使用的 GitHub Corner 挂件",
+      "tags": [
+        "wc-github-corners",
+        "插件"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/wc-github-corners.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 2398,
+          "sha256": "17ba11c4a6ccd0e1b5734d4d22008ab7b9ca5cab2744e601232da152c2265a35"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/wc-github-corners.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 995282,
+          "sha256": "eee13e598a06614273aa4dc163534a4d8744069c47471f98dfa71ddfb6b5f2ce"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "2e73dc267f6786cc2ac9e3186c4b4335b5b141ec32b426bdb207c37e768bb68b",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "external_brand_only",
+        "notes": "源码/当前线上 favicon 直接使用 GitHub 官方 favicon，非本项目独立正式 icon。新候选可建立自身识别；不得标作 GitHub 官方品牌，也不改第三方商标。"
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://yunyoujun.github.io/wc-github-corners/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://github.githubassets.com/favicons/favicon.svg"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://github.githubassets.com/favicons/favicon.svg",
+        "label": "站点声明的旧图"
+      }
+    },
+    {
+      "slug": "star-markdown-css",
+      "title": "Star Markdown CSS",
+      "description": "纯 Markdown CSS，支持多种主题",
+      "tags": [
+        "star-markdown-css",
+        "设计"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/star-markdown-css.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 2846,
+          "sha256": "77183b60b771f9ccb33c7bb5d860abfa2f911e1825bb3f14851306950f0d44bd"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/star-markdown-css.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 1021704,
+          "sha256": "1bc637381d21b4ca6a0a29d55d7aa998f4cbae038221a3425f233312cd41489a"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "15c9e84d54bef32e2a37a46c3317bbbbab2c680ea94cb6774a0b346ea2882da0",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "project_selected_illustration",
+        "notes": "源码与当前线上指定200px planet.png作为 favicon；是星球插图选择，未见单独 app-icon/mark/manifest 或原创 provenance。不是只 emoji，也不能自动称框架默认；新 Markdown/星形图保留候选对比。",
+        "source": {
+          "repository": "YunYouJun/star-markdown-css",
+          "commit": "65f1d6f53ae74796fe769671e270c284ff2688b3",
+          "path": "demo/public/img/planet.png",
+          "sha256": "85e9a8b5f6a97dcd2622a92319a2a79de108b146f63e562dae950c7b4be4b9b2",
+          "url": "https://github.com/YunYouJun/star-markdown-css/blob/65f1d6f53ae74796fe769671e270c284ff2688b3/demo/public/img/planet.png"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://yunyoujun.github.io/star-markdown-css/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://yunyoujun.github.io/star-markdown-css/img/planet.png"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/star-markdown-css/65f1d6f53ae74796fe769671e270c284ff2688b3/demo/public/img/planet.png",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/star-markdown-css",
+          "commit": "65f1d6f53ae74796fe769671e270c284ff2688b3",
+          "path": "demo/public/img/planet.png",
+          "sha256": "85e9a8b5f6a97dcd2622a92319a2a79de108b146f63e562dae950c7b4be4b9b2",
+          "url": "https://github.com/YunYouJun/star-markdown-css/blob/65f1d6f53ae74796fe769671e270c284ff2688b3/demo/public/img/planet.png"
+        }
+      }
+    },
+    {
+      "slug": "electric-fan",
+      "title": "云风扇",
+      "description": "电风扇，便携夏日小风扇！纯 CSS 编写，小空调的前辈",
+      "tags": [
+        "electric-fan",
+        "整活"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/electric-fan.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 3770,
+          "sha256": "e76c4f8c887da6e9413ea4fdd9712aee13c4a2277c9909578afe13da87965c53"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/electric-fan.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 1034067,
+          "sha256": "6e05c859b919631d6f7155b5a60d99d77e2fa4f38fde6c95fdc306a1f989cc41"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "b04f052ea48b90aa0f1b6296e55150839528c7fbd6f79a833cede4a8deb60b48",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "legacy_icon_unverified",
+        "notes": "存在 200px favicon.png、200px logo.png 及 manifest 的 512px PNG；本轮未确认独立品牌/自绘来源，不能认定无图标或直接认定框架默认。先原图对比，生成图继续 candidate。",
+        "source": {
+          "repository": "ElpsyCN/electric-fan",
+          "commit": "edd2c07d980cbbfd660a15c20d6508238155a470",
+          "path": "public/favicon.png",
+          "sha256": "0ab8f9a686d85aa1e6fa4db857178d4583cf3cf2b482e84a98391b48bab3fac0",
+          "url": "https://github.com/ElpsyCN/electric-fan/blob/edd2c07d980cbbfd660a15c20d6508238155a470/public/favicon.png"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://fan.elpsy.cn",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://fan.elpsy.cn/favicon.ico"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/ElpsyCN/electric-fan/edd2c07d980cbbfd660a15c20d6508238155a470/public/favicon.png",
+        "label": "原项目资源",
+        "source": {
+          "repository": "ElpsyCN/electric-fan",
+          "commit": "edd2c07d980cbbfd660a15c20d6508238155a470",
+          "path": "public/favicon.png",
+          "sha256": "0ab8f9a686d85aa1e6fa4db857178d4583cf3cf2b482e84a98391b48bab3fac0",
+          "url": "https://github.com/ElpsyCN/electric-fan/blob/edd2c07d980cbbfd660a15c20d6508238155a470/public/favicon.png"
+        },
+        "width": 200,
+        "height": 200
+      }
+    },
+    {
+      "slug": "cook",
+      "title": "今天来做菜",
+      "description": "好的，今天我们来做菜！可以根据所选食材筛选菜谱",
+      "tags": [
+        "cook",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v2",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v2/cook.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 7344,
+          "sha256": "f5843c6d7028322e182a4339a1114729746d0a9121c41233f78721580af0f696"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v2/cook.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 69017,
+          "sha256": "9f981b600b72f333993dbed317cec9320129f9281ef40ad9a304428774b5b550"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "4cd23196fbfc2c7d5d6cd77ab975b1d0c316ca184df9b8b850b037e7191a6c8e",
+          "url": "https://raw.githubusercontent.com/YunYouJun/cook/7bc18f58bf8359ea1f56d985b1aa48364d663502/public/brand/cook-app-icon.svg",
+          "repository": "YunYouJun/cook",
+          "path": "public/brand/cook-app-icon.svg",
+          "commit": "7bc18f58bf8359ea1f56d985b1aa48364d663502"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "明确 cook app-icon；祖母绿满幅方形+俯视锅具/三色食材。icons 集合有 canonical mark/app-icon。新橙色碗仅桌面候选变体。",
+        "source": {
+          "repository": "YunYouJun/cook",
+          "commit": "7bc18f58bf8359ea1f56d985b1aa48364d663502",
+          "path": "public/brand/cook-app-icon.svg",
+          "sha256": "4cd23196fbfc2c7d5d6cd77ab975b1d0c316ca184df9b8b850b037e7191a6c8e",
+          "url": "https://github.com/YunYouJun/cook/blob/7bc18f58bf8359ea1f56d985b1aa48364d663502/public/brand/cook-app-icon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://cook.yunle.fun/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://cook.yunle.fun/brand/cook-app-icon.svg"
+      },
+      "candidates": [
+        {
+          "kind": "generated",
+          "version": "v1",
+          "usage": "comparison-only",
+          "thumbnail": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/cook.webp",
+            "width": 256,
+            "height": 256,
+            "mime": "image/webp",
+            "bytes": 5408,
+            "sha256": "f67bfd29eb4794f9489316b1815e81c417660701c1334a59e3ce1a2b5d236bfa"
+          },
+          "master": {
+            "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/cook.png",
+            "width": 1024,
+            "height": 1024,
+            "mime": "image/png",
+            "bytes": 1046684,
+            "sha256": "fe0e59db0d978e4718fd7a8b7f3ee8bec88ea64ab1c07ac916e039dd32a9d313"
+          },
+          "source": {
+            "kind": "generated-artwork",
+            "sha256": "66bc3a063fad8a70ca466d164dee15f7d08b373549caa4f46eee3ed79d63f6e9",
+            "tool": "OpenAI image_gen"
+          },
+          "status": "candidate"
+        }
+      ],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/cook/7bc18f58bf8359ea1f56d985b1aa48364d663502/public/brand/cook-app-icon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/cook",
+          "commit": "7bc18f58bf8359ea1f56d985b1aa48364d663502",
+          "path": "public/brand/cook-app-icon.svg",
+          "sha256": "4cd23196fbfc2c7d5d6cd77ab975b1d0c316ca184df9b8b850b037e7191a6c8e",
+          "url": "https://github.com/YunYouJun/cook/blob/7bc18f58bf8359ea1f56d985b1aa48364d663502/public/brand/cook-app-icon.svg"
+        }
+      }
+    },
+    {
+      "slug": "birthday",
+      "title": "Birthday",
+      "description": "祝你生日快乐！可以改链接参数来替换寿星名称",
+      "tags": [
+        "birthday",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/birthday.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4698,
+          "sha256": "336fce5a45087572ab64e43fb326f456202933471ce948e56346bc67df308552"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/birthday.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 1039138,
+          "sha256": "15c9337dab2f65859e612faf52d92b3b3ad713167a4d54489d1c71236e7d1f20"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "28c483c728afefe3a11a7e06fb7173a9c052a1b70f1ed20519f8f3f88d6da76b",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "generic_project_favicon",
+        "notes": "当前线上是单色生日蛋糕 SVG favicon；旧仓库另有 200px logo、512px旧 PNG，但当前生成 manifest name 仍是 Vitesse。通用蛋糕符号不是专属完整品牌证明，新蛋糕图可作桌面候选。",
+        "source": {
+          "repository": "YunYouJun/birthday",
+          "commit": "b995f0a0fb19b5527edd2355274bf0b6e764623b",
+          "path": "public/favicon.svg",
+          "sha256": "b7bfbc172daff977b7d4f507367a08c3901f72dc5a4f76d20badbcaef83b800a",
+          "url": "https://github.com/YunYouJun/birthday/blob/b995f0a0fb19b5527edd2355274bf0b6e764623b/public/favicon.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "declared-only",
+        "websiteUrl": "https://birthday.yunyoujun.cn/",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://birthday.yunyoujun.cn/favicon.svg"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/birthday/b995f0a0fb19b5527edd2355274bf0b6e764623b/public/favicon.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/birthday",
+          "commit": "b995f0a0fb19b5527edd2355274bf0b6e764623b",
+          "path": "public/favicon.svg",
+          "sha256": "b7bfbc172daff977b7d4f507367a08c3901f72dc5a4f76d20badbcaef83b800a",
+          "url": "https://github.com/YunYouJun/birthday/blob/b995f0a0fb19b5527edd2355274bf0b6e764623b/public/favicon.svg"
+        }
+      }
+    },
+    {
+      "slug": "sponsors",
+      "title": "Sponsors",
+      "description": "赞助者列表",
+      "tags": [
+        "sponsors",
+        "参与"
+      ],
+      "desktopAsset": {
+        "kind": "generated",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/sponsors.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 2634,
+          "sha256": "326d5d6f325ba29d8cd2b4aca4bb0a828a790540c715e1a1a12036e032bd443a"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/sponsors.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 1055541,
+          "sha256": "e99c7a59377d93999e5fcdc627433096c693482f459d0092d3182d9223fd9a73"
+        },
+        "source": {
+          "kind": "generated-artwork",
+          "sha256": "ec6d12918f3cebdfa6d744f2d51acd8178e2545c8d9d26f30cc84bb224c9de19",
+          "tool": "OpenAI image_gen"
+        }
+      },
+      "applicationIdentity": {
+        "status": "project_selected_logo_mark",
+        "notes": "项目选用人物+爱心单色透明 SVG，配套公开240px logo.png 被 manifest 明确作为安装图；是原有视觉资产，非只 emoji，但未见专属自绘完整品牌，纯爱心生成图保持候选与原图对比。",
+        "source": {
+          "repository": "YunYouJun/sponsors",
+          "commit": "906f66b80449b59d7c240bc994e6eb116d76452b",
+          "path": "packages/site/src/assets/logo.svg",
+          "sha256": "182cbba033d2f3db1bcf969dbdb6dd9901197458bab38e249f02b64a64bdbd9a",
+          "url": "https://github.com/YunYouJun/sponsors/blob/906f66b80449b59d7c240bc994e6eb116d76452b/packages/site/src/assets/logo.svg"
+        }
+      },
+      "websitePublication": {
+        "status": "verified-resource",
+        "websiteUrl": "https://sponsors.yunyoujun.cn",
+        "checkedAt": "2026-10-14",
+        "iconUrl": "https://sponsors.yunyoujun.cn/logo.png"
+      },
+      "candidates": [],
+      "previousIcon": {
+        "url": "https://raw.githubusercontent.com/YunYouJun/sponsors/906f66b80449b59d7c240bc994e6eb116d76452b/packages/site/src/assets/logo.svg",
+        "label": "原项目资源",
+        "source": {
+          "repository": "YunYouJun/sponsors",
+          "commit": "906f66b80449b59d7c240bc994e6eb116d76452b",
+          "path": "packages/site/src/assets/logo.svg",
+          "sha256": "182cbba033d2f3db1bcf969dbdb6dd9901197458bab38e249f02b64a64bdbd9a",
+          "url": "https://github.com/YunYouJun/sponsors/blob/906f66b80449b59d7c240bc994e6eb116d76452b/packages/site/src/assets/logo.svg"
+        }
+      }
+    },
+    {
+      "slug": "give-me-money",
+      "title": "请给我钱！",
+      "description": "我很可爱，请给我钱！直白的绅士钓鱼网站",
+      "tags": [
+        "give-me-money",
+        "整活"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/give-me-money.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 6040,
+          "sha256": "07c7d57b656006049d38356fbb99926d4b12ce2a924c477a79af2e34507d7a5d"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/give-me-money.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 66916,
+          "sha256": "c0c239a418fd0f6191807488aa73ceb824934ab18986e987236cb9afa73226b2"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "4cd39334d0d1e2d876ce92803115152b55f05a6034048f5a10edeeb650ed8b62",
+          "url": "https://gmm.yunle.fun/give-me-money-app-icon.svg",
+          "repository": "YunYouJun/give-me-money",
+          "path": "public/give-me-money-app-icon.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://gmm.yunyoujun.cn"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "go-far-away",
+      "title": "Go Far Away",
+      "description": "去往这个世界上最遥远的地方。此后，不管你如何前进，都在回家的路上",
+      "tags": [
+        "go-far-away",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/go-far-away.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 5818,
+          "sha256": "9c4680505a354ed5f11fe6f614e3095d945e3b13a99848119dacabe04a74aa12"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/go-far-away.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 58100,
+          "sha256": "177024cb305ff66052ac68cb0ba79d0ae51b1e8dea57f2044af17142502e20a3"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "d1faf0de8f97b630e73440cf318b68b32f2f4d9e800ebf7b18e2cac06f87c324",
+          "url": "https://go-far-away.yyj.moe/img/go-far-away-app-icon.svg",
+          "repository": "YunYouJun/go-far-away",
+          "path": "public/img/go-far-away-app-icon.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://yunyoujun.github.io/go-far-away/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "yunjian",
+      "title": "云栈",
+      "description": "面向 Valaxy、VitePress 与 Git 内容站点的轻量内容工作台",
+      "tags": [
+        "yunjian",
+        "效率工具"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/yunjian.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4410,
+          "sha256": "205f983960ecd0b2851de563110654be0844ba3f23d6407a5153f5147d525f49"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/yunjian.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 38318,
+          "sha256": "5e66e090398a06fe66a889e43e9eddc6b2f3a04cc47a15d97b129978e52c30e8"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "b305921ce4eea245d2737ba48feab9c46f8051cd01605414cc5ed3b37ff966e0",
+          "url": "https://7975-yunlefun-8g7ybcxc7345c490-1325586649.tcb.qcloud.la/catalog-icons/cms-app-icon-v2.svg",
+          "repository": "YunLeFun/icons",
+          "path": "packages/icons/svg/cms-app-icon.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://cms.yunle.fun/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "wenta",
+      "title": "问 TA",
+      "description": "和重要的人认真聊一遍：从约会破冰到婚前深聊的关系问答清单",
+      "tags": [
+        "wenta",
+        "生活"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/wenta.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 2464,
+          "sha256": "401b1b5fb6b51221147e4bee49fa857ca3eab2f8761f43c5ed64f54c34f9dcd0"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/wenta.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 46522,
+          "sha256": "fb781cd4ed64cbc89f10aee0291b3852e179eacaf7366fde081009a18f5798fa"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "f2eb628f7a626930ee84c5c533cd0a2c74db72987e14c031a8e98d28301de66e",
+          "url": "https://wenta.yunle.fun/brand/wenta-app-icon.svg",
+          "repository": "YunLeFun/wenta",
+          "path": "docs/public/brand/wenta-app-icon.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://wenta.yunle.fun/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "play",
+      "title": "云乐坊间",
+      "description": "云乐坊旗下的单人、同屏与好友联机小游戏合集",
+      "tags": [
+        "play",
+        "游戏"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/play.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4760,
+          "sha256": "a05ed254e8c1af8d873b8d28475c28f2deae483670e9be5dc6bf45ac9cdb8e8a"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/play.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 49659,
+          "sha256": "6c35fd723d47a56d4d14b0dca7c3133362caca4568b4560cb7e713b765b0537d"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "9c26cd21edfd646129d5ccc0e210587d3b6ba4a4ecfe158c2502f4e93d8a87a7",
+          "url": "https://play.yunle.fun/assets/play-app-icon-v1.svg",
+          "repository": "YunLeFun/play",
+          "path": "apps/web/public/assets/play-app-icon-v1.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://play.yunle.fun/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "smap",
+      "title": "SMAP",
+      "description": "以移动地图应用的交互方式规划星际路线、探索与出行",
+      "tags": [
+        "smap",
+        "工具"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/smap.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4738,
+          "sha256": "dd577cf3607f03e67723cdd09dc67b3d20f761927358a81d10c368c543b117e7"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/smap.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 48681,
+          "sha256": "b6335a25729def7e82b08df7dcdd5c07ddd1fa72eef4a4126311657d2a2249d5"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "b66cd5e2f2a65d2ef15fa36fbc649a02fbc1c130ee976d5dbbc23da8b58b2608",
+          "url": "https://smap.yunle.fun/smap-app-icon.svg",
+          "repository": "YunYouJun/smap",
+          "path": "apps/smap/public/smap-app-icon.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://smap.yunle.fun/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "advjs-studio",
+      "title": "ADV.JS Studio",
+      "description": "应用品牌与目录图标素材",
+      "tags": [
+        "advjs-studio",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/advjs-studio.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 4666,
+          "sha256": "8c31d271d7c7cfc03c9eb66922ec7922961ef7120d4cc88f585da5752296d9b3"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/advjs-studio.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 220261,
+          "sha256": "9d09aa25dce8319f56daa842b46424e95e8d201668e85ccf5ebc0310eba89966"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "b6ba52704a9168a00f79c6a1903e99664cb61578eadc99ba6691d40491a49546",
+          "url": "https://advjs.yunle.fun/brand/advjs-studio-app-icon.svg",
+          "repository": "YunYouJun/advjs",
+          "path": "apps/studio/public/brand/advjs-studio-app-icon.svg"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "ai-sfc",
+      "title": "AI 春联",
+      "description": "AI 春联生成器，让 AI 帮你写春联",
+      "tags": [
+        "ai-sfc",
+        "应用"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/ai-sfc.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 11344,
+          "sha256": "6eac9144f6bf741865421cbd2084d3f2130f0288c82ffc4f856375eff3c94c30"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/ai-sfc.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 337283,
+          "sha256": "3d7cfead24de67d7adb01778ce0a95a2231d71c9913bc5e744491f24d8f0c960"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "f0fd591891ba0641653b7bf57cf7f2e7af03db7d620177b5649ba6d3de3116fa",
+          "url": "https://ai-sfc.yunle.fun/brand/ai-sfc-logo-256.png"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://ai-sfc.yunle.fun/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "paper-star",
+      "title": "星纸",
+      "description": "驾驶纸飞机穿越星球、黑洞与虫洞，体验互动教程、本地 PVE 和自由练习。",
+      "tags": [
+        "paper-star",
+        "游戏"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/paper-star.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 5612,
+          "sha256": "ed603301985a5c74df08a14d77e756a2bd5f62713bd22fe7f9859b8ade04d095"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/paper-star.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 289170,
+          "sha256": "8457b71437c12806aae49af678e1f2ea41fa4c6a40833944b7d9d6cfd187a249"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "01fbf4fa0ab5b2070a0fbc5327a0dc468dc7f387a7263364c0b08a71ba642eae",
+          "url": "https://assets.play.yunle.fun/games/paper-star/runtime/v2/icon.png",
+          "repository": "YunLeFun/play",
+          "path": "packages/game-catalog/src/index.ts:289"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://play.yunle.fun/games/paper-star"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "pachinko",
+      "title": "云乐弹珠",
+      "description": "云乐坊主题的仿真 2.5D 弹珠机，支持拉杆发射、随机开彩、倍率口与云币吐币反馈。",
+      "tags": [
+        "pachinko",
+        "游戏"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/pachinko.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 5966,
+          "sha256": "d7ba01b1dd75a6bdc1ff891afc66b0b007cfaca973accaedf566aecd4ab26422"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/pachinko.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 278323,
+          "sha256": "6212f320836b9799255d4af5e35e32efd1fe48ad161b04b7af25a64bcb977cf8"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "3d6e985f89b6bb172994cd8b1001e26a19cebf28661953c9c9b3de32b663eeb5",
+          "url": "https://play.yunle.fun/games/pachinko/icon-512.png"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://play.yunle.fun/games/pachinko/local"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "dayun-kicker",
+      "title": "暴力电驴",
+      "description": "第一视角电动车街机游戏，在城市车流中加速、闪避并把大云汽车踹出赛道。",
+      "tags": [
+        "dayun-kicker",
+        "游戏"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/dayun-kicker.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 15480,
+          "sha256": "b8642af9d04e10ed3eb12838a03e7c717b02bcaaf2ca5b1f3779e57dfab1d949"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/dayun-kicker.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 385730,
+          "sha256": "fbe48052e8c2901fe336075ca183cc26b0fc344e48bbd8fe7de3d2ce988302d8"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "28f0a6814d358b674cbf6f2eefb92845c31417b31e83fda828580ed9126d53df",
+          "url": "https://dayun-kicker.yunle.fun/icon-512.png"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://dayun-kicker.yunle.fun/"
+      },
+      "candidates": []
+    },
+    {
+      "slug": "ak-ui",
+      "title": "AK UI",
+      "description": "明日方舟 UI 组件库",
+      "tags": [
+        "ak-ui",
+        "设计"
+      ],
+      "desktopAsset": {
+        "kind": "official",
+        "version": "v1",
+        "usage": "desktop-selected",
+        "thumbnail": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/v1/ak-ui.webp",
+          "width": 256,
+          "height": 256,
+          "mime": "image/webp",
+          "bytes": 3590,
+          "sha256": "f1240dd519b7d347fdd32179da68dfb2ded2e12d566f20b437d3cf2c0def0fce"
+        },
+        "master": {
+          "url": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/desktop/app-icons/masters/v1/ak-ui.png",
+          "width": 1024,
+          "height": 1024,
+          "mime": "image/png",
+          "bytes": 36156,
+          "sha256": "91e5ff709a9295175834744ca41e4acebf0afcbf33f6646d034582f50402b9bb"
+        },
+        "source": {
+          "kind": "official-source",
+          "sha256": "f85f529449cf477be8b1dcaa9629cac31596ba3c00327dd9fb10a4b006b6e982",
+          "url": "https://ak-ui.yyj.moe/ak-ui-app-icon-512.png",
+          "repository": "YunYouJun/ak-ui",
+          "path": "docs/public/ak-ui-app-icon.svg + docs/public/manifest.json"
+        }
+      },
+      "applicationIdentity": {
+        "status": "formal_app_icon",
+        "notes": "沿用已核实的应用正式品牌资源；目录缩略图是该来源的栅格导出。"
+      },
+      "websitePublication": {
+        "status": "unverified",
+        "websiteUrl": "https://ak-ui.yunyoujun.cn"
+      },
+      "candidates": []
+    }
+  ]
+}

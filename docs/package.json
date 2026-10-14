@@ -7,7 +7,8 @@
     "build": "vitepress build",
     "dev": "vitepress",
     "preview": "vitepress preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "catalog:",
@@ -20,8 +21,10 @@
     "@vitejs/plugin-vue": "catalog:",
     "@vue/test-utils": "catalog:",
     "happy-dom": "catalog:",
+    "typescript": "catalog:",
     "unocss": "catalog:",
     "vite": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }
