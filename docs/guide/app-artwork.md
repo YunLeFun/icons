@@ -38,9 +38,9 @@
 
 16 个生成素材中，4 个未采用版本保留在 `candidates` 作对照，对应应用的桌面默认继续使用正式来源的 v2 导出。其余 12 个用于当前桌面目录；一般生成变体仍是候选品牌素材，不因目录采用或上传而成为应用的正式身份。
 
-Saier（`pixi-painter`）是维护者明确选用的例外：2026-10-14 选用历史生成画笔稿 v1 作为应用图标，因此它成为桌面默认，`kind` 仍为 `generated`。`desktopAsset.adoption` 单独记录 `status: maintainer-approved`、`approvedAt: 2026-10-14` 与 `scope: application-icon`。这条采用记录不改写生成来源，也不意味着网站 favicon、PWA 或原生安装包已更新；`applicationIdentity` 与 `websitePublication` 保留各自核实的事实，新图是否在线发布需要另行验证。
+Saier（`pixi-painter`）是维护者明确选用的例外：2026-10-14 选用历史生成画笔稿 v1 作为应用图标，因此它成为桌面默认，`kind` 仍为 `generated`。`desktopAsset.adoption` 单独记录 `status: maintainer-approved`、`approvedAt: 2026-10-14` 与 `scope: application-icon`。这条采用记录不改写生成来源，网站发布单独核实。同日已确认 [Saier 主站](https://saier.yunle.fun/) 的 favicon 声明指向该画笔稿导出的 32px PNG，公开资源返回 `200 image/png`，因此 `websitePublication` 记为 `verified-resource`；`applicationIdentity` 中的旧 S 来源保留为历史记录。此项核实不表示原生安装包图标已经更新。
 
-`previousIcon` 保留 16 个可追溯的原项目图片或站点旧图。Saier 的旧 v2 正式导出完整记录归档到 `previousIcon.archivedArtwork`，标记 `usage: comparison-only`、`status: superseded`，只供历史对照，不能被同步为当前默认。旧图访问失败时页面显示提示和来源链接，不用另一个未知图片代替。Explosions 的框架默认图标和 WC GitHub Corners 的第三方 favicon 可推荐以后建立独立品牌；本次没有执行网站品牌发布。
+`previousIcon` 保留 16 个可追溯的原项目图片或站点旧图。Saier 的旧 v2 正式导出完整记录归档到 `previousIcon.archivedArtwork`，标记 `usage: comparison-only`、`status: superseded`，只供历史对照，不能被同步为当前默认。旧图访问失败时页面显示提示和来源链接，不用另一个未知图片代替。Explosions 的框架默认图标和 WC GitHub Corners 的第三方 favicon 可推荐以后建立独立品牌；目录预览不会自动执行网站品牌发布。
 
 ## 维护与验证
 

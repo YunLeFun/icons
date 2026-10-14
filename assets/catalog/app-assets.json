@@ -241,7 +241,7 @@
       },
       "applicationIdentity": {
         "status": "formal_app_icon",
-        "notes": "原仓库重定向 YunYouJun/saier，旧 pixi-painter 为 deprecated alias。Saier 云绘专属彩色 S 笔触标记，logo.svg 与 favicon.svg 相同且 PWA 声明。SVG 128 方形，2px 外透明边距、124px 白底圆角32，不裁切或重绘。 维护者选用历史画笔稿作为新版图标，官网发布状态单独验证。",
+        "notes": "原仓库重定向 YunYouJun/saier，旧 pixi-painter 为 deprecated alias。历史正式图标为 Saier 云绘专属彩色 S 笔触标记，旧 logo.svg 与 favicon.svg 相同并曾用于 PWA 声明。SVG 128 方形，2px 外透明边距、124px 白底圆角32，不裁切或重绘。维护者选用历史画笔稿作为新版图标；2026-10-14 已核实主站 saier.yunle.fun 声明新版 PNG favicon，旧 S 来源保留为历史记录。",
         "source": {
           "repository": "YunYouJun/saier",
           "commit": "277dfaf239b6df6caea313adc01e8ff3ff8ec290",
@@ -251,10 +251,10 @@
         }
       },
       "websitePublication": {
-        "status": "declared-only",
-        "websiteUrl": "https://pixi-painter.pages.dev",
+        "status": "verified-resource",
+        "websiteUrl": "https://saier.yunle.fun",
         "checkedAt": "2026-10-14",
-        "iconUrl": "https://pixi-painter.pages.dev/favicon.svg"
+        "iconUrl": "https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/saier/app-icons/v1/favicon-32x32.png"
       },
       "candidates": [],
       "previousIcon": {

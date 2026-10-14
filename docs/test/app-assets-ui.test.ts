@@ -48,7 +48,7 @@ describe('app artwork preview', () => {
     expect(saier.text()).toContain('已选用新版图标 · v1')
     expect(saier.text()).toContain('维护者已确认 · 2026-10-14')
     expect(saier.text()).toContain('上一版桌面图 · 已归档')
-    expect(saier.text()).toContain('站点声明已核实，图像访问未确认')
+    expect(saier.text()).toContain('已核实公开图标资源')
     expect(saier.text()).not.toContain('生成候选 · 未采用')
     expect(saier.text()).not.toContain('仅作为桌面目录变体')
     const archive = saier.findAll('figure').find(figure => figure.text().includes('已归档'))!

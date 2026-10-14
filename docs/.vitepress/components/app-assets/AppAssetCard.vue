@@ -59,7 +59,7 @@ const archived = computed(() => props.asset.previousIcon?.archivedArtwork)
       <p><strong>PNG 存储对象 SHA-256</strong> {{ asset.desktopAsset.master.sha256 }}</p>
       <p v-if="archived"><strong>上一版桌面图 WebP SHA-256</strong> {{ archived.thumbnail.sha256 }}</p>
       <p v-if="asset.websitePublication.iconUrl"><a :href="asset.websitePublication.iconUrl" target="_blank" rel="noopener noreferrer">站点声明或已核实的图标资源 ↗</a></p>
-      <p class="asset-evidence-note">源码 commit 与站点部署版本分别记录；本目录不声明新素材已在应用网站发布。</p>
+      <p class="asset-evidence-note">源码 commit、素材采用与站点发布分别核实；采用记录不代表发布，已核实状态以对应的公开资源链接为准。</p>
     </details>
   </article>
 </template>

@@ -44,7 +44,9 @@ describe('external app asset contract', () => {
     expect(archived.thumbnail.url).toContain('/v2/pixi-painter.webp')
     expect(archived.master.sha256).toBe('5597d94e453c78742432f515db061fbee514f033985ec8dcf98467a53e262f92')
     expect(saier.applicationIdentity.source!.repository).toBe('YunYouJun/saier')
-    expect(saier.websitePublication.status).toBe('declared-only')
+    expect(saier.websitePublication.status).toBe('verified-resource')
+    expect(saier.websitePublication.websiteUrl).toBe('https://saier.yunle.fun')
+    expect(saier.websitePublication.iconUrl).toBe('https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/saier/app-icons/v1/favicon-32x32.png')
     expect(assets.flatMap(asset => asset.candidates)).toHaveLength(4)
     expect(assets.filter(asset => asset.previousIcon)).toHaveLength(16)
     expect(new Set(assets.flatMap(asset => [asset.desktopAsset.thumbnail.url,
