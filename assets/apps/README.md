@@ -15,6 +15,8 @@
 
 ## 维护与消费
 
+本目录的 PNG 由 [Git LFS](https://git-lfs.com/) 保存（见根目录 `.gitattributes`）。克隆或同步前执行一次 `git lfs install`；未安装时检出的是指针文件，消费项目的 SHA-256 校验会直接失败。新增 PNG 无需额外操作，`git add` 会自动转为 LFS 对象。
+
 1. 在这里更新原稿、Composer 布局及生成说明。替换视觉版本时建立新版本目录，保留已发布版本。
 2. 在 `manifest.json` 记录产品、版本、原稿来源、目录和每个文件的 SHA-256；清单中的 `files` 只列可同步的生产输入。
 3. 在消费项目显式同步固定版本，再执行平台导出。当前游戏提供 `pnpm icons:sync --source /path/to/icons`。

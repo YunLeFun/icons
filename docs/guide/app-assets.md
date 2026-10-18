@@ -9,6 +9,8 @@
 
 完整插画保留原始文件格式。原生资源清单不参与 SVG 构建，也不作为 Iconify 图标名称发布。
 
+`assets/apps` 下的 PNG 使用 Git LFS 存储；同步前在中心仓库 checkout 中执行 `git lfs install` 并 `git lfs pull`，否则清单哈希校验会失败。
+
 ## 暴力电驴 v2
 
 当前归档包含珊瑚红电驴、金色闪电和青色速度线的原图、1024 px 方形主图、生成提示词，以及单图层 Icon Composer 项目。原稿位于 `assets/apps/dayun-kicker/v2`，来源为 `YunLeFun/dayun-kicker` 中已确认的图标设计。
