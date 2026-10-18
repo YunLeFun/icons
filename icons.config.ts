@@ -48,6 +48,8 @@ export interface IconsConfig {
     default: IconColorStrategy
     icons: Record<string, IconColorStrategy>
   }
+  /** Icons whose sibling paths stay separate so consumers can animate each part. */
+  animatable: string[]
   sources: {
     repositoriesRoot: string
     repositories: Record<string, string>
@@ -106,6 +108,7 @@ const iconsConfig: IconsConfig = {
       'apps-app-icon': { mode: 'replace-current-color', color: '#0078E7' },
     },
   },
+  animatable: ['brand-mark'],
   sources: {
     repositoriesRoot,
     repositories: {
@@ -124,6 +127,7 @@ const iconsConfig: IconsConfig = {
       'YunYouJun/cook': '../YunYouJun/cook',
       'YunYouJun/el-bot': '../YunYouJun/el-bot',
       'YunYouJun/go-far-away': '../YunYouJun/go-far-away',
+      'YunYouJun/life': '../YunYouJun/life',
       'YunYouJun/smap': '../YunYouJun/smap',
     },
   },
@@ -131,6 +135,10 @@ const iconsConfig: IconsConfig = {
 
 export function getIconColorStrategy(name: string): IconColorStrategy {
   return iconsConfig.colors.icons[name] ?? iconsConfig.colors.default
+}
+
+export function isAnimatableIcon(name: string): boolean {
+  return iconsConfig.animatable.includes(name)
 }
 
 export default iconsConfig

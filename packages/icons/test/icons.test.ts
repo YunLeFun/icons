@@ -91,6 +91,7 @@ describe('@yunlefun/icons', () => {
       fc: 'https://fc.yunle.fun/',
       'go-far-away': 'https://go-far-away.yyj.moe/',
       home: 'https://www.yunle.fun/',
+      life: undefined,
       play: 'https://play.yunle.fun/',
       skykeeper: undefined,
       smap: 'https://smap.yunle.fun/',

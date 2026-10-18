@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "product": "life",
+  "displayName": "云生",
+  "version": "v4",
+  "canonical": {
+    "repository": "YunLeFun/icons",
+    "path": "assets/apps/life/v4"
+  },
+  "provenance": {
+    "kind": "vector-artwork",
+    "originalRepository": "YunYouJun/life",
+    "originalPath": "assets/brand/README.md",
+    "created": "2026-10-18"
+  },
+  "files": {
+    "life-app-icon.svg": "a0a07aa6d452f1ea5cc4fb0d3f26af56713007fd36264b556c158aaee0a4491b",
+    "life-app-icon-1024.png": "a672dc9b81b908d112e472091b423ef5699e9d77541417057f292ff8b6ab69d5",
+    "life-mark.svg": "3223f11fff0ed71bd1910e7810a63c4f6abdf7411382547ada5ee42c0cdffeb4",
+    "life-mark-mono.svg": "b3e644d347469e3a38d195eb539e23f37e2ae5732a3aeef60b874503f449c423",
+    "life-cloud-shadow.svg": "043750d9109cfbd634521d90f58cf655ae3f2fc28271aa8cc2800a54433bb751",
+    "AppIcon.icon/icon.json": "f4f39b196722e6f13f53ac96f0dc7ecab3d233e47998bd1cc858cb0cbe4cfb46",
+    "AppIcon.icon/Assets/cloud.png": "7ea74d6b409bf70003746e755d942abc117615c0ea28d5e1cbf39f1183315ee8",
+    "AppIcon.icon/Assets/star.svg": "660ea0501ffcfc7afa6a7a64b16d4499798c6119d8626156f5ffd2dae573e672"
+  }
+}

@@ -1,7 +1,12 @@
 import type { IconColorStrategy } from '../../../icons.config'
 import { cleanupSVG, isEmptyColor, parseColors, runSVGO, SVG } from '@iconify/tools'
 
-export function optimizeSVG(svg: SVG, colorStrategy: IconColorStrategy): SVG {
+export interface OptimizeSVGOptions {
+  /** Skip shape and path merging so each source path survives as its own element. */
+  keepShapes?: boolean
+}
+
+export function optimizeSVG(svg: SVG, colorStrategy: IconColorStrategy, options: OptimizeSVGOptions = {}): SVG {
   if (colorStrategy.mode === 'replace-current-color') {
     svg.load(svg.toString().replace(/currentcolor/gi, colorStrategy.color))
   }
@@ -20,10 +25,10 @@ export function optimizeSVG(svg: SVG, colorStrategy: IconColorStrategy): SVG {
     })
   }
 
-  runSVGO(svg)
+  runSVGO(svg, { keepShapes: options.keepShapes })
   return svg
 }
 
-export function createOptimizedSVG(content: string, colorStrategy: IconColorStrategy): SVG {
-  return optimizeSVG(new SVG(content), colorStrategy)
+export function createOptimizedSVG(content: string, colorStrategy: IconColorStrategy, options: OptimizeSVGOptions = {}): SVG {
+  return optimizeSVG(new SVG(content), colorStrategy, options)
 }

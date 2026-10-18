@@ -56,6 +56,25 @@
     }
   },
   {
+    "name": "brand-app-icon",
+    "product": "brand",
+    "variant": "app-icon",
+    "title": "YunLeFun",
+    "titleZh": "云乐坊品牌图标",
+    "description": "品牌蓝满幅背景与白色播放连接符号组成的方形应用图标。",
+    "category": "brand",
+    "style": "color",
+    "tags": ["yunlefun", "云乐坊", "brand", "logo", "品牌", "app icon", "完整图标"],
+    "website": "https://www.yunle.fun/",
+    "source": {
+      "repository": "YunLeFun/icons",
+      "path": "packages/icons/svg/brand-app-icon.svg",
+      "url": "https://github.com/YunLeFun/icons/blob/main/packages/icons/svg/brand-app-icon.svg",
+      "sync": false,
+      "derivation": "以 brand-mark 原稿为主体，按 design-app-icon 规则置于 @yunlefun/ui 品牌蓝 #2563eb 满幅画布，主体宽 68%。"
+    }
+  },
+  {
     "name": "apps-mark",
     "product": "apps",
     "variant": "mark",
@@ -636,6 +655,40 @@
       "ref": "dev",
       "path": "assets/brand/el-bot-app-icon.svg",
       "url": "https://github.com/YunYouJun/el-bot/blob/dev/assets/brand/el-bot-app-icon.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "life-mark",
+    "product": "life",
+    "variant": "mark",
+    "title": "Yunsheng",
+    "titleZh": "云生",
+    "description": "晴空蓝云朵托起明黄星星的平面标志，收藏人生的闪光时刻。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["yunsheng", "云生", "life", "人生成就", "成就", "收藏", "cloud", "star", "mark", "主体"],
+    "source": {
+      "repository": "YunYouJun/life",
+      "path": "assets/brand/life-mark.svg",
+      "url": "https://github.com/YunYouJun/life/blob/main/assets/brand/life-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "life-app-icon",
+    "product": "life",
+    "variant": "app-icon",
+    "title": "Yunsheng",
+    "titleZh": "云生",
+    "description": "晴空蓝满幅背景、白云与明黄星星组成的方形应用图标，星云接触处带有浅蓝柔影。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["yunsheng", "云生", "life", "人生成就", "成就", "收藏", "cloud", "star", "app-icon", "完整图标"],
+    "source": {
+      "repository": "YunYouJun/life",
+      "path": "assets/brand/life-app-icon.svg",
+      "url": "https://github.com/YunYouJun/life/blob/main/assets/brand/life-app-icon.svg",
       "sync": true
     }
   }

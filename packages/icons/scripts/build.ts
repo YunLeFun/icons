@@ -2,7 +2,7 @@ import type { IconifyJSON } from '@iconify/types'
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { importDirectory } from '@iconify/tools'
-import iconsConfig, { getIconColorStrategy } from '../../../icons.config'
+import iconsConfig, { getIconColorStrategy, isAnimatableIcon } from '../../../icons.config'
 import { resolveLastModified } from './generation'
 import { optimizeSVG } from './svg'
 
@@ -129,7 +129,7 @@ iconSet.forEach((name, type) => {
   if (!svg)
     throw new Error(`Unable to parse ${name}.svg`)
 
-  optimizeSVG(svg, getIconColorStrategy(name))
+  optimizeSVG(svg, getIconColorStrategy(name), { keepShapes: isAnimatableIcon(name) })
   iconSet.fromSVG(name, svg)
 })
 

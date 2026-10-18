@@ -4,6 +4,8 @@ import antfu from '@antfu/eslint-config'
 export default antfu({
   type: 'lib',
   ignores: [
+    // Icon Composer owns the JSON serialization inside native icon bundles.
+    'assets/apps/**/*.icon/**',
     'packages/icons/icons.json',
     'packages/icons/src/generated.ts',
     'docs/.vitepress/cache/**',

@@ -1,0 +1,42 @@
+{
+  "fill": {
+    "solid": "srgb:0.14510,0.38824,0.92157,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "star.svg",
+          "name": "star"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0
+      },
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "cloud.png",
+          "name": "cloud"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.22
+      },
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared"
+  }
+}

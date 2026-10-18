@@ -6,7 +6,8 @@ YunLeFun 品牌、官方站点、效率工具与趣味应用的统一 SVG、Icon
 
 ## 当前能力
 
-- `packages/icons/svg/*.svg` 作为唯一图形源
+- `packages/icons/svg/*.svg` 作为 SVG / Iconify 的唯一图形源
+- `assets/apps/<product>/<version>` 集中归档 PNG / Apple `.icon` 原稿，以清单和 SHA-256 固定消费版本
 - 应用资产显式区分 `-mark` 透明主体层和 `-app-icon` 无遮罩完整图标
 - 构建时清洗 SVG 并生成 IconifyJSON 格式的 `icons.json`
 - 发布包 `@yunlefun/icons` 提供图标数据、名称类型与检索元数据
@@ -29,7 +30,11 @@ YunLeFun 品牌、官方站点、效率工具与趣味应用的统一 SVG、Icon
 
 Icon Composer 的实际分层交付使用 `-mark` 前景并在 Composer 中配置背景；`-app-icon` 是无遮罩的完整参考构图，不是预裁圆角的上架文件。
 
+完整 PNG 插画和已有的单图层 Composer 项目独立保存在 [App 原稿归档](./assets/apps/README.md)。消费项目保留固定版本的同步副本与平台导出，普通构建可以离线完成；详见 [App 原稿与平台资源](./docs/guide/app-assets.md)。
+
 所有可消费的图标名都必须显式包含变体后缀。`<product>` 只作为元数据中的产品分组标识，不代表默认图标；集合不提供 `ylf:drive` 这类无后缀名称或兼容 alias。
+
+云生提供 `ylf:life-app-icon`（轻阴影云星应用图标）和 `ylf:life-mark`（平面独立 Logo）。单色 SVG、1024 px PNG 与原生分层项目保存在 [life/v4 原稿](./assets/apps/life/v4/README.md)，图标目录支持中英文名称检索与两种变体预览。
 
 ## 开发
 

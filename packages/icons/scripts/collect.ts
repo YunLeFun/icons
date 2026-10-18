@@ -1,7 +1,8 @@
 import type { IconColorStrategy } from '../../../icons.config'
 import { readFile, writeFile } from 'node:fs/promises'
 import { isAbsolute, relative, resolve } from 'node:path'
-import iconsConfig, { getIconColorStrategy } from '../../../icons.config'
+import iconsConfig, { getIconColorStrategy, isAnimatableIcon } from '../../../icons.config'
+import type { OptimizeSVGOptions } from './svg'
 import { createOptimizedSVG } from './svg'
 
 interface SourceMetadata {
@@ -66,27 +67,28 @@ async function readCanonicalIcon(path: string): Promise<string | undefined> {
   }
 }
 
-function normalize(content: string, strategy: IconColorStrategy): string {
-  return createOptimizedSVG(content, strategy).toMinifiedString()
+function normalize(content: string, strategy: IconColorStrategy, options: OptimizeSVGOptions): string {
+  return createOptimizedSVG(content, strategy, options).toMinifiedString()
 }
 
 const collected = await Promise.all(synchronizedMetadata.map(async (icon): Promise<CollectedIcon> => {
   const sourcePath = resolveSourcePath(icon)
   const targetPath = resolve(iconsConfig.paths.inputs.svgDirectory, `${icon.name}.svg`)
   const colorStrategy = getIconColorStrategy(icon.name)
+  const optimizeOptions = { keepShapes: isAnimatableIcon(icon.name) }
   const [sourceContent, targetContent] = await Promise.all([
     readFile(sourcePath, 'utf8'),
     readCanonicalIcon(targetPath),
   ])
-  const normalizedSource = normalize(sourceContent, colorStrategy)
+  const normalizedSource = normalize(sourceContent, colorStrategy, optimizeOptions)
   const normalizedTarget = targetContent === undefined
     ? undefined
-    : normalize(targetContent, colorStrategy)
+    : normalize(targetContent, colorStrategy, optimizeOptions)
 
   return {
     name: icon.name,
     targetPath,
-    content: `${createOptimizedSVG(sourceContent, colorStrategy).toPrettyString()}\n`,
+    content: `${createOptimizedSVG(sourceContent, colorStrategy, optimizeOptions).toPrettyString()}\n`,
     changed: normalizedSource !== normalizedTarget,
   }
 }))

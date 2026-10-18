@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "product": "dayun-kicker",
+  "displayName": "暴力电驴",
+  "version": "v2",
+  "canonical": {
+    "repository": "YunLeFun/icons",
+    "path": "assets/apps/dayun-kicker/v2"
+  },
+  "provenance": {
+    "kind": "generated-artwork",
+    "tool": "OpenAI image_gen",
+    "originalRepository": "YunLeFun/dayun-kicker",
+    "originalPath": "assets/app-icon/PROMPT.md",
+    "created": "2026-10-07"
+  },
+  "files": {
+    "dayun-kicker-v2-source.png": "a89d17ae9fff61f9bafa0cbdbc34b548091473458926d7212effa278da018d98",
+    "dayun-kicker-v2-1024.png": "dc7a7540c9ed69170b585bc619fad841cca196f6433de6c0b6b7b9b81ba3862a",
+    "PROMPT.md": "921094c9d92e593319d7f29f3784c466e5a75eb57a662aacbba2122868a5978a",
+    "DayunKicker.icon/icon.json": "ded7210eb3d78294d15d9d6854a415e895c99cb099a07001ef69871b8e772d0b",
+    "DayunKicker.icon/Assets/dayun-kicker-v2-1024.png": "dc7a7540c9ed69170b585bc619fad841cca196f6433de6c0b6b7b9b81ba3862a"
+  }
+}
