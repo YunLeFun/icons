@@ -1,7 +1,7 @@
 import type { IconColorStrategy } from '../../../icons.config'
 import { readFile, writeFile } from 'node:fs/promises'
 import { isAbsolute, relative, resolve } from 'node:path'
-import iconsConfig, { getIconColorStrategy, isAnimatableIcon } from '../../../icons.config'
+import iconsConfig, { getIconColorStrategy, getIconOptimizeOptions } from '../../../icons.config'
 import type { OptimizeSVGOptions } from './svg'
 import { createOptimizedSVG } from './svg'
 
@@ -75,7 +75,7 @@ const collected = await Promise.all(synchronizedMetadata.map(async (icon): Promi
   const sourcePath = resolveSourcePath(icon)
   const targetPath = resolve(iconsConfig.paths.inputs.svgDirectory, `${icon.name}.svg`)
   const colorStrategy = getIconColorStrategy(icon.name)
-  const optimizeOptions = { separatePaths: isAnimatableIcon(icon.name) }
+  const optimizeOptions = getIconOptimizeOptions(icon.name)
   const [sourceContent, targetContent] = await Promise.all([
     readFile(sourcePath, 'utf8'),
     readCanonicalIcon(targetPath),

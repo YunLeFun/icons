@@ -44,6 +44,15 @@ describe('animatable marks', () => {
   })
 })
 
+describe('path precision', () => {
+  it('rounds path data only when an icon opts in', () => {
+    const source = '<svg viewBox="0 0 1254 1254"><path fill="#123456" d="M10.123 20.456h300.789v400.321z"/></svg>'
+
+    expect(createOptimizedSVG(source, { mode: 'preserve' }).getBody()).toContain('10.123')
+    expect(createOptimizedSVG(source, { mode: 'preserve' }, { pathPrecision: 1 }).getBody()).toContain('M10.1 20.5')
+  })
+})
+
 describe('application icon canvases', () => {
   it('keeps the CMS app icon artwork inside a symmetric safe area', async () => {
     const content = await readFile(resolve(import.meta.dirname, '../svg/cms-app-icon.svg'), 'utf8')

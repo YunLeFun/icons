@@ -42,7 +42,7 @@
     "product": "brand",
     "variant": "mark",
     "title": "YunLeFun",
-    "titleZh": "云乐坊品牌标记",
+    "titleZh": "云乐坊品牌",
     "description": "云乐坊通用的播放与连接品牌符号。",
     "category": "brand",
     "style": "monotone",
@@ -60,7 +60,7 @@
     "product": "brand",
     "variant": "app-icon",
     "title": "YunLeFun",
-    "titleZh": "云乐坊品牌图标",
+    "titleZh": "云乐坊品牌",
     "description": "品牌蓝满幅背景与白色播放连接符号组成的方形应用图标。",
     "category": "brand",
     "style": "color",
@@ -87,8 +87,8 @@
     "website": "https://apps.yunle.fun/",
     "source": {
       "repository": "YunLeFun/apps.yunle.fun",
-      "path": "public/ylf-square.svg",
-      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/public/ylf-square.svg",
+      "path": "apps/mobile/public/ylf-square.svg",
+      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/apps/mobile/public/ylf-square.svg",
       "sync": false,
       "derivation": "移除满幅蓝色背景，保留应用中心主体。"
     }
@@ -106,8 +106,8 @@
     "website": "https://apps.yunle.fun/",
     "source": {
       "repository": "YunLeFun/apps.yunle.fun",
-      "path": "public/ylf-square.svg",
-      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/public/ylf-square.svg",
+      "path": "apps/mobile/public/ylf-square.svg",
+      "url": "https://github.com/YunLeFun/apps.yunle.fun/blob/main/apps/mobile/public/ylf-square.svg",
       "sync": true
     }
   },

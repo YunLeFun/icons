@@ -5,6 +5,8 @@ import { getSVGOPlugins } from '@iconify/tools/lib/optimise/svgo'
 export interface OptimizeSVGOptions {
   /** Keep sibling paths apart so each source part stays animatable; path data is still normalized. */
   separatePaths?: boolean
+  /** Decimal places for path data; only for flat paths on large canvases (no scaled groups). */
+  pathPrecision?: number
 }
 
 const separatePathPlugins = getSVGOPlugins({}).filter(plugin => typeof plugin === 'string' || plugin.name !== 'mergePaths')
@@ -29,6 +31,8 @@ export function optimizeSVG(svg: SVG, colorStrategy: IconColorStrategy, options:
   }
 
   runSVGO(svg, options.separatePaths ? { plugins: separatePathPlugins } : {})
+  if (options.pathPrecision !== undefined)
+    runSVGO(svg, { plugins: [{ name: 'convertPathData', params: { floatPrecision: options.pathPrecision, noSpaceAfterFlags: true } }] })
   return svg
 }
 

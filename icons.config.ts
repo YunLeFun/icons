@@ -50,6 +50,8 @@ export interface IconsConfig {
   }
   /** Icons whose sibling paths stay separate so consumers can animate each part. */
   animatable: string[]
+  /** Path-data decimal places for traced icons on large canvases; verified by pixel comparison. */
+  pathPrecision: Record<string, number>
   sources: {
     repositoriesRoot: string
     repositories: Record<string, string>
@@ -109,6 +111,10 @@ const iconsConfig: IconsConfig = {
     },
   },
   animatable: ['brand-mark'],
+  pathPrecision: {
+    'cook-mark': 1,
+    'cook-app-icon': 1,
+  },
   sources: {
     repositoriesRoot,
     repositories: {
@@ -139,6 +145,10 @@ export function getIconColorStrategy(name: string): IconColorStrategy {
 
 export function isAnimatableIcon(name: string): boolean {
   return iconsConfig.animatable.includes(name)
+}
+
+export function getIconOptimizeOptions(name: string): { separatePaths: boolean, pathPrecision?: number } {
+  return { separatePaths: isAnimatableIcon(name), pathPrecision: iconsConfig.pathPrecision[name] }
 }
 
 export default iconsConfig
