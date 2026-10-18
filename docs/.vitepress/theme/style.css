@@ -906,3 +906,107 @@
 @media (prefers-reduced-motion: reduce) {
   .preview-canvas, .icon-glyph { transition: none; }
 }
+
+/*
+ * Brand mark motion. The mark is a screen frame plus one play/button path:
+ * the masthead powers on like a display, and hovering a mark presses play.
+ * Entrance uses `transform`; hover uses `translate`, so the two compose.
+ */
+.masthead-brand-symbol {
+  --brand-spring: var(--ylf-ease-spring, cubic-bezier(.34, 1.56, .64, 1));
+  overflow: visible;
+  animation: brand-glow 1.4s .7s ease-out both;
+}
+
+.masthead-brand-symbol path,
+.ylf-nav-logo path {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: translate var(--ylf-duration-slow, .32s) var(--brand-spring, cubic-bezier(.34, 1.56, .64, 1));
+}
+
+.masthead-brand-symbol path:last-child {
+  animation: brand-frame-on .72s var(--brand-spring) both;
+}
+
+.masthead-brand-symbol path:first-child {
+  animation: brand-controls-on .6s .38s var(--brand-spring) both;
+}
+
+.masthead-brand:hover .masthead-brand-symbol path:first-child,
+.VPNavBarTitle .title:hover .ylf-nav-logo path:first-child {
+  translate: 6% 0;
+}
+
+.VPNavBarTitle .title:active .ylf-nav-logo {
+  scale: .94;
+}
+
+.ylf-nav-logo {
+  transition: scale var(--ylf-duration-fast, .16s) var(--ylf-ease-standard, ease);
+}
+
+.masthead-brand-code::after {
+  content: '_';
+  margin-left: 2px;
+  animation: brand-caret 1s 1.1s steps(1) 3 both;
+}
+
+@keyframes brand-frame-on {
+  0% {
+    opacity: 0;
+    transform: scale(.7, .04);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.04, .06);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes brand-controls-on {
+  from {
+    opacity: 0;
+    transform: translateX(-24%) scale(.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes brand-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  35% {
+    filter: drop-shadow(0 0 14px color-mix(in srgb, var(--catalog-accent) 45%, transparent));
+  }
+}
+
+@keyframes brand-caret {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead-brand-symbol,
+  .masthead-brand-symbol path,
+  .masthead-brand-code::after,
+  .ylf-nav-logo,
+  .ylf-nav-logo path {
+    animation: none;
+    transition: none;
+  }
+
+  .masthead-brand-code::after {
+    content: none;
+  }
+}

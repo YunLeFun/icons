@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "brand:assets": "node scripts/brand-assets.ts",
     "build": "vitepress build",
     "dev": "vitepress",
     "preview": "vitepress preview",

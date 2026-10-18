@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs-preview",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@yunlefun/icons-docs", "preview", "--port", "4173"],
+      "port": 4173
+    }
+  ]
+}

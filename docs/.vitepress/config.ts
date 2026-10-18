@@ -23,7 +23,12 @@ export default defineConfig(withYunlefun({
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-    ['meta', { name: 'theme-color', content: '#f8fafc' }],
+    ['link', { rel: 'icon', href: '/favicon-32.png', sizes: '32x32', type: 'image/png' }],
+    ['link', { rel: 'icon', href: '/favicon-16.png', sizes: '16x16', type: 'image/png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+    ['link', { rel: 'manifest', href: '/site.webmanifest' }],
+    ['meta', { name: 'theme-color', content: '#f8fafc', media: '(prefers-color-scheme: light)' }],
+    ['meta', { name: 'theme-color', content: '#0b111c', media: '(prefers-color-scheme: dark)' }],
   ],
   markdown: { config: md => md.use(yunlefunMarkdown) },
   themeConfig: {
@@ -42,6 +47,7 @@ export default defineConfig(withYunlefun({
           { text: '接入指南', link: '/guide/usage' },
           { text: '贡献图标', link: '/guide/contributing' },
           { text: '应用素材契约', link: '/guide/app-artwork' },
+          { text: 'App 原稿与平台资源', link: '/guide/app-assets' },
         ],
       },
     ],

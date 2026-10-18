@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IconCategory, IconMetadata, IconVariant } from '@yunlefun/icons'
 import type { IconPreviewSettings } from './icon-preview'
-import { iconMetadata } from '@yunlefun/icons'
+import { iconMetadata, icons } from '@yunlefun/icons'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   defaultIconPreviewSettings,
@@ -38,6 +38,10 @@ const previewSize = ref(defaultIconPreviewSettings.size)
 const previewGuides = ref(defaultIconPreviewSettings.guides)
 const previewSettingsReady = ref(false)
 let copiedTimer: number | undefined
+
+// Inline so the controls and frame paths animate independently; geometry stays canonical.
+const brandMark = icons.icons['brand-mark']!
+const brandMarkViewBox = `0 0 ${brandMark.width ?? icons.width} ${brandMark.height ?? icons.height}`
 
 const categoryOptions: { label: string, value: CategoryFilter }[] = [
   { label: '全部', value: 'all' },
@@ -271,10 +275,14 @@ onBeforeUnmount(() => {
   <main class="catalog-shell ylf-workbench">
     <header class="catalog-masthead">
       <div class="masthead-brand">
-        <span
-          class="masthead-brand-symbol i-ylf-brand-mark"
+        <!-- eslint-disable-next-line vue/no-v-html -- body comes from the canonical icon set -->
+        <svg
+          class="masthead-brand-symbol"
+          data-icon="ylf:brand-mark"
+          :viewBox="brandMarkViewBox"
           role="img"
           aria-label="云乐坊品牌图标"
+          v-html="brandMark.body"
         />
         <span class="masthead-brand-code" aria-hidden="true">YLF / ICONS</span>
       </div>
