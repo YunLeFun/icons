@@ -32,6 +32,7 @@ interface IconProduct {
 const query = ref('')
 const category = ref<CategoryFilter>('all')
 const copiedValue = ref('')
+const copyFailed = ref(false)
 const previewMode = ref(defaultIconPreviewSettings.mode)
 const previewTemplate = ref(defaultIconPreviewSettings.template)
 const previewSize = ref(defaultIconPreviewSettings.size)
@@ -161,6 +162,18 @@ function isProductIconCopied(product: IconProduct, kind: CopyKind): boolean {
   return icon ? copiedValue.value === copyValue(icon.name, kind) : false
 }
 
+function copyButtonLabel(product: IconProduct, kind: CopyKind, idle: string): string {
+  if (!isProductIconCopied(product, kind))
+    return idle
+
+  return copyFailed.value ? '复制失败' : '已复制'
+}
+
+function copyButtonClass(product: IconProduct, kind: CopyKind) {
+  const active = isProductIconCopied(product, kind)
+  return { 'is-copied': active && !copyFailed.value, 'is-copy-failed': active && copyFailed.value }
+}
+
 function copyValue(name: string, kind: CopyKind) {
   if (kind === 'class')
     return `i-ylf-${name}`
@@ -171,10 +184,15 @@ function copyValue(name: string, kind: CopyKind) {
   return createSvgSource(name as IconMetadata['name'])
 }
 
-async function writeClipboard(value: string) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(value)
-    return
+async function writeClipboard(value: string): Promise<boolean> {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value)
+      return true
+    }
+  }
+  catch {
+    // Denied permission or an unfocused document; fall back to the selection API.
   }
 
   const textarea = document.createElement('textarea')
@@ -183,13 +201,14 @@ async function writeClipboard(value: string) {
   textarea.style.opacity = '0'
   document.body.appendChild(textarea)
   textarea.select()
-  document.execCommand('copy')
+  const copied = document.execCommand('copy')
   textarea.remove()
+  return copied
 }
 
 async function copyIcon(name: string, kind: CopyKind) {
   const value = copyValue(name, kind)
-  await writeClipboard(value)
+  copyFailed.value = !await writeClipboard(value)
   copiedValue.value = value
 
   if (copiedTimer)
@@ -450,8 +469,14 @@ onBeforeUnmount(() => {
           </div>
         </section>
 
-        <div v-if="filteredProducts.length" class="icon-grid" data-testid="icon-grid">
-          <article v-for="product in filteredProducts" :key="product.id" class="icon-card" :data-icon="product.id">
+        <TransitionGroup v-if="filteredProducts.length" tag="div" name="icon-card" class="icon-grid" data-testid="icon-grid">
+          <article
+            v-for="(product, index) in filteredProducts"
+            :key="product.id"
+            class="icon-card"
+            :data-icon="product.id"
+            :style="{ '--card-index': index }"
+          >
             <div class="icon-preview">
               <div
                 class="preview-stage ylf-workbench-checker"
@@ -508,24 +533,27 @@ onBeforeUnmount(() => {
                 type="button"
                 :disabled="!previewVariant(product)"
                 :data-testid="`copy-class-${product.id}`"
+                :class="copyButtonClass(product, 'class')"
                 @click="copyProductIcon(product, 'class')"
               >
-                {{ isProductIconCopied(product, 'class') ? '已复制' : '复制 class' }}
+                {{ copyButtonLabel(product, 'class', '复制 class') }}
               </button>
               <button
                 type="button"
                 :disabled="!previewVariant(product)"
+                :class="copyButtonClass(product, 'iconify')"
                 @click="copyProductIcon(product, 'iconify')"
               >
-                {{ isProductIconCopied(product, 'iconify') ? '已复制' : '复制 Iconify' }}
+                {{ copyButtonLabel(product, 'iconify', '复制 Iconify') }}
               </button>
               <button
                 type="button"
                 :disabled="!previewVariant(product)"
                 :data-testid="`copy-svg-${product.id}`"
+                :class="copyButtonClass(product, 'svg')"
                 @click="copyProductIcon(product, 'svg')"
               >
-                {{ isProductIconCopied(product, 'svg') ? '已复制' : '复制 SVG' }}
+                {{ copyButtonLabel(product, 'svg', '复制 SVG') }}
               </button>
               <details class="download-menu">
                 <summary :aria-disabled="!previewVariant(product)">
@@ -576,7 +604,7 @@ onBeforeUnmount(() => {
               </a>
             </div>
           </article>
-        </div>
+        </TransitionGroup>
 
         <div v-else class="empty-state" data-testid="empty-state">
           <p>没有匹配的图标。</p>

@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import IconCatalog from '../.vitepress/components/IconCatalog.vue'
@@ -95,6 +95,27 @@ describe('IconCatalog preview controls', () => {
     vi.advanceTimersByTime(1000)
     expect(revokeObjectURL).toHaveBeenCalledWith('blob:ylf-icon')
     expect(downloadMenu.attributes('open')).toBeUndefined()
+  })
+
+  it('confirms copies and reports when every clipboard path fails', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
+    const wrapper = mount(IconCatalog)
+    const button = wrapper.get('[data-testid="copy-class-drive"]')
+
+    await button.trigger('click')
+    await flushPromises()
+    expect(button.text()).toBe('已复制')
+    expect(button.classes()).toContain('is-copied')
+
+    writeText.mockRejectedValue(new DOMException('Document is not focused', 'NotAllowedError'))
+    const execCommand = vi.fn().mockReturnValue(false)
+    Object.defineProperty(document, 'execCommand', { configurable: true, value: execCommand })
+    await button.trigger('click')
+    await flushPromises()
+    expect(execCommand).toHaveBeenCalledWith('copy')
+    expect(button.text()).toBe('复制失败')
+    expect(button.classes()).toContain('is-copy-failed')
   })
 
   it('switches between mark, complete icon, and platform output', async () => {

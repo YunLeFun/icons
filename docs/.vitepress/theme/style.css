@@ -99,7 +99,7 @@
 
 .masthead-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
   border-top: 1px solid var(--catalog-line);
   border-left: 1px solid var(--catalog-line);
@@ -793,14 +793,19 @@
   color: var(--vp-c-text-2);
 }
 
-@media (max-width: 960px) {
+/* Below the wide layout the stats sit under the title instead of squeezing a third column. */
+@media (max-width: 1200px) {
   .catalog-masthead {
     grid-template-columns: 1fr 3fr;
   }
 
   .masthead-stats {
     grid-column: 2;
+    max-width: 480px;
   }
+}
+
+@media (max-width: 960px) {
 
   .icon-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1041,6 +1046,65 @@
 .icon-card:is(:hover, :focus-within) .icon-glyph {
   translate: 0 -4%;
   scale: 1.06;
+}
+
+/* Filtering: incoming cards rise in a short stagger; remaining cards glide to their new cells. */
+.icon-card-enter-active {
+  transition:
+    opacity .28s var(--ylf-ease-standard, ease),
+    translate .42s var(--ylf-ease-spring, cubic-bezier(.34, 1.56, .64, 1));
+  transition-delay: calc(min(var(--card-index, 0), 8) * 28ms);
+}
+
+.icon-card-enter-from {
+  opacity: 0;
+  translate: 0 12px;
+}
+
+.icon-card-move {
+  transition: transform .42s var(--ylf-ease-standard, cubic-bezier(.2, 0, 0, 1));
+}
+
+/* Copy confirmation: the button turns success-green and a check pops in. */
+.copy-actions button.is-copied,
+.copy-actions button.is-copied:hover {
+  color: var(--catalog-green);
+  background: color-mix(in srgb, var(--catalog-green) 10%, transparent);
+  border-color: var(--catalog-green);
+}
+
+.copy-actions button.is-copied::before {
+  display: inline-block;
+  margin-right: 4px;
+  content: '✓';
+  animation: copy-check .36s var(--ylf-ease-spring, cubic-bezier(.34, 1.56, .64, 1)) both;
+}
+
+.copy-actions button.is-copy-failed,
+.copy-actions button.is-copy-failed:hover {
+  color: var(--catalog-optical);
+  background: transparent;
+  border-color: var(--catalog-optical);
+}
+
+@keyframes copy-check {
+  from {
+    opacity: 0;
+    transform: scale(.2) rotate(-30deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-card-enter-active,
+  .icon-card-move,
+  .copy-actions button.is-copied::before {
+    animation: none;
+    transition: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
