@@ -1,6 +1,6 @@
 {
   "prefix": "ylf",
-  "lastModified": 1792301256,
+  "lastModified": 1792301464,
   "icons": {
     "advjs-app-icon": {
       "body": "<defs><radialGradient id=\"svgID0\" cx=\"54%\" cy=\"38%\" r=\"82%\"><stop stop-color=\"#232c4e\"/><stop offset=\".56\" stop-color=\"#14182d\"/><stop offset=\"1\" stop-color=\"#090b16\"/></radialGradient><radialGradient id=\"svgID1\"><stop stop-color=\"#32dbe8\" stop-opacity=\".3\"/><stop offset=\"1\" stop-color=\"#32dbe8\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"svgID2\" x1=\"4\" x2=\"18\" y1=\"4\" y2=\"21\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#22ffe9\"/><stop offset=\"1\" stop-color=\"#2595e9\"/></linearGradient><filter id=\"svgID3\" width=\"170%\" height=\"180%\" x=\"-35%\" y=\"-35%\"><feDropShadow dx=\"0\" dy=\".32\" flood-color=\"#02050d\" flood-opacity=\".48\" stdDeviation=\".42\"/></filter></defs><path fill=\"url(#svgID0)\" d=\"M0 0h1024v1024H0z\"/><circle cx=\"528\" cy=\"487\" r=\"386\" fill=\"url(#svgID1)\"/><g filter=\"url(#svgID3)\" transform=\"rotate(-4 1347.724 -1050.085)scale(34)\"><path fill=\"url(#svgID2)\" d=\"M14 10.25 17 8v6l-3-2.25V14H7V8h7zM5.763 17H20V5H4v13.385zm.692 2L2 22.5V4a1 1 0 011-1h18a1 1 0 011 1v14a1 1 0 01-1 1z\"/></g>",
@@ -38,7 +38,7 @@
       "height": 100
     },
     "brand-mark": {
-      "body": "<g fill=\"currentColor\"><path d=\"M44 35 27.5 44.526V25.474L44 35Z\"/><path d=\"M74 35a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/><path fill-rule=\"evenodd\" d=\"M85 0H15v15H0v40h15v15h70V55h15V15H85V0Zm0 15H15v40h70V15Z\" clip-rule=\"evenodd\"/></g>",
+      "body": "<g fill=\"currentColor\"><path d=\"m44 35-16.5 9.526V25.474z\"/><path d=\"M74 35a9 9 0 11-18 0 9 9 0 0118 0\"/><path fill-rule=\"evenodd\" d=\"M85 0H15v15H0v40h15v15h70V55h15V15H85zm0 15H15v40h70z\" clip-rule=\"evenodd\"/></g>",
       "width": 100,
       "height": 70
     },

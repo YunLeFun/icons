@@ -1,10 +1,13 @@
 import type { IconColorStrategy } from '../../../icons.config'
 import { cleanupSVG, isEmptyColor, parseColors, runSVGO, SVG } from '@iconify/tools'
+import { getSVGOPlugins } from '@iconify/tools/lib/optimise/svgo'
 
 export interface OptimizeSVGOptions {
-  /** Skip shape and path merging so each source path survives as its own element. */
-  keepShapes?: boolean
+  /** Keep sibling paths apart so each source part stays animatable; path data is still normalized. */
+  separatePaths?: boolean
 }
+
+const separatePathPlugins = getSVGOPlugins({}).filter(plugin => typeof plugin === 'string' || plugin.name !== 'mergePaths')
 
 export function optimizeSVG(svg: SVG, colorStrategy: IconColorStrategy, options: OptimizeSVGOptions = {}): SVG {
   if (colorStrategy.mode === 'replace-current-color') {
@@ -25,7 +28,7 @@ export function optimizeSVG(svg: SVG, colorStrategy: IconColorStrategy, options:
     })
   }
 
-  runSVGO(svg, { keepShapes: options.keepShapes })
+  runSVGO(svg, options.separatePaths ? { plugins: separatePathPlugins } : {})
   return svg
 }
 

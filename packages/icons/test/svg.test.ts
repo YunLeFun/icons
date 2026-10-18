@@ -40,7 +40,7 @@ describe('animatable marks', () => {
     const source = '<svg viewBox="0 0 100 70"><path d="M44 35 27.5 44.526V25.474L44 35Z"/><path d="M74 35a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>'
 
     expect(createOptimizedSVG(source, { mode: 'current-color' }).getBody().match(/<path/g)).toHaveLength(1)
-    expect(createOptimizedSVG(source, { mode: 'current-color' }, { keepShapes: true }).getBody().match(/<path/g)).toHaveLength(2)
+    expect(createOptimizedSVG(source, { mode: 'current-color' }, { separatePaths: true }).getBody().match(/<path/g)).toHaveLength(2)
   })
 })
 

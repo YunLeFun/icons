@@ -129,7 +129,7 @@ iconSet.forEach((name, type) => {
   if (!svg)
     throw new Error(`Unable to parse ${name}.svg`)
 
-  optimizeSVG(svg, getIconColorStrategy(name), { keepShapes: isAnimatableIcon(name) })
+  optimizeSVG(svg, getIconColorStrategy(name), { separatePaths: isAnimatableIcon(name) })
   iconSet.fromSVG(name, svg)
 })
 

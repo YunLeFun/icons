@@ -75,7 +75,7 @@ const collected = await Promise.all(synchronizedMetadata.map(async (icon): Promi
   const sourcePath = resolveSourcePath(icon)
   const targetPath = resolve(iconsConfig.paths.inputs.svgDirectory, `${icon.name}.svg`)
   const colorStrategy = getIconColorStrategy(icon.name)
-  const optimizeOptions = { keepShapes: isAnimatableIcon(icon.name) }
+  const optimizeOptions = { separatePaths: isAnimatableIcon(icon.name) }
   const [sourceContent, targetContent] = await Promise.all([
     readFile(sourcePath, 'utf8'),
     readCanonicalIcon(targetPath),
