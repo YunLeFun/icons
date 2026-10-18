@@ -129,6 +129,7 @@ const iconsConfig: IconsConfig = {
       'YunLeFun/support': 'support',
       'YunLeFun/wenta': 'wenta',
       'YunLeFun/www.yunle.fun': 'www.yunle.fun',
+      'YunLeFun/yunbox': 'yunbox',
       'YunYouJun/advjs': '../YunYouJun/advjs',
       'YunYouJun/cook': '../YunYouJun/cook',
       'YunYouJun/el-bot': '../YunYouJun/el-bot',

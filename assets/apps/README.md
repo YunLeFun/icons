@@ -8,10 +8,13 @@
 | --- | --- | --- | --- |
 | 暴力电驴 / Dayun Kicker | v2 | [manifest.json](dayun-kicker/v2/manifest.json) | [YunLeFun/dayun-kicker](https://github.com/YunLeFun/dayun-kicker) |
 | 云生 / Yunsheng | v4 | [manifest.json](life/v4/manifest.json) | [YunYouJun/life](https://github.com/YunYouJun/life) |
+| 云匣 / YunBox | v1 | [manifest.json](yunbox/v1/manifest.json) | [YunLeFun/yunbox](https://github.com/YunLeFun/yunbox) |
 
 `dayun-kicker/v2` 保存生成原图、1024 px sRGB 方形主图、提示词和 `DayunKicker.icon`。它是一个完整插画图层，尚未拆分出透明前景 mark；未来 GZA 图标另行设计。
 
 `life/v4` 保存轻阴影云星应用图标、平面独立 Logo、单色版、可编辑白云柔影图层和双层 `AppIcon.icon`。对应 SVG 集合中的 `life-app-icon` / `life-mark`，详见[云生原稿说明](life/v4/README.md)。
+
+`yunbox/v1` 保存应用图标与平面 Logo 的 SVG，以及渐变底板 + 白色匣子双图层的 `YunBox.icon`，供 macOS 26 的默认、深色、Clear 与着色外观使用。对应 SVG 集合中的 `yunbox-app-icon` / `yunbox-mark`，详见[云匣原稿说明](yunbox/v1/README.md)。
 
 ## 维护与消费
 

@@ -45,6 +45,19 @@ pnpm icons:export
 
 消费仓库为 `YunYouJun/life`。清单中的 `AppIcon.icon/` 对应消费仓库的 `apple/Life/Resources/AppIcon.icon/`，其余生产输入对应 `assets/brand/`；两边保留相同的 `manifest.json`。iOS、Android 和 Web 消费已导出的本地资源。
 
+## 云匣 v1
+
+云匣是 macOS 素材托管应用，图标为晴空蓝渐变底板上的白色匣子，匣身镂空品牌 ▲●：
+
+| 用途 | Iconify | UnoCSS |
+| --- | --- | --- |
+| 应用图标 | `ylf:yunbox-app-icon` | `i-ylf-yunbox-app-icon` |
+| 平面独立 Logo | `ylf:yunbox-mark` | `i-ylf-yunbox-mark` |
+
+中心原稿位于 `assets/apps/yunbox/v1`，包含两份 SVG、分层 `YunBox.icon` 项目和 SHA-256 清单。`.icon` 只用矢量图层：背景是线性渐变填充，前景为匣盖、匣身两层，深色、Clear 与着色外观交给系统生成。
+
+消费仓库为 `YunLeFun/yunbox`，清单中的文件全部对应 `assets/brand/`，两边保留相同的 `manifest.json`。应用打包时用 `actool` 编译 `.icon`，并保留由 SVG 渲染的 ICNS 作为旧系统兜底。
+
 ## 添加产品
 
 在 `assets/apps` 建立产品 / 版本目录，记录文件 SHA-256、生成或设计来源、消费者及导出方式。提供可编辑的 SVG 前景后，再按照[贡献图标](contributing.md)接入 SVG 集合，保持显式的 `-mark` / `-app-icon` 变体。

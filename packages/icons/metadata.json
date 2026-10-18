@@ -223,6 +223,40 @@
     }
   },
   {
+    "name": "yunbox-mark",
+    "product": "yunbox",
+    "variant": "mark",
+    "title": "YunBox",
+    "titleZh": "云匣",
+    "description": "品牌蓝匣盖与匣身组成的透明标记，匣身镂空品牌标志的三角与圆点，三角朝上表示推送。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["yunbox", "云匣", "git", "git lfs", "素材", "asset", "storage", "收纳", "mark", "主体"],
+    "source": {
+      "repository": "YunLeFun/yunbox",
+      "path": "assets/brand/yunbox-mark.svg",
+      "url": "https://github.com/YunLeFun/yunbox/blob/main/assets/brand/yunbox-mark.svg",
+      "sync": true
+    }
+  },
+  {
+    "name": "yunbox-app-icon",
+    "product": "yunbox",
+    "variant": "app-icon",
+    "title": "YunBox",
+    "titleZh": "云匣",
+    "description": "满幅晴空蓝背景与白色收纳匣组成的方形应用图标，匣身镂空品牌三角与圆点。",
+    "category": "utility",
+    "style": "color",
+    "tags": ["yunbox", "云匣", "git", "git lfs", "素材", "asset", "storage", "收纳", "app icon", "完整图标"],
+    "source": {
+      "repository": "YunLeFun/yunbox",
+      "path": "assets/brand/yunbox-app-icon.svg",
+      "url": "https://github.com/YunLeFun/yunbox/blob/main/assets/brand/yunbox-app-icon.svg",
+      "sync": true
+    }
+  },
+  {
     "name": "cards-mark",
     "product": "cards",
     "variant": "mark",

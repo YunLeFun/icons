@@ -97,6 +97,7 @@ describe('@yunlefun/icons', () => {
       smap: 'https://smap.yunle.fun/',
       support: 'https://support.yunle.fun/',
       wenta: 'https://wenta.yunle.fun/',
+      yunbox: undefined,
     }
     const products = [...new Set(metadataJSON.map(item => item.product))]
 
