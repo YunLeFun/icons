@@ -35,6 +35,15 @@ describe('SVG color strategies', () => {
   })
 })
 
+describe('animatable marks', () => {
+  it('keeps each source path of the brand mark as its own element', () => {
+    const source = '<svg viewBox="0 0 100 70"><path d="M44 35 27.5 44.526V25.474L44 35Z"/><path d="M74 35a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>'
+
+    expect(createOptimizedSVG(source, { mode: 'current-color' }).getBody().match(/<path/g)).toHaveLength(1)
+    expect(createOptimizedSVG(source, { mode: 'current-color' }, { keepShapes: true }).getBody().match(/<path/g)).toHaveLength(2)
+  })
+})
+
 describe('application icon canvases', () => {
   it('keeps the CMS app icon artwork inside a symmetric safe area', async () => {
     const content = await readFile(resolve(import.meta.dirname, '../svg/cms-app-icon.svg'), 'utf8')
