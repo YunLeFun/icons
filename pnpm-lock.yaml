@@ -94,6 +94,9 @@ catalogs:
       specifier: ^3.3.12
       version: 3.3.12
 
+overrides:
+  '@yunlefun/icons': workspace:*
+
 importers:
 
   .:
@@ -234,6 +237,7 @@ packages:
 
   '@antfu/eslint-config@9.3.0':
     resolution: {integrity: sha512-+CIC4G6MowUl1RHiT01Ah9Obo/wwVynw7uNlN8ODwEn2opo9W1KzaatCrmu4WhGGJjOkOkyT5w7kKfQ//agHrQ==}
+    hasBin: true
     peerDependencies:
       '@angular-eslint/eslint-plugin': ^21.1.0
       '@angular-eslint/eslint-plugin-template': ^21.1.0
@@ -1711,9 +1715,6 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  '@yunlefun/icons@0.3.1':
-    resolution: {integrity: sha512-X+Ut79gegUVAK8T48AYxkK6lkOgHuFPbxUTr+CXDZRTqEFEofZuf4fFlDKR0PX67GoYyV2d5HOZbtLONQjzRAw==}
-
   '@yunlefun/ui@0.0.7':
     resolution: {integrity: sha512-YWV04EDTA5LS0Tr4ervVBEEgotCZC7n71hiG84zRToc/HL8o35ie2VeR13mP1qjJnqFvgA8QWN8m5/y5Ax1ZEw==}
     peerDependencies:
@@ -1779,6 +1780,7 @@ packages:
   autoprefixer@10.5.4:
     resolution: {integrity: sha512-MaU0U/za7N3r6brxD4YB/l4NSrFzLPlANv6wEuQVaIPlD3L4W9rFcQPbL/EilY9BHhHvhfcz3gInDLrEtWT4EA==}
     engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
     peerDependencies:
       postcss: ^8.1.0
 
@@ -2282,6 +2284,7 @@ packages:
   eslint@10.8.0:
     resolution: {integrity: sha512-nuKKvN+oIBO0koN7Tm7dlkmnkc21mtt0QJLwAKzjLq14y6lRTdVG36MZHJ8eQHwdJMwZbQNMlPOYedMq/oVJvQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+    hasBin: true
     peerDependencies:
       jiti: '*'
     peerDependenciesMeta:
@@ -2859,6 +2862,7 @@ packages:
 
   mkdist@2.4.1:
     resolution: {integrity: sha512-Ezk0gi04GJBkqMfsksICU5Rjoemc4biIekwgrONWVPor2EO/N9nBgN6MZXAf7Yw4mDDhrNyKbdETaHNevfumKg==}
+    hasBin: true
     peerDependencies:
       sass: ^1.92.1
       typescript: '>=5.9.2'
@@ -3515,6 +3519,7 @@ packages:
 
   unbuild@3.6.1:
     resolution: {integrity: sha512-+U5CdtrdjfWkZhuO4N9l5UhyiccoeMEXIc2Lbs30Haxb+tRwB3VwB8AoZRxlAzORXunenSo+j6lh45jx+xkKgg==}
+    hasBin: true
     peerDependencies:
       typescript: ^5.9.2
     peerDependenciesMeta:
@@ -3575,6 +3580,7 @@ packages:
 
   update-browserslist-db@1.2.3:
     resolution: {integrity: sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==}
+    hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
 
@@ -3597,6 +3603,7 @@ packages:
   vite@8.2.0:
     resolution: {integrity: sha512-pn+CFpM0lwDeKwmOq1ZaBK/9sjorZcgqxki6MbY/jPEVd9vichIlmlD4HmQ5wdP5EgqQCFRaACBxMC7uEGc6lQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
+    hasBin: true
     peerDependencies:
       '@types/node': ^20.19.0 || >=22.12.0
       '@vitejs/devtools': ^0.4.0
@@ -3644,6 +3651,7 @@ packages:
 
   vitepress@2.0.0-alpha.19:
     resolution: {integrity: sha512-WnBsb0Bwr43kXKyiis+lld/7ri3hnMbthS8N3hpFtjjwsdLO4IRmiAE08D7aud4q6oMDf9uwRowxzNqRFe/amw==}
+    hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
       postcss: ^8
@@ -3656,6 +3664,7 @@ packages:
   vitest@4.1.10:
     resolution: {integrity: sha512-R9jUTe5S4Qb0HCd4TNqpC7oGcrMssMRGXLW80ubjWsW9VH5GF8y1Y0SFLY9AbqSk6nt0PnOx4H4WNJYZ13GUPw==}
     engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
+    hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@opentelemetry/api': ^1.9.0
@@ -5045,10 +5054,6 @@ snapshots:
   '@vueuse/shared@14.4.0(vue@3.5.41(typescript@5.9.3))':
     dependencies:
       vue: 3.5.41(typescript@5.9.3)
-
-  '@yunlefun/icons@0.3.1':
-    dependencies:
-      '@iconify/types': 2.0.0
 
   '@yunlefun/ui@0.0.7': {}
 
@@ -7288,7 +7293,7 @@ snapshots:
 
   vitepress-theme-yunlefun@0.4.2(vitepress@2.0.0-alpha.19(@types/node@26.1.2)(change-case@5.4.4)(esbuild@0.28.1)(jiti@2.7.0)(postcss@8.5.30)(tsx@4.23.10)(typescript@5.9.3)(yaml@2.9.0))(vue@3.5.41(typescript@5.9.3)):
     dependencies:
-      '@yunlefun/icons': 0.3.1
+      '@yunlefun/icons': link:packages/icons
       '@yunlefun/ui': 0.0.7
       postcss: 8.5.30
       vitepress: 2.0.0-alpha.19(@types/node@26.1.2)(change-case@5.4.4)(esbuild@0.28.1)(jiti@2.7.0)(postcss@8.5.30)(tsx@4.23.10)(typescript@5.9.3)(yaml@2.9.0)

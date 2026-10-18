@@ -14,6 +14,10 @@ packages:
   - packages/*
   - tests/consumer
 
+# The shared theme renders the nav logo and favicons from @yunlefun/icons; dogfood this checkout.
+overrides:
+  '@yunlefun/icons': 'workspace:*'
+
 catalog:
   '@antfu/eslint-config': ^9.3.0
   '@fontsource/ibm-plex-mono': ^5.3.0
