@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-27",
   "scope": "desktop-catalog-artwork",
   "hashMeaning": "sha256 identifies the stored object; COS PNG imageSlim responses may transform master bytes",
   "assets": [
@@ -1723,6 +1723,22 @@
         "websiteUrl": "https://ak-ui.yunyoujun.cn"
       },
       "candidates": []
+    }
+  ],
+  "websiteIcons": [
+    {
+      "origin": "https://admin.yunle.fun",
+      "title": "云乐坊管理后台",
+      "icon": "brand-app-icon",
+      "url": "https://raw.githubusercontent.com/YunLeFun/icons/73c6a0173e79cd0e8a12403b6b469f450f3061d7/packages/icons/svg/brand-app-icon.svg",
+      "sha256": "b9983de18b6998a15f216041423eb6bf5da0023bc1f27e1517c4a5e1e0442c99"
+    },
+    {
+      "origin": "https://support.yunle.fun",
+      "title": "云乐坊支持中心",
+      "icon": "support-app-icon",
+      "url": "https://raw.githubusercontent.com/YunLeFun/icons/73c6a0173e79cd0e8a12403b6b469f450f3061d7/packages/icons/svg/support-app-icon.svg",
+      "sha256": "77b90449ee522c051b80e26d5f4562d79731cff82fe6241851dec1d4379bc3c8"
     }
   ]
 }

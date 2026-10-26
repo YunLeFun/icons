@@ -1,7 +1,29 @@
+import { createHash } from 'node:crypto'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { appAssetManifest, filterAppAssets, isPublicHttpsUrl, parseAppAssetManifest } from '../.vitepress/components/app-assets/app-assets'
 
 describe('external app asset contract', () => {
+  it('registers site origins against existing canonical SVGs without copying brand artwork', () => {
+    expect(appAssetManifest.websiteIcons?.map(entry => entry.origin)).toEqual(['https://admin.yunle.fun', 'https://support.yunle.fun'])
+    expect(appAssetManifest.websiteIcons?.map(entry => entry.icon)).toEqual(['brand-app-icon', 'support-app-icon'])
+    for (const entry of appAssetManifest.websiteIcons ?? []) {
+      const source = readFileSync(resolve('../packages/icons/svg', `${entry.icon}.svg`))
+      expect(createHash('sha256').update(source).digest('hex')).toBe(entry.sha256)
+    }
+  })
+
+  it('rejects ambiguous site bindings and unregistered or tampered sources', () => {
+    for (const patch of [{ origin: 'https://admin.yunle.fun/path' }, { icon: 'unknown-app-icon' }, { url: 'https://example.com/icon.svg' }, { sha256: 'invalid' }]) {
+      const manifest = structuredClone(appAssetManifest)
+      Object.assign(manifest.websiteIcons![0]!, patch)
+      expect(() => parseAppAssetManifest(manifest)).toThrow('website icon')
+    }
+    const duplicate = structuredClone(appAssetManifest)
+    duplicate.websiteIcons!.push(duplicate.websiteIcons![0]!)
+    expect(() => parseAppAssetManifest(duplicate)).toThrow('duplicate website icon origin')
+  })
   it('keeps selected official sources, generated desktop variants and candidates separate', () => {
     const assets = appAssetManifest.assets
     expect(assets).toHaveLength(28)
@@ -49,9 +71,7 @@ describe('external app asset contract', () => {
     expect(saier.websitePublication.iconUrl).toBe('https://yunlefun-cos-1253292018.cos.ap-shanghai.myqcloud.com/saier/app-icons/v1/favicon-32x32.png')
     expect(assets.flatMap(asset => asset.candidates)).toHaveLength(4)
     expect(assets.filter(asset => asset.previousIcon)).toHaveLength(16)
-    expect(new Set(assets.flatMap(asset => [asset.desktopAsset.thumbnail.url,
-      ...asset.candidates.map(candidate => candidate.thumbnail.url),
-      ...(asset.previousIcon?.archivedArtwork ? [asset.previousIcon.archivedArtwork.thumbnail.url] : [])])).size).toBe(33)
+    expect(new Set(assets.flatMap(asset => [asset.desktopAsset.thumbnail.url, ...asset.candidates.map(candidate => candidate.thumbnail.url), ...(asset.previousIcon?.archivedArtwork ? [asset.previousIcon.archivedArtwork.thumbnail.url] : [])])).size).toBe(33)
   })
 
   it('rejects selected candidate or superseded records and approval attached to comparison artwork', () => {

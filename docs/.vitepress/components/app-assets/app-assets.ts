@@ -1,4 +1,5 @@
 import manifestData from '../../../../assets/catalog/app-assets.json'
+import iconMetadata from '../../../../packages/icons/metadata.json'
 
 export interface AssetFile {
   url: string
@@ -53,6 +54,15 @@ export interface AppAssetManifest {
   scope: 'desktop-catalog-artwork'
   hashMeaning: string
   assets: AppAsset[]
+  websiteIcons?: WebsiteIcon[]
+}
+
+export interface WebsiteIcon {
+  origin: string
+  title: string
+  icon: string
+  url: string
+  sha256: string
 }
 
 export type AssetFilter = 'all' | 'official' | 'generated' | 'comparison'
@@ -175,6 +185,22 @@ export function parseAppAssetManifest(value: unknown): AppAssetManifest {
         validateArtwork(asset.previousIcon.archivedArtwork, asset.slug, 'superseded')
     }
   }
+  if (value.websiteIcons !== undefined) {
+    requireValue(Array.isArray(value.websiteIcons), 'website icons must be an array')
+    const origins = new Set<string>()
+    for (const entry of value.websiteIcons) {
+      requireValue(record(entry) && isPublicHttpsUrl(entry.origin) && new URL(entry.origin).origin === entry.origin, 'website icon origin is invalid')
+      requireValue(!origins.has(entry.origin), 'duplicate website icon origin')
+      origins.add(entry.origin)
+      const icon = iconMetadata.find(icon => icon.name === entry.icon)
+      requireValue(icon && typeof entry.title === 'string' && !!entry.title.trim(), 'website icon must reference a registered icon')
+      requireValue(isPublicHttpsUrl(entry.url), 'website icon URL is invalid')
+      const expected = `https://icons.yunle.fun/products/${icon.product}/${icon.variant}.svg`
+      const raw = new RegExp(`^https://raw\\.githubusercontent\\.com/YunLeFun/icons/[a-f0-9]{40}/packages/icons/svg/${icon.name}\\.svg$`)
+      requireValue(entry.url === expected || raw.test(entry.url), 'website icon must use its canonical online SVG')
+      requireValue(typeof entry.sha256 === 'string' && /^[a-f0-9]{64}$/.test(entry.sha256), 'website icon SHA-256 is invalid')
+    }
+  }
   return value as unknown as AppAssetManifest
 }
 
@@ -184,9 +210,7 @@ export function filterAppAssets(assets: readonly AppAsset[], query: string, filt
     const matches = filter === 'all' || (filter === 'comparison'
       ? !!asset.previousIcon || asset.candidates.length > 0
       : asset.desktopAsset.kind === filter)
-    const text = [asset.slug, asset.title, asset.description, ...asset.tags,
-      asset.desktopAsset.source.repository ?? '', asset.applicationIdentity.source?.repository ?? '',
-      identityLabels[asset.applicationIdentity.status]].join(' ').toLocaleLowerCase()
+    const text = [asset.slug, asset.title, asset.description, ...asset.tags, asset.desktopAsset.source.repository ?? '', asset.applicationIdentity.source?.repository ?? '', identityLabels[asset.applicationIdentity.status]].join(' ').toLocaleLowerCase()
     return matches && (!needle || text.includes(needle))
   })
 }

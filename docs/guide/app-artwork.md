@@ -2,7 +2,18 @@
 
 [应用图标素材](/app-assets)以真实图片统一预览桌面目录使用的素材，同时展示原项目资源、候选图和来源记录。它使用外链媒体元数据，不改变 `packages/icons/svg` 的 canonical SVG、IconifyJSON、UnoCSS 图标名或 npm 图标导出。
 
-## 一份元数据，独立的媒体频道
+## 站点图标登记
+
+同一份在线清单的可选 `websiteIcons` 字段按精确 HTTPS origin 关联已有 canonical SVG。客户端读取在线 URL、图标变体和 SHA-256，用摘要刷新图片缓存；无需将 SVG 复制到应用仓库，也不按公开目录 slug 推断私有应用品牌。
+
+| 站点 | 已登记图标 | 在线素材 |
+| --- | --- | --- |
+| `https://admin.yunle.fun` | `brand-app-icon`，共用云乐坊品牌 | [SVG](https://icons.yunle.fun/products/brand/app-icon.svg) |
+| `https://support.yunle.fun` | `support-app-icon` | [SVG](https://icons.yunle.fun/products/support/app-icon.svg) |
+
+URL 可使用本站 `/products/<product>/<variant>.svg`，也可使用本仓库固定提交的 GitHub 原始 SVG。来源必须是已登记图标，摘要与 canonical 文件一致；每个 origin 只允许一条记录。共享品牌不建立重复 SVG 文件。
+
+## 应用目录栅格素材
 
 权威清单是 `assets/catalog/app-assets.json`，文档构建把同一份文件发布到 [/app-assets/manifest.json](/app-assets/manifest.json)。构建不下载图片，不读取另一个仓库，不存入 PNG / WebP 二进制，也不将 raster 图片包装成 SVG 或 base64。
 
